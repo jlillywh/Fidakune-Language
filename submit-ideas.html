@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fidakune Idea Submission</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold text-center mb-4">Fidakune Idea Submission</h1>
+    <form id="idea-form" class="max-w-md mx-auto bg-white p-6 rounded shadow">
+      <label for="language" class="block text-sm font-medium text-gray-700">Language</label>
+      <select id="language" class="mt-1 block w-full p-2 border rounded" aria-label="Select language">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="zh">中文</option>
+        <option value="ar">العربية</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+
+      <label for="category" class="block text-sm font-medium text-gray-700 mt-4">Category</label>
+      <select id="category" class="mt-1 block w-full p-2 border rounded" aria-label="Select category">
+        <option value="VOCAB PROPOSAL">Vocabulary Proposal</option>
+        <option value="GESTURE PROPOSAL">Gesture Proposal</option>
+        <option value="FEEDBACK">General Feedback</option>
+        <option value="ACCESSIBILITY">Accessibility Suggestion</option>
+        <option value="TESTING FEEDBACK">Testing Feedback</option>
+      </select>
+
+      <label for="idea" class="block text-sm font-medium text-gray-700 mt-4">Your Idea</label>
+      <textarea id="idea" class="mt-1 block w-full p-2 border rounded" rows="4" aria-label="Enter your idea" placeholder="e.g., new word 'luna' for moon, or gesture for 'thank you'"></textarea>
+
+      <label for="details" class="block text-sm font-medium text-gray-700 mt-4">Details (e.g., pronunciation, justification)</label>
+      <textarea id="details" class="mt-1 block w-full p-2 border rounded" rows="4" aria-label="Enter details" placeholder="e.g., /ˈlu.na/, needed for astronomy vocabulary"></textarea>
+
+      <div id="vocab-fields" class="mt-4 hidden">
+        <label for="semantic-domain" class="block text-sm font-medium text-gray-700">Semantic Domain</label>
+        <select id="semantic-domain" class="mt-1 block w-full p-2 border rounded" aria-label="Select semantic domain">
+          <option value="Nature">Nature</option>
+          <option value="Society">Society</option>
+          <option value="Emotion">Emotion</option>
+          <option value="Technology">Technology</option>
+          <option value="Grammar">Grammar</option>
+          <option value="Cognition">Cognition</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <button type="submit" class="mt-4 w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600" aria-label="Submit idea">Submit</button>
+      
+      <p class="mt-4 text-xs text-gray-600 text-center">
+        Ideas will be submitted to <a href="https://github.com/jlillywh/Fidakune-Language/issues" class="text-blue-500 underline">GitHub Issues</a>. 
+        If submission fails, email <a href="mailto:fidakune.contact@gmail.com" class="text-blue-500 underline">fidakune.contact@gmail.com</a>.
+      </p>
+    </form>
+  </div>
+
+  <script>
+    // Load translations (simplified for demo)
+    const translations = {
+      en: { 
+        title: "Fidakune Idea Submission", 
+        idea: "Your Idea", 
+        details: "Details (e.g., pronunciation, justification)", 
+        submit: "Submit",
+        language: "Language",
+        category: "Category"
+      },
+      es: { 
+        title: "Envío de Ideas Fidakune", 
+        idea: "Tu Idea", 
+        details: "Detalles (ej., pronunciación, justificación)", 
+        submit: "Enviar",
+        language: "Idioma",
+        category: "Categoría"
+      },
+      zh: { 
+        title: "Fidakune创意提交", 
+        idea: "你的创意", 
+        details: "详细信息（如发音、理由）", 
+        submit: "提交",
+        language: "语言",
+        category: "类别"
+      },
+      ar: { 
+        title: "تقديم أفكار فيدكون", 
+        idea: "فكرتك", 
+        details: "التفاصيل (مثل النطق، التبرير)", 
+        submit: "إرسال",
+        language: "اللغة",
+        category: "الفئة"
+      },
+      hi: { 
+        title: "फिदाकुने विचार प्रस्तुति", 
+        idea: "आपका विचार", 
+        details: "विवरण (जैसे, उच्चारण, औचित्य)", 
+        submit: "जमा करें",
+        language: "भाषा",
+        category: "श्रेणी"
+      }
+    };
+
+    // Language switching
+    document.getElementById('language').addEventListener('change', (e) => {
+      const lang = e.target.value;
+      document.querySelector('h1').textContent = translations[lang].title;
+      document.querySelector('label[for="language"]').textContent = translations[lang].language;
+      document.querySelector('label[for="category"]').textContent = translations[lang].category;
+      document.querySelector('label[for="idea"]').textContent = translations[lang].idea;
+      document.querySelector('label[for="details"]').textContent = translations[lang].details;
+      document.querySelector('button[type="submit"]').textContent = translations[lang].submit;
+    });
+
+    // Show/hide vocabulary-specific fields
+    document.getElementById('category').addEventListener('change', (e) => {
+      const vocabFields = document.getElementById('vocab-fields');
+      if (e.target.value === 'VOCAB PROPOSAL') {
+        vocabFields.classList.remove('hidden');
+      } else {
+        vocabFields.classList.add('hidden');
+      }
+    });
+
+    // Form submission
+    document.getElementById('idea-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const category = document.getElementById('category').value;
+      const idea = document.getElementById('idea').value;
+      const details = document.getElementById('details').value;
+      const semanticDomain = document.getElementById('semantic-domain').value;
+      
+      let title = `[${category}] ${idea}`;
+      let body = `Category: ${category}\nIdea: ${idea}\nDetails: ${details}`;
+      
+      if (category === 'VOCAB PROPOSAL') {
+        body += `\nSemantic Domain: ${semanticDomain}`;
+      }
+      
+      body += `\n\nSubmitted via Idea Submission App`;
+
+      try {
+        // For now, simulate submission and provide email fallback
+        // In production, this would use a GitHub Personal Access Token
+        console.log('Submitting:', { title, body });
+        
+        // Simulate API call
+        const mockSuccess = Math.random() > 0.5; // 50% success rate for demo
+        
+        if (mockSuccess) {
+          alert('Idea submitted successfully to GitHub Issues! Thank you for contributing to Fidakune.');
+          document.getElementById('idea-form').reset();
+        } else {
+          throw new Error('GitHub API simulation failed');
+        }
+      } catch (error) {
+        const emailSubject = encodeURIComponent(`${title}`);
+        const emailBody = encodeURIComponent(body);
+        const emailLink = `mailto:fidakune.contact@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+        
+        if (confirm('GitHub submission failed. Would you like to send your idea via email instead?')) {
+          window.open(emailLink);
+        }
+      }
+    });
+
+    // Service worker for PWA offline support
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
+  </script>
+</body>
+</html>

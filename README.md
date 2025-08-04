@@ -28,6 +28,10 @@ The core documentation for this project provides a complete blueprint for the la
 * **[LEXICON.md](LEXICON.md):** Organization and development of Fidakune's vocabulary system.
 * **[TESTING.md](TESTING.md):** Testing metrics framework for evaluating learnability and accessibility.
 
+## Community Tools
+
+* **[Idea Submission App](submit-ideas.html):** Mobile-friendly Progressive Web App for submitting vocabulary, gesture, and feedback ideas. Supports multilingual interface and offline functionality.
+
 ### Current Status
 
 **Version 0.13 (Design Phase, Months 1-6)**

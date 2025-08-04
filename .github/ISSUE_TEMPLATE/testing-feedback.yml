@@ -1,0 +1,78 @@
+name: Testing Feedback
+description: Share results from testing Fidakune's phonology, grammar, gestures, or accessibility
+title: '[TESTING FEEDBACK] '
+labels: ['testing-feedback', 'community-input']
+body:
+  - type: dropdown
+    id: test-type
+    attributes:
+      label: Test Type
+      description: What aspect of Fidakune did you test?
+      options:
+        - Phonology (pronunciation)
+        - Grammar (sentence structure)
+        - Gestures
+        - Vocabulary
+        - Accessibility
+        - Learning Time
+        - Overall Experience
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: proficiency-tier
+    attributes:
+      label: Proficiency Tier Tested
+      description: Which tier were you testing for?
+      options:
+        - Tier 1 (Core Proficiency - ~20 hours)
+        - Tier 2 (Functional Fluency - ~100-150 hours)
+        - Both
+        - Not Applicable
+    validations:
+      required: true
+  
+  - type: textarea
+    id: linguistic-background
+    attributes:
+      label: Your Linguistic Background
+      description: What languages do you speak natively or fluently?
+      placeholder: e.g., "Native English, fluent Spanish, learning Mandarin"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: test-results
+    attributes:
+      label: Test Results
+      description: What did you test and what were the results?
+      placeholder: e.g., "Tested pronouncing /ɾ/ in 'kore-pet' - found it easy to approximate as /r/", or "Tried the 'Yes' nod gesture - very clear and culturally appropriate"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: difficulties
+    attributes:
+      label: Difficulties Encountered
+      description: What was challenging or unclear?
+      placeholder: Optional - Describe any pronunciation, comprehension, or accessibility challenges
+    validations:
+      required: false
+  
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: Suggestions for Improvement
+      description: How could Fidakune be improved based on your testing?
+      placeholder: Optional - Your ideas for making the language more learnable or accessible
+    validations:
+      required: false
+  
+  - type: input
+    id: time-spent
+    attributes:
+      label: Time Spent Testing
+      description: Approximately how long did you spend testing?
+      placeholder: e.g., "30 minutes", "2 hours"
+    validations:
+      required: false

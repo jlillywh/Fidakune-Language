@@ -1,0 +1,21 @@
+{
+  "name": "Fidakune Idea Submission",
+  "short_name": "Fidakune Ideas",
+  "start_url": "/submit-ideas.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "description": "Submit vocabulary, gesture, and feedback ideas for the Fidakune universal language project"
+}

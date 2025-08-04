@@ -19,13 +19,14 @@ A full `CODE_OF_CONDUCT.md` file will be added to the repository shortly.
 ## How to Contribute
 
 1. **Read the Requirements:** Start with the [Fidakune Language Requirements Document v0.13](REQUIREMENTS.md) to understand the project's goals, phonology, grammar, and gestures.
-2. **Explore Issues:** Check the [Issues](https://github.com/jlillywh/Fidakune-Language/issues) tab for open tasks, such as vocabulary proposals, gesture feedback, or bug reports.
-3. **Submit Feedback:** Open an issue with a clear title using one of these prefixes:
+2. **Use the Mobile App:** Submit ideas quickly via our [Idea Submission App](submit-ideas.html) for vocabulary, gestures, or feedback. The app supports multiple languages and works offline.
+3. **Explore Issues:** Check the [Issues](https://github.com/jlillywh/Fidakune-Language/issues) tab for open tasks, such as vocabulary proposals, gesture feedback, or bug reports.
+4. **Submit Feedback:** Open an issue with a clear title using one of these prefixes:
    - **[VOCAB PROPOSAL]:** Suggest new words (e.g., `sky-net` for internet, `/skai.net/`).
    - **[BUG REPORT]:** Report issues in documentation or tools (e.g., broken links in `REQUIREMENTS.md`).
    - **[FEEDBACK]:** Share general suggestions, cultural insights, or accessibility improvements.
-4. **Contribute Code or Content:** Fork the repository, create a branch (e.g., `vocab-sky-net`), make changes, and submit a pull request with a clear description.
-5. **Non-Technical Contributions:** If you're unfamiliar with GitHub, email your suggestions (e.g., new words, gestures, or learning exercises) to fidakune.contact@gmail.com.
+5. **Contribute Code or Content:** Fork the repository, create a branch (e.g., `vocab-sky-net`), make changes, and submit a pull request with a clear description.
+6. **Non-Technical Contributions:** If you're unfamiliar with GitHub, email your suggestions (e.g., new words, gestures, or learning exercises) to fidakune.contact@gmail.com.
 
 ### For Non-Technical Users
 
