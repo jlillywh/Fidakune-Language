@@ -1,9 +1,9 @@
 [
   {
-    "word": "aqua",
-    "pronunciation": "/ˈa.kwa/",
-    "meaning": "water",
-    "domain": "Nature",
+    "word": "ai",
+    "pronunciation": "/ai/",
+    "meaning": "artificial intelligence",
+    "domain": "Technology",
     "type": "noun"
   },
   {
@@ -14,108 +14,38 @@
     "type": "noun"
   },
   {
-    "word": "kore-pet",
-    "pronunciation": "/ˈko.ɾe.pet/",
-    "meaning": "grief, deep sadness",
+    "word": "amor",
+    "pronunciation": "/ˈa.mor/",
+    "meaning": "love",
     "domain": "Emotion",
     "type": "noun"
   },
   {
-    "word": "fu",
-    "pronunciation": "/fu/",
-    "meaning": "future tense particle",
-    "domain": "Grammar",
-    "type": "particle"
-  },
-  {
-    "word": "pa",
-    "pronunciation": "/pa/",
-    "meaning": "past tense particle",
-    "domain": "Grammar",
-    "type": "particle"
-  },
-  {
-    "word": "nok",
-    "pronunciation": "/nok/",
-    "meaning": "negation particle (not)",
-    "domain": "Grammar",
-    "type": "particle"
-  },
-  {
-    "word": "ri",
-    "pronunciation": "/ɾi/",
-    "meaning": "respect particle",
-    "domain": "Grammar",
-    "type": "particle"
-  },
-  {
-    "word": "le",
-    "pronunciation": "/le/",
-    "meaning": "aspect particle (completed action)",
-    "domain": "Grammar",
-    "type": "particle"
-  },
-  {
-    "word": "terra",
-    "pronunciation": "/ˈte.ra/",
-    "meaning": "earth, ground",
+    "word": "anim",
+    "pronunciation": "/ˈa.nim/",
+    "meaning": "animal",
     "domain": "Nature",
     "type": "noun"
   },
   {
-    "word": "sole",
-    "pronunciation": "/ˈso.le/",
-    "meaning": "sun",
+    "word": "app",
+    "pronunciation": "/app/",
+    "meaning": "application",
+    "domain": "Technology",
+    "type": "noun"
+  },
+  {
+    "word": "aqua",
+    "pronunciation": "/ˈa.kwa/",
+    "meaning": "water",
     "domain": "Nature",
     "type": "noun"
   },
   {
-    "word": "mi",
-    "pronunciation": "/mi/",
-    "meaning": "I, me",
-    "domain": "Grammar",
-    "type": "pronoun"
-  },
-  {
-    "word": "tu",
-    "pronunciation": "/tu/",
-    "meaning": "you",
-    "domain": "Grammar",
-    "type": "pronoun"
-  },
-  {
-    "word": "go",
-    "pronunciation": "/go/",
-    "meaning": "go, move",
-    "domain": "Action",
-    "type": "verb"
-  },
-  {
-    "word": "lei",
-    "pronunciation": "/ˈlei/",
-    "meaning": "law",
-    "domain": "Society",
-    "type": "noun"
-  },
-  {
-    "word": "ka",
-    "pronunciation": "/ka/",
-    "meaning": "question particle (yes/no questions)",
-    "domain": "Grammar",
-    "type": "particle"
-  },
-  {
-    "word": "luna",
-    "pronunciation": "/ˈlu.na/",
-    "meaning": "moon",
-    "domain": "Nature",
-    "type": "noun"
-  },
-  {
-    "word": "vent",
-    "pronunciation": "/vent/",
-    "meaning": "wind",
-    "domain": "Nature",
+    "word": "aqua-kor",
+    "pronunciation": "/ˈa.kwa.kor/",
+    "meaning": "emotions (compound: water-heart)",
+    "domain": "Emotion",
     "type": "noun"
   },
   {
@@ -126,114 +56,44 @@
     "type": "noun"
   },
   {
-    "word": "flor",
-    "pronunciation": "/flor/",
-    "meaning": "flower",
-    "domain": "Nature",
-    "type": "noun"
+    "word": "be",
+    "pronunciation": "/be/",
+    "meaning": "be, exist",
+    "domain": "Action",
+    "type": "verb"
   },
   {
-    "word": "mont",
-    "pronunciation": "/mont/",
-    "meaning": "mountain",
-    "domain": "Nature",
-    "type": "noun"
-  },
-  {
-    "word": "pax",
-    "pronunciation": "/paks/",
-    "meaning": "peace",
-    "domain": "Society",
-    "type": "noun"
-  },
-  {
-    "word": "komun",
-    "pronunciation": "/ˈko.mun/",
-    "meaning": "community",
-    "domain": "Society",
-    "type": "noun"
-  },
-  {
-    "word": "famil",
-    "pronunciation": "/ˈfa.mil/",
-    "meaning": "family",
-    "domain": "Society",
-    "type": "noun"
-  },
-  {
-    "word": "domus",
-    "pronunciation": "/ˈdo.mus/",
-    "meaning": "home, house",
-    "domain": "Society",
-    "type": "noun"
-  },
-  {
-    "word": "labor",
-    "pronunciation": "/ˈla.bor/",
-    "meaning": "work",
-    "domain": "Society",
-    "type": "noun"
-  },
-  {
-    "word": "felis",
-    "pronunciation": "/ˈfe.lis/",
-    "meaning": "happy",
-    "domain": "Emotion",
+    "word": "bel",
+    "pronunciation": "/bel/",
+    "meaning": "beautiful",
+    "domain": "Quality",
     "type": "adjective"
   },
   {
-    "word": "trist",
-    "pronunciation": "/trist/",
-    "meaning": "sad",
-    "domain": "Emotion",
+    "word": "bild",
+    "pronunciation": "/bild/",
+    "meaning": "build",
+    "domain": "Action",
+    "type": "verb"
+  },
+  {
+    "word": "bon",
+    "pronunciation": "/bon/",
+    "meaning": "good",
+    "domain": "Quality",
     "type": "adjective"
   },
   {
-    "word": "amor",
-    "pronunciation": "/ˈa.mor/",
-    "meaning": "love",
-    "domain": "Emotion",
-    "type": "noun"
-  },
-  {
-    "word": "ira",
-    "pronunciation": "/ˈi.ra/",
-    "meaning": "anger",
-    "domain": "Emotion",
-    "type": "noun"
-  },
-  {
-    "word": "tim",
-    "pronunciation": "/tim/",
-    "meaning": "fear",
-    "domain": "Emotion",
+    "word": "ciel",
+    "pronunciation": "/ˈsi.el/",
+    "meaning": "sky",
+    "domain": "Nature",
     "type": "noun"
   },
   {
     "word": "data",
     "pronunciation": "/ˈda.ta/",
     "meaning": "information, data",
-    "domain": "Technology",
-    "type": "noun"
-  },
-  {
-    "word": "tek",
-    "pronunciation": "/tek/",
-    "meaning": "technology",
-    "domain": "Technology",
-    "type": "noun"
-  },
-  {
-    "word": "komp",
-    "pronunciation": "/komp/",
-    "meaning": "computer",
-    "domain": "Technology",
-    "type": "noun"
-  },
-  {
-    "word": "net",
-    "pronunciation": "/net/",
-    "meaning": "network",
     "domain": "Technology",
     "type": "noun"
   },
@@ -245,58 +105,135 @@
     "type": "adjective"
   },
   {
-    "word": "pensar",
-    "pronunciation": "/ˈpen.sar/",
-    "meaning": "think",
-    "domain": "Cognition",
+    "word": "domus",
+    "pronunciation": "/ˈdo.mus/",
+    "meaning": "home, house",
+    "domain": "Society",
+    "type": "noun"
+  },
+  {
+    "word": "don",
+    "pronunciation": "/don/",
+    "meaning": "give",
+    "domain": "Action",
     "type": "verb"
   },
   {
-    "word": "saber",
-    "pronunciation": "/ˈsa.ber/",
-    "meaning": "know",
-    "domain": "Cognition",
-    "type": "verb"
-  },
-  {
-    "word": "mem",
-    "pronunciation": "/mem/",
-    "meaning": "memory",
+    "word": "dream",
+    "pronunciation": "/dream/",
+    "meaning": "dream",
     "domain": "Cognition",
     "type": "noun"
   },
   {
-    "word": "learn",
-    "pronunciation": "/lern/",
-    "meaning": "learn",
-    "domain": "Cognition",
-    "type": "verb"
+    "word": "eduk",
+    "pronunciation": "/ˈe.duk/",
+    "meaning": "education",
+    "domain": "Society",
+    "type": "noun"
   },
   {
-    "word": "vol",
-    "pronunciation": "/vol/",
-    "meaning": "want, wish",
-    "domain": "Cognition",
-    "type": "verb"
+    "word": "en",
+    "pronunciation": "/en/",
+    "meaning": "in, to",
+    "domain": "Grammar",
+    "type": "particle"
   },
   {
-    "word": "be",
-    "pronunciation": "/be/",
-    "meaning": "be, exist",
+    "word": "esper",
+    "pronunciation": "/ˈes.per/",
+    "meaning": "hope",
+    "domain": "Emotion",
+    "type": "noun"
+  },
+  {
+    "word": "famil",
+    "pronunciation": "/ˈfa.mil/",
+    "meaning": "family",
+    "domain": "Society",
+    "type": "noun"
+  },
+  {
+    "word": "felis",
+    "pronunciation": "/ˈfe.lis/",
+    "meaning": "happy",
+    "domain": "Emotion",
+    "type": "adjective"
+  },
+  {
+    "word": "fest",
+    "pronunciation": "/fest/",
+    "meaning": "celebration",
+    "domain": "Society",
+    "type": "noun"
+  },
+  {
+    "word": "flor",
+    "pronunciation": "/flor/",
+    "meaning": "flower",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "fok",
+    "pronunciation": "/fok/",
+    "meaning": "fire",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "forsa",
+    "pronunciation": "/ˈfor.sa/",
+    "meaning": "strength",
+    "domain": "Quality",
+    "type": "noun"
+  },
+  {
+    "word": "fort",
+    "pronunciation": "/fort/",
+    "meaning": "strong",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "fu",
+    "pronunciation": "/fu/",
+    "meaning": "future tense particle",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "glak",
+    "pronunciation": "/glak/",
+    "meaning": "ice",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "go",
+    "pronunciation": "/go/",
+    "meaning": "go, move",
     "domain": "Action",
     "type": "verb"
+  },
+  {
+    "word": "gran",
+    "pronunciation": "/gran/",
+    "meaning": "big, large",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "grup",
+    "pronunciation": "/gɾup/",
+    "meaning": "group",
+    "domain": "Society",
+    "type": "noun"
   },
   {
     "word": "have",
     "pronunciation": "/hav/",
     "meaning": "have, possess",
-    "domain": "Action",
-    "type": "verb"
-  },
-  {
-    "word": "see",
-    "pronunciation": "/se/",
-    "meaning": "see",
     "domain": "Action",
     "type": "verb"
   },
@@ -308,16 +245,30 @@
     "type": "verb"
   },
   {
-    "word": "spek",
-    "pronunciation": "/spek/",
-    "meaning": "speak",
+    "word": "help",
+    "pronunciation": "/help/",
+    "meaning": "help",
     "domain": "Action",
     "type": "verb"
   },
   {
-    "word": "nos",
-    "pronunciation": "/nos/",
-    "meaning": "we, us",
+    "word": "herb",
+    "pronunciation": "/heɾb/",
+    "meaning": "grass",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "idea",
+    "pronunciation": "/ˈi.de.a/",
+    "meaning": "idea",
+    "domain": "Cognition",
+    "type": "noun"
+  },
+  {
+    "word": "il",
+    "pronunciation": "/il/",
+    "meaning": "he, she, it",
     "domain": "Grammar",
     "type": "pronoun"
   },
@@ -329,164 +280,17 @@
     "type": "pronoun"
   },
   {
-    "word": "kel",
-    "pronunciation": "/kel/",
-    "meaning": "that, which",
-    "domain": "Grammar",
-    "type": "pronoun"
+    "word": "imagin",
+    "pronunciation": "/ˈi.ma.gin/",
+    "meaning": "imagine",
+    "domain": "Cognition",
+    "type": "verb"
   },
   {
-    "word": "ke",
-    "pronunciation": "/ke/",
-    "meaning": "that (subordinating conjunction)",
-    "domain": "Grammar",
-    "type": "particle"
-  },
-  {
-    "word": "por",
-    "pronunciation": "/por/",
-    "meaning": "for, because of",
-    "domain": "Grammar",
-    "type": "particle"
-  },
-  {
-    "word": "gran",
-    "pronunciation": "/gran/",
-    "meaning": "big, large",
-    "domain": "Quality",
-    "type": "adjective"
-  },
-  {
-    "word": "lum",
-    "pronunciation": "/lum/",
-    "meaning": "light",
-    "domain": "Nature",
-    "type": "noun"
-  },
-  {
-    "word": "nok-lum",
-    "pronunciation": "/ˈnok.lum/",
-    "meaning": "darkness",
-    "domain": "Nature",
-    "type": "noun"
-  },
-  {
-    "word": "sole-lum",
-    "pronunciation": "/ˈso.le.lum/",
-    "meaning": "hope (idiom: sun-light)",
+    "word": "ira",
+    "pronunciation": "/ˈi.ra/",
+    "meaning": "anger",
     "domain": "Emotion",
-    "type": "noun"
-  },
-  {
-    "word": "en",
-    "pronunciation": "/en/",
-    "meaning": "in, to",
-    "domain": "Grammar",
-    "type": "particle"
-  },
-  {
-    "word": "ten",
-    "pronunciation": "/ten/",
-    "meaning": "hold, have",
-    "domain": "Action",
-    "type": "verb"
-  },
-  {
-    "word": "kor",
-    "pronunciation": "/kor/",
-    "meaning": "heart",
-    "domain": "Emotion",
-    "type": "noun"
-  },
-  {
-    "word": "ma",
-    "pronunciation": "/ma/",
-    "meaning": "but",
-    "domain": "Grammar",
-    "type": "particle"
-  },
-  {
-    "word": "don",
-    "pronunciation": "/don/",
-    "meaning": "give",
-    "domain": "Action",
-    "type": "verb"
-  },
-  {
-    "word": "forsa",
-    "pronunciation": "/ˈfor.sa/",
-    "meaning": "strength",
-    "domain": "Quality",
-    "type": "noun"
-  },
-  {
-    "word": "kanta",
-    "pronunciation": "/ˈkan.ta/",
-    "meaning": "sing",
-    "domain": "Action",
-    "type": "verb"
-  },
-  {
-    "word": "kon",
-    "pronunciation": "/kon/",
-    "meaning": "with",
-    "domain": "Grammar",
-    "type": "particle"
-  },
-  {
-    "word": "ciel",
-    "pronunciation": "/ˈsi.el/",
-    "meaning": "sky",
-    "domain": "Nature",
-    "type": "noun"
-  },
-  {
-    "word": "nok",
-    "pronunciation": "/nok/",
-    "meaning": "night",
-    "domain": "Nature",
-    "type": "noun"
-  },
-  {
-    "word": "pluv",
-    "pronunciation": "/pluv/",
-    "meaning": "rain",
-    "domain": "Nature",
-    "type": "noun"
-  },
-  {
-    "word": "nub",
-    "pronunciation": "/nub/",
-    "meaning": "cloud",
-    "domain": "Nature",
-    "type": "noun"
-  },
-  {
-    "word": "mar",
-    "pronunciation": "/mar/",
-    "meaning": "sea",
-    "domain": "Nature",
-    "type": "noun"
-  },
-  {
-    "word": "libertas",
-    "pronunciation": "/ˈli.ber.tas/",
-    "meaning": "freedom",
-    "domain": "Society",
-    "type": "noun"
-  },
-  {
-    "word": "kultur",
-    "pronunciation": "/ˈkul.tur/",
-    "meaning": "culture",
-    "domain": "Society",
-    "type": "noun"
-  },
-  {
-    "word": "eduk",
-    "pronunciation": "/ˈe.duk/",
-    "meaning": "education",
-    "domain": "Society",
     "type": "noun"
   },
   {
@@ -497,11 +301,11 @@
     "type": "noun"
   },
   {
-    "word": "esper",
-    "pronunciation": "/ˈes.per/",
-    "meaning": "hope",
-    "domain": "Emotion",
-    "type": "noun"
+    "word": "ka",
+    "pronunciation": "/ka/",
+    "meaning": "question particle (yes/no questions)",
+    "domain": "Grammar",
+    "type": "particle"
   },
   {
     "word": "kalm",
@@ -511,62 +315,6 @@
     "type": "adjective"
   },
   {
-    "word": "kod",
-    "pronunciation": "/kod/",
-    "meaning": "code",
-    "domain": "Technology",
-    "type": "noun"
-  },
-  {
-    "word": "app",
-    "pronunciation": "/app/",
-    "meaning": "application",
-    "domain": "Technology",
-    "type": "noun"
-  },
-  {
-    "word": "web",
-    "pronunciation": "/web/",
-    "meaning": "web, internet",
-    "domain": "Technology",
-    "type": "noun"
-  },
-  {
-    "word": "ai",
-    "pronunciation": "/ai/",
-    "meaning": "artificial intelligence",
-    "domain": "Technology",
-    "type": "noun"
-  },
-  {
-    "word": "imagin",
-    "pronunciation": "/ˈi.ma.gin/",
-    "meaning": "imagine",
-    "domain": "Cognition",
-    "type": "verb"
-  },
-  {
-    "word": "krea",
-    "pronunciation": "/ˈkre.a/",
-    "meaning": "create",
-    "domain": "Cognition",
-    "type": "verb"
-  },
-  {
-    "word": "dream",
-    "pronunciation": "/dream/",
-    "meaning": "dream",
-    "domain": "Cognition",
-    "type": "noun"
-  },
-  {
-    "word": "idea",
-    "pronunciation": "/ˈi.de.a/",
-    "meaning": "idea",
-    "domain": "Cognition",
-    "type": "noun"
-  },
-  {
     "word": "kam",
     "pronunciation": "/kam/",
     "meaning": "come",
@@ -574,67 +322,25 @@
     "type": "verb"
   },
   {
-    "word": "vel",
-    "pronunciation": "/vel/",
-    "meaning": "want",
+    "word": "kanta",
+    "pronunciation": "/ˈkan.ta/",
+    "meaning": "sing",
     "domain": "Action",
     "type": "verb"
   },
   {
-    "word": "help",
-    "pronunciation": "/help/",
-    "meaning": "help",
-    "domain": "Action",
-    "type": "verb"
-  },
-  {
-    "word": "klar",
-    "pronunciation": "/klar/",
-    "meaning": "clear",
-    "domain": "Quality",
-    "type": "adjective"
-  },
-  {
-    "word": "bon",
-    "pronunciation": "/bon/",
-    "meaning": "good",
-    "domain": "Quality",
-    "type": "adjective"
-  },
-  {
-    "word": "nov",
-    "pronunciation": "/nov/",
-    "meaning": "new",
-    "domain": "Quality",
-    "type": "adjective"
-  },
-  {
-    "word": "verd",
-    "pronunciation": "/verd/",
-    "meaning": "true",
-    "domain": "Quality",
-    "type": "adjective"
-  },
-  {
-    "word": "bel",
-    "pronunciation": "/bel/",
-    "meaning": "beautiful",
-    "domain": "Quality",
-    "type": "adjective"
-  },
-  {
-    "word": "il",
-    "pronunciation": "/il/",
-    "meaning": "he, she, it",
-    "domain": "Grammar",
-    "type": "pronoun"
-  },
-  {
-    "word": "kel-temp",
-    "pronunciation": "/ˈkel.temp/",
-    "meaning": "when",
+    "word": "ke",
+    "pronunciation": "/ke/",
+    "meaning": "that (subordinating conjunction)",
     "domain": "Grammar",
     "type": "particle"
+  },
+  {
+    "word": "kel",
+    "pronunciation": "/kel/",
+    "meaning": "that, which",
+    "domain": "Grammar",
+    "type": "pronoun"
   },
   {
     "word": "kel-lok",
@@ -651,10 +357,122 @@
     "type": "particle"
   },
   {
-    "word": "temp",
-    "pronunciation": "/temp/",
-    "meaning": "time",
+    "word": "kel-temp",
+    "pronunciation": "/ˈkel.temp/",
+    "meaning": "when",
     "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "klar",
+    "pronunciation": "/klar/",
+    "meaning": "clear",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "kod",
+    "pronunciation": "/kod/",
+    "meaning": "code",
+    "domain": "Technology",
+    "type": "noun"
+  },
+  {
+    "word": "komp",
+    "pronunciation": "/komp/",
+    "meaning": "computer",
+    "domain": "Technology",
+    "type": "noun"
+  },
+  {
+    "word": "komun",
+    "pronunciation": "/ˈko.mun/",
+    "meaning": "community",
+    "domain": "Society",
+    "type": "noun"
+  },
+  {
+    "word": "kon",
+    "pronunciation": "/kon/",
+    "meaning": "with",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "kor",
+    "pronunciation": "/kor/",
+    "meaning": "heart",
+    "domain": "Emotion",
+    "type": "noun"
+  },
+  {
+    "word": "kore-pet",
+    "pronunciation": "/ˈko.ɾe.pet/",
+    "meaning": "grief, deep sadness",
+    "domain": "Emotion",
+    "type": "noun"
+  },
+  {
+    "word": "kre",
+    "pronunciation": "/kɾe/",
+    "meaning": "create",
+    "domain": "Action",
+    "type": "verb"
+  },
+  {
+    "word": "krea",
+    "pronunciation": "/ˈkre.a/",
+    "meaning": "create",
+    "domain": "Cognition",
+    "type": "verb"
+  },
+  {
+    "word": "kultur",
+    "pronunciation": "/ˈkul.tur/",
+    "meaning": "culture",
+    "domain": "Society",
+    "type": "noun"
+  },
+  {
+    "word": "labor",
+    "pronunciation": "/ˈla.bor/",
+    "meaning": "work",
+    "domain": "Society",
+    "type": "noun"
+  },
+  {
+    "word": "le",
+    "pronunciation": "/le/",
+    "meaning": "aspect particle (completed action)",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "learn",
+    "pronunciation": "/lern/",
+    "meaning": "learn",
+    "domain": "Cognition",
+    "type": "verb"
+  },
+  {
+    "word": "lei",
+    "pronunciation": "/ˈlei/",
+    "meaning": "law",
+    "domain": "Society",
+    "type": "noun"
+  },
+  {
+    "word": "lent",
+    "pronunciation": "/lent/",
+    "meaning": "slow",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "libertas",
+    "pronunciation": "/ˈli.ber.tas/",
+    "meaning": "freedom",
+    "domain": "Society",
     "type": "noun"
   },
   {
@@ -665,6 +483,55 @@
     "type": "noun"
   },
   {
+    "word": "lum",
+    "pronunciation": "/lum/",
+    "meaning": "light",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "luna",
+    "pronunciation": "/ˈlu.na/",
+    "meaning": "moon",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "luna-lum",
+    "pronunciation": "/ˈlu.na.lum/",
+    "meaning": "inspiration (idiom: moon-light)",
+    "domain": "Emotion",
+    "type": "noun"
+  },
+  {
+    "word": "ma",
+    "pronunciation": "/ma/",
+    "meaning": "but",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "mar",
+    "pronunciation": "/mar/",
+    "meaning": "sea",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "mem",
+    "pronunciation": "/mem/",
+    "meaning": "memory",
+    "domain": "Cognition",
+    "type": "noun"
+  },
+  {
+    "word": "mi",
+    "pronunciation": "/mi/",
+    "meaning": "I, me",
+    "domain": "Grammar",
+    "type": "pronoun"
+  },
+  {
     "word": "mod",
     "pronunciation": "/mod/",
     "meaning": "way, method",
@@ -672,17 +539,10 @@
     "type": "noun"
   },
   {
-    "word": "pres",
-    "pronunciation": "/pres/",
-    "meaning": "present tense particle",
-    "domain": "Grammar",
-    "type": "particle"
-  },
-  {
-    "word": "vita",
-    "pronunciation": "/ˈvi.ta/",
-    "meaning": "life",
-    "domain": "Society",
+    "word": "mont",
+    "pronunciation": "/mont/",
+    "meaning": "mountain",
+    "domain": "Nature",
     "type": "noun"
   },
   {
@@ -699,11 +559,291 @@
     "domain": "Society",
     "type": "noun"
   },
+   {
+    "word": "net",
+    "pronunciation": "/net/",
+    "meaning": "network",
+    "domain": "Technology",
+    "type": "noun"
+  },
   {
-    "word": "fest",
-    "pronunciation": "/fest/",
-    "meaning": "celebration",
+    "word": "noktur",
+    "pronunciation": "/ˈnok.tur/",
+    "meaning": "night",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "nok",
+    "pronunciation": "/nok/",
+    "meaning": "negation particle (not)",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "nok-lum",
+    "pronunciation": "/ˈnok.lum/",
+    "meaning": "darkness",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "nos",
+    "pronunciation": "/nos/",
+    "meaning": "we, us",
+    "domain": "Grammar",
+    "type": "pronoun"
+  },
+  {
+    "word": "nov",
+    "pronunciation": "/nov/",
+    "meaning": "new",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "nub",
+    "pronunciation": "/nub/",
+    "meaning": "cloud",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "pa",
+    "pronunciation": "/pa/",
+    "meaning": "past tense particle",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "pax",
+    "pronunciation": "/paks/",
+    "meaning": "peace",
     "domain": "Society",
     "type": "noun"
+  },
+  {
+    "word": "pek",
+    "pronunciation": "/pek/",
+    "meaning": "small",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "pensar",
+    "pronunciation": "/ˈpen.sar/",
+    "meaning": "think",
+    "domain": "Cognition",
+    "type": "verb"
+  },
+  {
+    "word": "pluv",
+    "pronunciation": "/pluv/",
+    "meaning": "rain",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "por",
+    "pronunciation": "/por/",
+    "meaning": "for, because of",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "pres",
+    "pronunciation": "/pres/",
+    "meaning": "present tense particle",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "rapid",
+    "pronunciation": "/ˈɾa.pid/",
+    "meaning": "fast",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "red",
+    "pronunciation": "/ɾed/",
+    "meaning": "read",
+    "domain": "Action",
+    "type": "verb"
+  },
+  {
+    "word": "ri",
+    "pronunciation": "/ɾi/",
+    "meaning": "respect particle",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "riv",
+    "pronunciation": "/ɾiv/",
+    "meaning": "river",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "run",
+    "pronunciation": "/ɾun/",
+    "meaning": "run",
+    "domain": "Action",
+    "type": "verb"
+  },
+  {
+    "word": "saber",
+    "pronunciation": "/ˈsa.ber/",
+    "meaning": "know",
+    "domain": "Cognition",
+    "type": "verb"
+  },
+  {
+    "word": "see",
+    "pronunciation": "/se/",
+    "meaning": "see",
+    "domain": "Action",
+    "type": "verb"
+  },
+  {
+    "word": "serv",
+    "pronunciation": "/seɾv/",
+    "meaning": "service",
+    "domain": "Society",
+    "type": "noun"
+  },
+  {
+    "word": "sof",
+    "pronunciation": "/sof/",
+    "meaning": "soft",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "sole",
+    "pronunciation": "/ˈso.le/",
+    "meaning": "sun",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "sole-lum",
+    "pronunciation": "/ˈso.le.lum/",
+    "meaning": "hope (idiom: sun-light)",
+    "domain": "Emotion",
+    "type": "noun"
+  },
+  {
+    "word": "spek",
+    "pronunciation": "/spek/",
+    "meaning": "speak",
+    "domain": "Action",
+    "type": "verb"
+  },
+  {
+    "word": "tek",
+    "pronunciation": "/tek/",
+    "meaning": "technology",
+    "domain": "Technology",
+    "type": "noun"
+  },
+  {
+    "word": "temp",
+    "pronunciation": "/temp/",
+    "meaning": "time",
+    "domain": "Grammar",
+    "type": "noun"
+  },
+  {
+    "word": "ten",
+    "pronunciation": "/ten/",
+    "meaning": "hold, have",
+    "domain": "Action",
+    "type": "verb"
+  },
+  {
+    "word": "terra",
+    "pronunciation": "/ˈte.ra/",
+    "meaning": "earth, ground",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "tim",
+    "pronunciation": "/tim/",
+    "meaning": "fear",
+    "domain": "Emotion",
+    "type": "noun"
+  },
+  {
+    "word": "trad",
+    "pronunciation": "/tɾad/",
+    "meaning": "tradition",
+    "domain": "Society",
+    "type": "noun"
+  },
+  {
+    "word": "trist",
+    "pronunciation": "/trist/",
+    "meaning": "sad",
+    "domain": "Emotion",
+    "type": "adjective"
+  },
+  {
+    "word": "tu",
+    "pronunciation": "/tu/",
+    "meaning": "you",
+    "domain": "Grammar",
+    "type": "pronoun"
+  },
+  {
+    "word": "vel",
+    "pronunciation": "/vel/",
+    "meaning": "want",
+    "domain": "Action",
+    "type": "verb"
+  },
+  {
+    "word": "vent",
+    "pronunciation": "/vent/",
+    "meaning": "wind",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "verd",
+    "pronunciation": "/verd/",
+    "meaning": "true",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "vita",
+    "pronunciation": "/ˈvi.ta/",
+    "meaning": "life",
+    "domain": "Society",
+    "type": "noun"
+  },
+  {
+    "word": "vol",
+    "pronunciation": "/vol/",
+    "meaning": "want, wish",
+    "domain": "Cognition",
+    "type": "verb"
+  },
+  {
+    "word": "web",
+    "pronunciation": "/web/",
+    "meaning": "web, internet",
+    "domain": "Technology",
+    "type": "noun"
+  },
+  {
+    "word": "writ",
+    "pronunciation": "/ɾit/",
+    "meaning": "write",
+    "domain": "Action",
+    "type": "verb"
   }
 ]
