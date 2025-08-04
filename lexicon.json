@@ -1,0 +1,107 @@
+[
+  {
+    "word": "aqua",
+    "pronunciation": "/ˈa.kwa/",
+    "meaning": "water",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "ami",
+    "pronunciation": "/ˈa.mi/",
+    "meaning": "friend",
+    "domain": "Society",
+    "type": "noun"
+  },
+  {
+    "word": "kore-pet",
+    "pronunciation": "/ˈko.ɾe.pet/",
+    "meaning": "grief, deep sadness",
+    "domain": "Emotion",
+    "type": "noun"
+  },
+  {
+    "word": "fu",
+    "pronunciation": "/fu/",
+    "meaning": "future tense particle",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "pa",
+    "pronunciation": "/pa/",
+    "meaning": "past tense particle",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "nok",
+    "pronunciation": "/nok/",
+    "meaning": "negation particle (not)",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "ri",
+    "pronunciation": "/ɾi/",
+    "meaning": "respect particle",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "le",
+    "pronunciation": "/le/",
+    "meaning": "aspect particle (completed action)",
+    "domain": "Grammar",
+    "type": "particle"
+  },
+  {
+    "word": "terra",
+    "pronunciation": "/ˈte.ra/",
+    "meaning": "earth, ground",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "sole",
+    "pronunciation": "/ˈso.le/",
+    "meaning": "sun",
+    "domain": "Nature",
+    "type": "noun"
+  },
+  {
+    "word": "mi",
+    "pronunciation": "/mi/",
+    "meaning": "I, me",
+    "domain": "Grammar",
+    "type": "pronoun"
+  },
+  {
+    "word": "tu",
+    "pronunciation": "/tu/",
+    "meaning": "you",
+    "domain": "Grammar",
+    "type": "pronoun"
+  },
+  {
+    "word": "go",
+    "pronunciation": "/go/",
+    "meaning": "go, move",
+    "domain": "Action",
+    "type": "verb"
+  },
+  {
+    "word": "lei",
+    "pronunciation": "/ˈlei/",
+    "meaning": "law",
+    "domain": "Society",
+    "type": "noun"
+  },
+  {
+    "word": "ka",
+    "pronunciation": "/ka/",
+    "meaning": "question particle (yes/no questions)",
+    "domain": "Grammar",
+    "type": "particle"
+  }
+]
