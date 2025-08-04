@@ -1,6 +1,6 @@
 # Fidakune Language Requirements Document
 **Version:** 0.13
-**Date:** ### 4.4 Vocabulary
+**Date:** 8/4/2025 4.4 Vocabulary
 - A **foundational vocabulary of ~1,200 words** will be organized into logical semantic domains.
   - **Example Domains:** Nature: `aqua` (water), `sole` (sun); Society: `ami` (friend), `lei` (law).
 - **Cultural Neutrality:** Words must maintain cultural neutrality by avoiding loanwords from dominant languages and adhering to universal semantic domains.
