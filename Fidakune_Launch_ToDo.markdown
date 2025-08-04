@@ -81,6 +81,18 @@ This to-do list ensures the repository is professional, transparent, and welcomi
   - **How:** Create `.github/ISSUE_TEMPLATE/` folder with template files.
   - **Reason:** Standardizes issue submission and improves organization. **✅ COMPLETED - Created 3 comprehensive issue templates**
 
+- [x] **Expand Vocabulary to 50 Words**
+  - **Task:** Expand lexicon.json from 15 to 50 core words across semantic domains.
+  - **Content:** Add words for Nature (8), Society (7), Emotion (6), Technology (5), Grammar (13), Cognition (5), Action (6), Quality (1).
+  - **How:** Update `lexicon.json` with 35 new words, create comprehensive vocabulary table in `LEXICON.md`.
+  - **Reason:** Provides sufficient vocabulary for Tier 1 testing and community feedback. **✅ COMPLETED - 50-word vocabulary with semantic domain organization**
+
+- [x] **Draft Public Announcement**
+  - **Task:** Create public announcement for posting on X, Reddit (r/conlangs), and linguistics forums.
+  - **Content:** X post (280 chars), Reddit post with vocabulary examples, linguistics forum outreach, email templates.
+  - **How:** Create `ANNOUNCEMENT.md` with multiple platform templates.
+  - **Reason:** Prepares for public launch and community recruitment. **✅ COMPLETED - Created ANNOUNCEMENT.md with platform-specific templates**
+
 - [ ] **Enable GitHub Discussions**
   - **Task:** Activate GitHub Discussions for the repository.
   - **Categories:** Create categories like "General," "Vocabulary Proposals," "Learning Feedback," "Technical Questions," and "Cultural Sensitivity."
@@ -89,9 +101,9 @@ This to-do list ensures the repository is professional, transparent, and welcomi
 
 - [ ] **Set Up GitHub Pages**
   - **Task:** Enable GitHub Pages to host the project website.
-  - **Content:** Use `README.md` as the homepage, link to all core documents, and embed `Fidakune_Requirements_v0.13.pdf` if available.
+  - **Content:** Use `README.md` as the homepage, link to all core documents, and make PWA accessible at `https://jlillywh.github.io/Fidakune-Language/submit-ideas.html`.
   - **How:** Go to **Settings > Pages**, select "Deploy from branch," choose `main` branch.
-  - **Reason:** Provides a professional website at `jlillywh.github.io/Fidakune-Language`.
+  - **Reason:** Provides a professional website and makes PWA publicly accessible.
 
 - [ ] **Draft Public Announcement**
   - **Task:** Create a public announcement for posting on X, Reddit (r/conlangs), or other platforms.
