@@ -4,19 +4,31 @@ This document outlines the organization and structure of Fidakune's vocabulary s
 
 ## Current Vocabulary Status
 
-- **Current Size:** 50 words (see [lexicon.json](lexicon.json))
+- **Current Size:** 98 words (see [lexicon.json](lexicon.json))
 - **Target Size:** 1,200 words by Month 18
 - **Growth Plan:** Core 200 words by Month 6, full vocabulary by Month 18
 
 ### Vocabulary Distribution by Domain
-- **Nature:** 6 words (aqua, terra, sole, luna, vent, arbor, flor, mont)
-- **Society:** 5 words (ami, lei, pax, komun, famil, domus, labor)
-- **Emotion:** 5 words (kore-pet, felis, trist, amor, ira, tim)
-- **Technology:** 5 words (data, tek, komp, net, digit)
-- **Grammar:** 12 words (fu, pa, nok, ri, le, mi, tu, ka, nos, ils, kel, ke, por)
-- **Cognition:** 5 words (pensar, saber, mem, learn, vol)
-- **Action:** 6 words (go, be, have, see, hear, spek)
-- **Quality:** 1 word (gran)
+- **Nature:** 16 words (aqua, terra, sole, luna, vent, arbor, flor, mont, lum, nok-lum, ciel, nok, pluv, nub, mar)
+- **Society:** 11 words (ami, lei, pax, komun, famil, domus, labor, libertas, kultur, eduk, vita, mort, nasc, fest)
+- **Emotion:** 9 words (kore-pet, felis, trist, amor, ira, tim, joia, esper, sole-lum, kalm, kor)
+- **Technology:** 8 words (data, tek, komp, net, digit, kod, app, web, ai)
+- **Grammar:** 23 words (fu, pa, nok, ri, le, mi, tu, ka, nos, ils, kel, ke, por, en, ma, kon, il, kel-temp, kel-lok, kel-mod, temp, lok, mod, pres)
+- **Cognition:** 10 words (pensar, saber, mem, learn, vol, imagin, krea, dream, idea)
+- **Action:** 12 words (go, be, have, see, hear, spek, ten, don, kanta, kam, vel, help)
+- **Quality:** 9 words (gran, forsa, klar, bon, nov, verd, bel)
+
+## Idioms and Compound Words
+
+Fidakune uses compound words and idioms to express complex concepts while maintaining phonological simplicity:
+
+| Idiom/Compound | Pronunciation | Literal Meaning | Idiomatic Meaning | Example Usage |
+|----------------|---------------|-----------------|-------------------|---------------|
+| sole-lum | /ˈso.le.lum/ | sun-light | hope, optimism | Sole-lum pa don mi forsa (Hope gave me strength) |
+| nok-lum | /ˈnok.lum/ | night-light | darkness | Mi pa go en nok-lum terra (I went to a dark land) |
+| kel-temp | /ˈkel.temp/ | that-time | when | Kel-temp tu kam? (When do you come?) |
+| kel-lok | /ˈkel.lok/ | that-place | where | Kel-lok nos go? (Where do we go?) |
+| kel-mod | /ˈkel.mod/ | that-way | how | Kel-mod tu spek? (How do you speak?) |
 
 ## Semantic Domains
 

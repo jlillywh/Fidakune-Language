@@ -93,6 +93,18 @@ This to-do list ensures the repository is professional, transparent, and welcomi
   - **How:** Create `ANNOUNCEMENT.md` with multiple platform templates.
   - **Reason:** Prepares for public launch and community recruitment. **✅ COMPLETED - Created ANNOUNCEMENT.md with platform-specific templates**
 
+- [x] **Expand Vocabulary for Creative Writing**
+  - **Task:** Expand lexicon.json from 50 to 98 words to support storytelling and idioms.
+  - **Content:** Add storytelling vocabulary including `sole-lum` (hope), `nok-lum` (darkness), `kor` (heart), `forsa` (strength), `kanta` (sing).
+  - **How:** Update `lexicon.json` with creative writing vocabulary, add idioms section to `LEXICON.md`.
+  - **Reason:** Enables rich storytelling content for community engagement. **✅ COMPLETED - 98-word vocabulary with idiom system**
+
+- [x] **Create Substack Newsletter Infrastructure**
+  - **Task:** Prepare template and first story for Substack creative writing newsletter.
+  - **Content:** First story "The Light of Hope" featuring idiom `sole-lum`, vocabulary breakdown, pronunciation guide.
+  - **How:** Create `SUBSTACK_TEMPLATE.md`, update documentation links.
+  - **Reason:** Provides engaging creative content to attract learners and showcase Fidakune's potential. **✅ COMPLETED - Ready for publication**
+
 - [ ] **Enable GitHub Discussions**
   - **Task:** Activate GitHub Discussions for the repository.
   - **Categories:** Create categories like "General," "Vocabulary Proposals," "Learning Feedback," "Technical Questions," and "Cultural Sensitivity."
@@ -105,9 +117,7 @@ This to-do list ensures the repository is professional, transparent, and welcomi
   - **How:** Go to **Settings > Pages**, select "Deploy from branch," choose `main` branch.
   - **Reason:** Provides a professional website and makes PWA publicly accessible.
 
-- [ ] **Draft Public Announcement**
-  - **Task:** Create a public announcement for posting on X, Reddit (r/conlangs), or other platforms.
-  - **Content:** "🌍 Fidakune Language Project is now open-source! A universal second language designed for cognitive simplicity, cultural neutrality, and global communication. Seeking feedback from linguists, educators, and enthusiasts. [GitHub Link] #Fidakune #Conlang #GlobalCommunication"
+**Phase 3 Progress: 83% Complete (5/6 Core Tasks + 2 Expansion Tasks)**
   - **How:** Create `ANNOUNCEMENT.md` with social media posts and forum content.
   - **Reason:** Attracts initial contributors and testing participants.
 
