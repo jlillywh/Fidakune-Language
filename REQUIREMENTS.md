@@ -1,11 +1,6 @@
 # Fidakune Language Requirements Document
 **Version:** 0.13
-**Date:** ### 4.4 Vocabulary
-- A **foundational vocabulary of ~1,200 words** will be organized into logical semantic domains.
-  - **Example Domains:** Nature: `aqua` (water), `sole` (sun); Society: `ami` (friend), `lei` (law).
-- **Cultural Neutrality:** Words must maintain cultural neutrality by avoiding loanwords from dominant languages and adhering to universal semantic domains.
-- **Proper Nouns:** Retain their original forms but may be adapted to Fidakune phonology (e.g., 'Paris' as `Pa-ris`). Loanwords are discouraged to maintain neutrality.
-- **Governance Model:** New words will be proposed via the digital lexicon and approved by a **Fidakune Language Council** (composed of linguists, community representatives, and accessibility experts) through a community voting process. Proposed words must adhere to phonotactics and avoid homophony with existing terms.t 4, 2025
+**Date:** 8/4/2025 
 
 ---
 
