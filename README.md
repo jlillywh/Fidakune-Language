@@ -32,7 +32,7 @@ The core documentation for this project provides a complete blueprint for the la
 
 * **[Idea Submission App](https://jlillywh.github.io/Fidakune-Language/submit-ideas.html):** Mobile-friendly Progressive Web App for submitting vocabulary, gesture, and feedback ideas. Supports multilingual interface and offline functionality.
 * **[GitHub Discussions](https://github.com/jlillywh/Fidakune-Language/discussions):** Collaborate on ideas, testing, and cultural neutrality with the global Fidakune community.
-* **[Substack Newsletter](https://fidakune.substack.com):** Subscribe for short stories, idioms, and language learning content in Fidakune.
+* **[Substack Newsletter](https://substack.com/@jlillywh):** Subscribe for short stories, idioms, and language learning content in Fidakune.
 
 ### Current Status
 
