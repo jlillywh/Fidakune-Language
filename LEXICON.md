@@ -4,7 +4,7 @@ This document outlines the organization and structure of Fidakune's vocabulary s
 
 ## Current Vocabulary Status
 
-- **Current Size:** ~10 words (see [lexicon.json](lexicon.json))
+- **Current Size:** 15 words (see [lexicon.json](lexicon.json))
 - **Target Size:** 1,200 words by Month 18
 - **Growth Plan:** Core 200 words by Month 6, full vocabulary by Month 18
 
@@ -71,6 +71,7 @@ The [Fidakune Language Council](GOVERNANCE.md) (Phase 2) will oversee vocabulary
 ## Contributing to Vocabulary Development
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on proposing new words. All contributions welcome via:
+- **[Idea Submission App](submit-ideas.html):** Mobile-friendly PWA with multilingual support
 - GitHub Issues: [https://github.com/jlillywh/Fidakune-Language/issues](https://github.com/jlillywh/Fidakune-Language/issues)
 - Email: [fidakune.contact@gmail.com](mailto:fidakune.contact@gmail.com)
 
