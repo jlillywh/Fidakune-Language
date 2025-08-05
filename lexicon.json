@@ -490,15 +490,15 @@
     "type": "noun"
   },
   {
-    "word": "luna",
-    "pronunciation": "/ˈlu.na/",
+    "word": "mun",
+    "pronunciation": "/mun/",
     "meaning": "moon",
     "domain": "Nature",
     "type": "noun"
   },
   {
-    "word": "luna-lum",
-    "pronunciation": "/ˈlu.na.lum/",
+    "word": "mun-lum",
+    "pronunciation": "/mun.lum/",
     "meaning": "inspiration (idiom: moon-light)",
     "domain": "Emotion",
     "type": "noun"
@@ -845,5 +845,600 @@
     "meaning": "write",
     "domain": "Action",
     "type": "verb"
+  },
+  {
+    "word": "wi",
+    "pronunciation": "/wi/",
+    "meaning": "we",
+    "domain": "Person",
+    "type": "pronoun"
+  },
+  {
+    "word": "ju",
+    "pronunciation": "/ju/",
+    "meaning": "you (plural)",
+    "domain": "Person",
+    "type": "pronoun"
+  },
+  {
+    "word": "oli",
+    "pronunciation": "/oli/",
+    "meaning": "they",
+    "domain": "Person",
+    "type": "pronoun"
+  },
+  {
+    "word": "dis",
+    "pronunciation": "/dis/",
+    "meaning": "this",
+    "domain": "General",
+    "type": "determiner"
+  },
+  {
+    "word": "dat",
+    "pronunciation": "/dat/",
+    "meaning": "that",
+    "domain": "General",
+    "type": "determiner"
+  },
+  {
+    "word": "hir",
+    "pronunciation": "/hiɾ/",
+    "meaning": "here",
+    "domain": "Place",
+    "type": "adverb"
+  },
+  {
+    "word": "der",
+    "pronunciation": "/deɾ/",
+    "meaning": "there",
+    "domain": "Place",
+    "type": "adverb"
+  },
+  {
+    "word": "hwen",
+    "pronunciation": "/hwen/",
+    "meaning": "when",
+    "domain": "Time",
+    "type": "adverb"
+  },
+  {
+    "word": "how",
+    "pronunciation": "/how/",
+    "meaning": "how",
+    "domain": "General",
+    "type": "adverb"
+  },
+  {
+    "word": "no",
+    "pronunciation": "/no/",
+    "meaning": "not",
+    "domain": "General",
+    "type": "adverb"
+  },
+  {
+    "word": "ol",
+    "pronunciation": "/ol/",
+    "meaning": "all",
+    "domain": "General",
+    "type": "determiner"
+  },
+  {
+    "word": "mani",
+    "pronunciation": "/mani/",
+    "meaning": "many",
+    "domain": "Number",
+    "type": "adjective"
+  },
+  {
+    "word": "som",
+    "pronunciation": "/som/",
+    "meaning": "some",
+    "domain": "General",
+    "type": "determiner"
+  },
+  {
+    "word": "few",
+    "pronunciation": "/few/",
+    "meaning": "few",
+    "domain": "Number",
+    "type": "adjective"
+  },
+  {
+    "word": "oter",
+    "pronunciation": "/oteɾ/",
+    "meaning": "other",
+    "domain": "General",
+    "type": "adjective"
+  },
+  {
+    "word": "one",
+    "pronunciation": "/one/",
+    "meaning": "one",
+    "domain": "Number",
+    "type": "numeral"
+  },
+  {
+    "word": "two",
+    "pronunciation": "/two/",
+    "meaning": "two",
+    "domain": "Number",
+    "type": "numeral"
+  },
+  {
+    "word": "tri",
+    "pronunciation": "/tɾi/",
+    "meaning": "three",
+    "domain": "Number",
+    "type": "numeral"
+  },
+  {
+    "word": "for",
+    "pronunciation": "/foɾ/",
+    "meaning": "four",
+    "domain": "Number",
+    "type": "numeral"
+  },
+  {
+    "word": "fiv",
+    "pronunciation": "/fiv/",
+    "meaning": "five",
+    "domain": "Number",
+    "type": "numeral"
+  },
+  {
+    "word": "big",
+    "pronunciation": "/big/",
+    "meaning": "big",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "long",
+    "pronunciation": "/loŋ/",
+    "meaning": "long",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "wid",
+    "pronunciation": "/wid/",
+    "meaning": "wide",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "tik",
+    "pronunciation": "/tik/",
+    "meaning": "thick",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "hevi",
+    "pronunciation": "/hevi/",
+    "meaning": "heavy",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "smal",
+    "pronunciation": "/smal/",
+    "meaning": "small",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "sort",
+    "pronunciation": "/soɾt/",
+    "meaning": "short",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "naro",
+    "pronunciation": "/naɾo/",
+    "meaning": "narrow",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "tin",
+    "pronunciation": "/tin/",
+    "meaning": "thin",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "woman",
+    "pronunciation": "/woman/",
+    "meaning": "woman",
+    "domain": "Person",
+    "type": "noun"
+  },
+  {
+    "word": "man",
+    "pronunciation": "/man/",
+    "meaning": "man",
+    "domain": "Person",
+    "type": "noun"
+  },
+  {
+    "word": "person",
+    "pronunciation": "/peɾson/",
+    "meaning": "person",
+    "domain": "Person",
+    "type": "noun"
+  },
+  {
+    "word": "child",
+    "pronunciation": "/tʃajld/",
+    "meaning": "child",
+    "domain": "Person",
+    "type": "noun"
+  },
+  {
+    "word": "wif",
+    "pronunciation": "/wif/",
+    "meaning": "wife",
+    "domain": "Person",
+    "type": "noun"
+  },
+  {
+    "word": "husban",
+    "pronunciation": "/husban/",
+    "meaning": "husband",
+    "domain": "Person",
+    "type": "noun"
+  },
+  {
+    "word": "moder",
+    "pronunciation": "/modeɾ/",
+    "meaning": "mother",
+    "domain": "Person",
+    "type": "noun"
+  },
+  {
+    "word": "fader",
+    "pronunciation": "/fadeɾ/",
+    "meaning": "father",
+    "domain": "Person",
+    "type": "noun"
+  },
+  {
+    "word": "fis",
+    "pronunciation": "/fis/",
+    "meaning": "fish",
+    "domain": "Animal",
+    "type": "noun"
+  },
+  {
+    "word": "bird",
+    "pronunciation": "/biɾd/",
+    "meaning": "bird",
+    "domain": "Animal",
+    "type": "noun"
+  },
+  {
+    "word": "dog",
+    "pronunciation": "/dog/",
+    "meaning": "dog",
+    "domain": "Animal",
+    "type": "noun"
+  },
+  {
+    "word": "lous",
+    "pronunciation": "/lous/",
+    "meaning": "louse",
+    "domain": "Animal",
+    "type": "noun"
+  },
+  {
+    "word": "snak",
+    "pronunciation": "/snak/",
+    "meaning": "snake",
+    "domain": "Animal",
+    "type": "noun"
+  },
+  {
+    "word": "worm",
+    "pronunciation": "/woɾm/",
+    "meaning": "worm",
+    "domain": "Animal",
+    "type": "noun"
+  },
+  {
+    "word": "bag",
+    "pronunciation": "/bag/",
+    "meaning": "bag",
+    "domain": "Object",
+    "type": "noun"
+  },
+  {
+    "word": "eg",
+    "pronunciation": "/eg/",
+    "meaning": "egg",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "horn",
+    "pronunciation": "/hoɾn/",
+    "meaning": "horn",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "tail",
+    "pronunciation": "/tajl/",
+    "meaning": "tail",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "feder",
+    "pronunciation": "/fedeɾ/",
+    "meaning": "feather",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "hej",
+    "pronunciation": "/hej/",
+    "meaning": "hair",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "hed",
+    "pronunciation": "/hed/",
+    "meaning": "head",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "nej",
+    "pronunciation": "/nej/",
+    "meaning": "neck",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "fut",
+    "pronunciation": "/fut/",
+    "meaning": "foot",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "leg",
+    "pronunciation": "/leg/",
+    "meaning": "leg",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "ni",
+    "pronunciation": "/ni/",
+    "meaning": "knee",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "han",
+    "pronunciation": "/han/",
+    "meaning": "hand",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "wing",
+    "pronunciation": "/wiŋ/",
+    "meaning": "wing",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "beli",
+    "pronunciation": "/beli/",
+    "meaning": "belly",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "guts",
+    "pronunciation": "/guts/",
+    "meaning": "guts",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "bak",
+    "pronunciation": "/bak/",
+    "meaning": "back",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "brest",
+    "pronunciation": "/bɾest/",
+    "meaning": "breast",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "hart",
+    "pronunciation": "/haɾt/",
+    "meaning": "heart",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "liver",
+    "pronunciation": "/liveɾ/",
+    "meaning": "liver",
+    "domain": "Body",
+    "type": "noun"
+  },
+  {
+    "word": "drij",
+    "pronunciation": "/dɾij/",
+    "meaning": "dry",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "wet",
+    "pronunciation": "/wet/",
+    "meaning": "wet",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "ful",
+    "pronunciation": "/ful/",
+    "meaning": "full",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "new",
+    "pronunciation": "/new/",
+    "meaning": "new",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "old",
+    "pronunciation": "/old/",
+    "meaning": "old",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "gud",
+    "pronunciation": "/gud/",
+    "meaning": "good",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "bad",
+    "pronunciation": "/bad/",
+    "meaning": "bad",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "rot",
+    "pronunciation": "/ɾot/",
+    "meaning": "rotten",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "drti",
+    "pronunciation": "/dɾti/",
+    "meaning": "dirty",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "stret",
+    "pronunciation": "/stɾet/",
+    "meaning": "straight",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "round",
+    "pronunciation": "/ɾound/",
+    "meaning": "round",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "sharp",
+    "pronunciation": "/shaɾp/",
+    "meaning": "sharp",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "dul",
+    "pronunciation": "/dul/",
+    "meaning": "dull",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "smot",
+    "pronunciation": "/smot/",
+    "meaning": "smooth",
+    "domain": "Quality",
+    "type": "adjective"
+  },
+  {
+    "word": "rot",
+    "pronunciation": "/ɾot/",
+    "meaning": "right",
+    "domain": "Direction",
+    "type": "adjective"
+  },
+  {
+    "word": "left",
+    "pronunciation": "/left/",
+    "meaning": "left",
+    "domain": "Direction",
+    "type": "adjective"
+  },
+  {
+    "word": "at",
+    "pronunciation": "/at/",
+    "meaning": "at",
+    "domain": "General",
+    "type": "preposition"
+  },
+  {
+    "word": "in",
+    "pronunciation": "/in/",
+    "meaning": "in",
+    "domain": "General",
+    "type": "preposition"
+  },
+  {
+    "word": "wid",
+    "pronunciation": "/wid/",
+    "meaning": "with",
+    "domain": "General",
+    "type": "preposition"
+  },
+  {
+    "word": "an",
+    "pronunciation": "/an/",
+    "meaning": "and",
+    "domain": "General",
+    "type": "conjunction"
+  },
+  {
+    "word": "if",
+    "pronunciation": "/if/",
+    "meaning": "if",
+    "domain": "General",
+    "type": "conjunction"
+  },
+  {
+    "word": "bekos",
+    "pronunciation": "/bekos/",
+    "meaning": "because",
+    "domain": "General",
+    "type": "conjunction"
+  },
+  {
+    "word": "nem",
+    "pronunciation": "/nem/",
+    "meaning": "name",
+    "domain": "General",
+    "type": "noun"
   }
 ]
