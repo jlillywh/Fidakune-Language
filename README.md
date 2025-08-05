@@ -8,6 +8,27 @@ This repository hosts the official requirements document and foundational planni
 
 In a world facing complex, shared challenges, clear communication is essential. Fidakune was born from the idea that a logically designed, universally accessible language can be a powerful tool for human connection. By removing linguistic barriers, we hope to foster a global community capable of solving problems together.
 
+## 🚀 Quick Start
+
+New to Fidakune? Start here:
+
+1. 📖 **Read our first story** to see Fidakune in action.
+2. 🔤 **Learn your first words** from our [Foundational Vocabulary](LEXICON.md).
+3. 💬 **Join the conversation** in [GitHub Discussions](https://github.com/jlillywh/Fidakune-Language/discussions).
+4. 🌟 **Subscribe to our [Substack](https://substack.com/@jlillywh)** for weekly stories and updates.
+
+## ✨ See Fidakune in Action
+
+Here is a simple but powerful example of Fidakune's expressive philosophy:
+
+**"Hope gives strength"**
+
+* **Fidakune:** `sole-lum pa don forsa`
+* **Pronunciation:** `/ˈso.le.lum pa don ˈfor.sa/`
+* **Literal:** "sun-light past give strength"
+
+👆 *Notice how the metaphorical compound `sole-lum` (sun-light) creates the concept of "hope." This aligns with our design principle of expressive capacity through compounding. The `SVO` word order and pre-verbal tense particle `pa` demonstrate the language's simple, regular grammar.*
+
 ## Core Principles
 
 Fidakune's design is guided by five key principles:
@@ -68,6 +89,17 @@ We are particularly looking for feedback on:
 - **Accessibility**: Propose WCAG 2.1-compliant features
 - **Cultural Neutrality**: Review phonology and gestures
 - **Learning Materials**: Contribute to guidebook exercises
+
+## 📊 Project Milestones
+
+Fidakune is an active project, and our progress is transparent.
+
+* ✅ **Core Vocabulary:** 206 words defined (Target: ~1,200)
+* ✅ **Swadesh 100 List:** Complete coverage achieved.
+* ✅ **Phonology:** The 20-phoneme system is finalized and stable.
+* ✅ **Grammar:** The analytic (SVO) grammar is finalized.
+* ✅ **First Story Published:** "The Light of Hope" is available for learners.
+* 🔄 **Community Testing:** Our testing framework is currently in development.
 
 ## Translations
 
