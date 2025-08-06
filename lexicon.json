@@ -28,9 +28,9 @@
     "type": "noun"
   },
   {
-    "word": "app",
-    "pronunciation": "/app/",
-    "meaning": "application",
+    "word": "prog",
+    "pronunciation": "/pɾog/",
+    "meaning": "program, application",
     "domain": "Technology",
     "type": "noun"
   },
@@ -119,8 +119,8 @@
     "type": "verb"
   },
   {
-    "word": "dream",
-    "pronunciation": "/dream/",
+    "word": "som",
+    "pronunciation": "/som/",
     "meaning": "dream",
     "domain": "Cognition",
     "type": "noun"
@@ -469,9 +469,9 @@
     "type": "adjective"
   },
   {
-    "word": "libertas",
-    "pronunciation": "/ˈli.ber.tas/",
-    "meaning": "freedom",
+    "word": "fre",
+    "pronunciation": "/fɾe/",
+    "meaning": "freedom, liberty",
     "domain": "Society",
     "type": "noun"
   },
@@ -630,8 +630,8 @@
     "type": "adjective"
   },
   {
-    "word": "pensar",
-    "pronunciation": "/ˈpen.sar/",
+    "word": "tink",
+    "pronunciation": "/tink/",
     "meaning": "think",
     "domain": "Cognition",
     "type": "verb"
@@ -994,9 +994,9 @@
     "type": "adjective"
   },
   {
-    "word": "long",
-    "pronunciation": "/loŋ/",
-    "meaning": "long",
+    "word": "larg",
+    "pronunciation": "/laɾg/",
+    "meaning": "long, extended",
     "domain": "Quality",
     "type": "adjective"
   },
@@ -1071,23 +1071,23 @@
     "type": "noun"
   },
   {
-    "word": "child",
-    "pronunciation": "/tʃajld/",
-    "meaning": "child",
+    "word": "jun",
+    "pronunciation": "/jun/",
+    "meaning": "young person, child",
     "domain": "Person",
     "type": "noun"
   },
   {
-    "word": "wif",
-    "pronunciation": "/wif/",
-    "meaning": "wife",
+    "word": "part",
+    "pronunciation": "/paɾt/",
+    "meaning": "partner, spouse",
     "domain": "Person",
     "type": "noun"
   },
   {
-    "word": "husban",
-    "pronunciation": "/husban/",
-    "meaning": "husband",
+    "word": "ko-part",
+    "pronunciation": "/ko.paɾt/",
+    "meaning": "co-partner, spouse",
     "domain": "Person",
     "type": "noun"
   },
@@ -1232,8 +1232,8 @@
     "type": "noun"
   },
   {
-    "word": "wing",
-    "pronunciation": "/wiŋ/",
+    "word": "ala",
+    "pronunciation": "/a.la/",
     "meaning": "wing",
     "domain": "Body",
     "type": "noun"
@@ -1358,9 +1358,9 @@
     "type": "adjective"
   },
   {
-    "word": "sharp",
-    "pronunciation": "/shaɾp/",
-    "meaning": "sharp",
+    "word": "akut",
+    "pronunciation": "/a.kut/",
+    "meaning": "sharp, pointed",
     "domain": "Quality",
     "type": "adjective"
   },

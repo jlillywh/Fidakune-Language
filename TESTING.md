@@ -1,6 +1,6 @@
 # Fidakune Testing Metrics Framework
 
-This document outlines the testing metrics for evaluating Fidakune's learnability, accessibility, and cultural neutrality, as defined in [REQUIREMENTS.md](REQUIREMENTS.md) Sections 6.1 and 8.1. These metrics guide testing with 50 learners from 10 language families to ensure the language meets its goals of cognitive simplicity, articulatory ease, and universal accessibility.
+This document outlines the testing metrics for evaluating Fidakune's learnability, accessibility, and cross-cultural effectiveness, as defined in [REQUIREMENTS.md](REQUIREMENTS.md) Sections 6.1 and 8.1. These metrics guide testing with 50 learners from 10 language families to ensure the language meets its goals of cognitive simplicity, articulatory ease, and broad accessibility.
 
 ## Overview
 Fidakune's testing framework measures proficiency at two tiers:
@@ -39,7 +39,7 @@ Feedback is welcomed via [Issues](https://github.com/jlillywh/Fidakune-Language/
   - Pronounce 10 complex words (e.g., `sky-net` /skai.net/, `sole-lum` /ˈso.le.lum/ for "sunlight").
   - Identify any homophony risks (e.g., similar-sounding words).
 - **Gesture Test**:
-  - Test all 20 gestures for cultural neutrality in diverse settings.
+  - Test all 20 gestures for clarity and appropriateness across diverse cultural settings.
   - Propose new gestures if needed (e.g., for "Number 2").
 - **Accessibility Test**:
   - Evaluate digital lexicon prototype for WCAG 2.1 compliance (e.g., alt text, keyboard navigation).
@@ -77,7 +77,7 @@ Feedback is welcomed via [Issues](https://github.com/jlillywh/Fidakune-Language/
 - **Feedback Focus**:
   - Phonology: Ease of pronunciation, approximation challenges.
   - Grammar: Clarity of SVO structure and particles.
-  - Vocabulary: Cultural neutrality, expressiveness.
+  - Vocabulary: Cross-cultural accessibility, expressiveness.
   - Gestures: Cultural appropriateness, accessibility.
   - Accessibility: Screen reader compatibility, tool usability.
 

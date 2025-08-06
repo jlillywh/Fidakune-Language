@@ -1,0 +1,85 @@
+name: "Fidakune Word Proposal"
+description: "Suggest a new word for the Fidakune lexicon."
+title: "Proposal: [WORD]"
+labels: ["new-proposal", "lexicon"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🌍 Welcome to Fidakune Word Proposals!
+        
+        Thank you for contributing to the Fidakune language! Please fill out the fields below as completely as possible. Your proposal will be reviewed by the Language Council and automatically analyzed by our linguistic validation system.
+        
+        **Please note:** All proposals are public and will be visible to the community.
+
+  - type: input
+    id: word
+    attributes:
+      label: "Proposed Word"
+      description: "Enter the Fidakune word using the Latin alphabet. Use only the 20 official Fidakune phonemes (p, b, t, d, k, g, m, n, f, s, h, l, r, w, j, a, e, i, o, u) and follow CV syllable structure."
+      placeholder: "e.g., kore-pet"
+    validations:
+      required: true
+
+  - type: textarea
+    id: definition
+    attributes:
+      label: "Definition"
+      description: "Provide a clear and concise English definition."
+      placeholder: "e.g., Grief; a feeling of deep sorrow."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: domain
+    attributes:
+      label: "Semantic Domain"
+      description: "Select the most appropriate semantic domain for this word."
+      options:
+        - "Action"
+        - "Animal"
+        - "Body"
+        - "Cognition"
+        - "Direction"
+        - "Emotion"
+        - "General"
+        - "Grammar"
+        - "Nature"
+        - "Number"
+        - "Object"
+        - "Person"
+        - "Place"
+        - "Quality"
+        - "Society"
+        - "Technology"
+        - "Time"
+    validations:
+      required: true
+
+  - type: textarea
+    id: justification
+    attributes:
+      label: "Justification & Etymology"
+      description: "Why is this word needed? If it's a compound word, explain how its meaning is derived from its roots (e.g., 'kore-pet' from 'kore' (heart) + 'pet' (stone))."
+      placeholder: "This word fills a gap in emotional vocabulary. As a compound, it combines 'kore' (heart) with 'pet' (stone), representing the heavy, stone-like feeling in one's heart during grief."
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ### What happens next?
+        
+        1. **Automated Analysis**: Our system will automatically analyze your proposal for:
+           - Phonotactic validity (correct sounds and syllable structure)
+           - Potential pronunciation conflicts with existing words
+           - Root word verification for compounds
+           - Semantic appropriateness
+        
+        2. **Language Council Review**: The Language Council will review your proposal along with the automated analysis
+        
+        3. **Community Discussion**: The community can discuss and provide feedback on your proposal
+        
+        Thank you for helping grow the Fidakune lexicon! 🚀

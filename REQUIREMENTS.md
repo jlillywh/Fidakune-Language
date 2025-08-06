@@ -26,11 +26,11 @@ All digital learning tools will be designed for global accessibility, supporting
 - **Cognitive Load:** Grammar is simple, regular, and predictable, with no irregularities.
 - **Information Clarity:** Structures prevent ambiguity through consistent rules and minimal exceptions.
 - **Expressive Capacity:** The language's structural simplicity serves as a foundation for rich expression. Nuance is achieved through techniques like metaphorical compounding (e.g., **`kore-pet` for "grief" or "heart-stone"**).
-- **Cultural Neutrality:** Fidakune avoids bias toward any specific language family or culture to ensure universal accessibility. This is achieved through:
+- **Cross-Cultural Accessibility:** Fidakune draws from patterns common across diverse language families and cultures to maximize accessibility. This is achieved through:
   - **Phonology**: The 20-phoneme inventory (15 consonants, 5 vowels) includes sounds common across global languages (e.g., /a/, /s/, /m/), avoiding phonemes tied to specific regions (e.g., clicks or uvular stops). The alveolar tap /ɾ/ can be approximated as /d/ or /r/ to accommodate diverse speakers.
-  - **Vocabulary**: Words are derived from universal concepts (e.g., `aqua` for water, `sole` for sun) rather than loanwords from dominant languages like English or Mandarin. Proper nouns adapt to Fidakune phonotactics (e.g., `Pa-ris` for Paris) to maintain neutrality.
+  - **Vocabulary**: Words are derived from widely recognizable concepts (e.g., `aqua` for water, `sole` for sun) rather than loanwords from any single language family. Proper nouns adapt to Fidakune phonotactics (e.g., `Pa-ris` for Paris) to maintain consistency.
   - **Gestures**: The 20 standardized gestures (e.g., single nod for "Yes," shoulder shrug for "Question") are designed for maximum cross-cultural clarity and minimal known offense, tested with diverse groups to avoid misinterpretation (e.g., avoiding pointing gestures that may be offensive in some cultures). Accessibility alternatives (e.g., facial expressions) ensure inclusivity.
-  - **Community Feedback**: To maintain neutrality, we invite feedback on phonemes, words, and gestures via [Issues](https://github.com/jlillywh/Fidakune-Language/issues) or [fidakune.contact@gmail.com], especially from speakers of tonal or non-alphabetic languages.
+  - **Community Feedback**: To ensure broad accessibility, we actively seek feedback on phonemes, words, and gestures via [Issues](https://github.com/jlillywh/Fidakune-Language/issues) or [fidakune.contact@gmail.com], especially from speakers of diverse linguistic backgrounds including tonal and non-alphabetic languages.
 - **Adaptability:** Fidakune is designed to evolve through community governance, ensuring it remains relevant without introducing complexity (e.g., **new terms like `sky-net` (internet) can be added to address emerging technologies**).
 
 ---
@@ -78,7 +78,7 @@ All digital learning tools will be designed for global accessibility, supporting
 
 ### 4.5 Standardized Gestural Component
 - A standardized set of **no more than 20 simple gestures designed for maximum cross-cultural clarity and minimal known offense**.
-- **Cultural Neutrality Testing:** Gestures are tested with diverse groups to ensure cultural neutrality and avoid misinterpretation. Feedback welcomed via [Issues](https://github.com/jlillywh/Fidakune-Language/issues).
+- **Cross-Cultural Testing:** Gestures are tested with diverse linguistic and cultural groups to maximize clarity and minimize misinterpretation. Feedback welcomed via [Issues](https://github.com/jlillywh/Fidakune-Language/issues).
 - **Example Gestures:**
   - **Yes:** A single, slow nod of the head. *[Audio description: "Affirmative head nod" for visually impaired users]*
   - **Question:** A slight shoulder shrug with open palms. *[Audio description: "Questioning gesture with raised shoulders" for visually impaired users]*
@@ -150,7 +150,7 @@ We invite speakers of diverse linguistic backgrounds to test Fidakune's design p
 **How to Contribute Feedback:**
 Submit your observations, suggestions, and test results via our [GitHub Issues](https://github.com/jlillywh/Fidakune-Language/issues) page or email [fidakune.contact@gmail.com]. Use tags like [PHONOLOGY], [GESTURE], [ACCESSIBILITY], [VOCAB PROPOSAL], or [GRAMMAR] to help us categorize your input.
 
-**Target:** We aim to test with 50 learners from 10 language families (Section 8.1) to ensure Fidakune's universal accessibility and cultural neutrality.
+**Target:** We aim to test with 50 learners from 10 language families (Section 8.1) to evaluate Fidakune's cross-cultural accessibility and identify areas for improvement.
 
 ---
 

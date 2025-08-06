@@ -91,7 +91,7 @@ To propose a new word for the Fidakune lexicon:
 
 4. **Review Process:** The core team (Phase 1) or Language Council (Phase 2) will review proposals for:
    - Phonotactic compliance
-   - Cultural neutrality
+   - Cross-cultural accessibility
    - No homophony with existing words
    - Semantic clarity and usefulness
 

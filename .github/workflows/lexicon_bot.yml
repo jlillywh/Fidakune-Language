@@ -1,0 +1,105 @@
+name: "Lexicon Proposal Analyzer"
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  analyze-proposal:
+    # Run only if the issue has the 'new-proposal' label
+    if: contains(github.event.issue.labels.*.name, 'new-proposal')
+    runs-on: ubuntu-latest
+    
+    permissions:
+      issues: write
+      contents: read
+    
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+      
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      
+      - name: "Install dependencies"
+        run: |
+          python -m pip install --upgrade pip
+          # Add any required dependencies here if needed
+      
+      - name: "Run Analysis Script"
+        id: analysis
+        run: |
+          # Escape the issue body for safe shell handling
+          issue_body=$(cat << 'EOF'
+          ${{ github.event.issue.body }}
+          EOF
+          )
+          
+          # Run the analysis script and capture output
+          echo "Running lexicon analysis..."
+          analysis_output=$(python scripts/analyze_proposal.py "$issue_body" 2>/dev/null || echo "❌ ERROR: Analysis script failed to execute")
+          
+          # Save the output to GitHub Actions output
+          echo "report_body<<ANALYSIS_EOF" >> $GITHUB_OUTPUT
+          echo "$analysis_output" >> $GITHUB_OUTPUT
+          echo "ANALYSIS_EOF" >> $GITHUB_OUTPUT
+          
+          echo "Analysis complete"
+      
+      - name: "Post Analysis Comment"
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            🤖 **Fidakune-Bot Analysis:**
+            
+            ${{ steps.analysis.outputs.report_body }}
+            
+            ---
+            
+            ### Next Steps
+            
+            - **Language Council**: Please review this analysis along with the proposal
+            - **Community**: Feel free to discuss and provide feedback
+            - **Contributor**: Address any issues identified above if needed
+            
+            *This analysis was automatically generated. For questions about the validation process, please refer to [PHONOLOGY.md](PHONOLOGY.md) and [lexicon_enhanced.json](lexicon_enhanced.json).*
+      
+      - name: "Add analysis label"
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Add a label to indicate analysis is complete
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['analysis-complete']
+            });
+            
+            // If there are failures, add needs-revision label
+            const analysisOutput = `${{ steps.analysis.outputs.report_body }}`;
+            if (analysisOutput.includes('❌ FAIL') || analysisOutput.includes('**REJECT**')) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: ['needs-revision']
+              });
+            } else if (analysisOutput.includes('⚠️ WARNING') || analysisOutput.includes('**REVIEW**')) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: ['needs-review']
+              });
+            } else if (analysisOutput.includes('**APPROVE**')) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: ['ready-for-council']
+              });
+            }

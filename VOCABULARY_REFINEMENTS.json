@@ -1,0 +1,132 @@
+[
+  {
+    "action": "replace",
+    "old_word": "child",
+    "new_word": "jun",
+    "pronunciation": "/jun/",
+    "meaning": "young person, child",
+    "domain": "Person",
+    "type": "noun",
+    "rationale": "Removes /tʃ/ phoneme violation, uses universal 'young' concept"
+  },
+  {
+    "action": "replace",
+    "old_word": "sharp",
+    "new_word": "akut",
+    "pronunciation": "/a.kut/",
+    "meaning": "sharp, pointed",
+    "domain": "Quality",
+    "type": "adjective",
+    "rationale": "Removes /ʃ/ phoneme violation, uses widespread 'acute' concept"
+  },
+  {
+    "action": "replace",
+    "old_word": "long",
+    "new_word": "larg",
+    "pronunciation": "/laɾg/",
+    "meaning": "long, extended",
+    "domain": "Quality",
+    "type": "adjective",
+    "rationale": "Removes /ŋ/ phoneme issue, uses universal concept"
+  },
+  {
+    "action": "replace",
+    "old_word": "wing",
+    "new_word": "ala",
+    "pronunciation": "/a.la/",
+    "meaning": "wing",
+    "domain": "Body",
+    "type": "noun",
+    "rationale": "Removes /ŋ/ phoneme issue, uses widespread concept"
+  },
+  {
+    "action": "replace",
+    "old_word": "libertas",
+    "new_word": "fre",
+    "pronunciation": "/fɾe/",
+    "meaning": "freedom, liberty",
+    "domain": "Society",
+    "type": "noun",
+    "rationale": "Removes Latin bias, simplifies to universal 'free' concept"
+  },
+  {
+    "action": "replace",
+    "old_word": "pensar",
+    "new_word": "tink",
+    "pronunciation": "/tink/",
+    "meaning": "think",
+    "domain": "Cognition",
+    "type": "verb",
+    "rationale": "Removes Spanish bias, uses more universal concept"
+  },
+  {
+    "action": "replace",
+    "old_word": "dream",
+    "new_word": "som",
+    "pronunciation": "/som/",
+    "meaning": "dream",
+    "domain": "Cognition",
+    "type": "noun",
+    "rationale": "Removes English bias, uses universal 'somnium' concept"
+  },
+  {
+    "action": "replace",
+    "old_word": "app",
+    "new_word": "prog",
+    "pronunciation": "/pɾog/",
+    "meaning": "program, application",
+    "domain": "Technology",
+    "type": "noun",
+    "rationale": "Removes English abbreviation, uses more universal concept"
+  },
+  {
+    "action": "remove",
+    "old_word": "bon",
+    "rationale": "Duplicate of 'gud' - keeping 'gud' as more universal"
+  },
+  {
+    "action": "remove",
+    "old_word": "new",
+    "rationale": "Duplicate of 'nov' - keeping 'nov' as better phonotactic fit"
+  },
+  {
+    "action": "remove",
+    "old_word": "vol",
+    "rationale": "Duplicate of 'vel' - keeping 'vel' as simpler form"
+  },
+  {
+    "action": "remove",
+    "old_word": "krea",
+    "rationale": "Duplicate of 'kre' - keeping 'kre' as simpler form"
+  },
+  {
+    "action": "replace",
+    "old_word": "wif",
+    "new_word": "part",
+    "pronunciation": "/paɾt/",
+    "meaning": "partner, spouse",
+    "domain": "Person",
+    "type": "noun",
+    "rationale": "More inclusive than traditional 'wife' concept"
+  },
+  {
+    "action": "replace",
+    "old_word": "husban",
+    "new_word": "ko-part",
+    "pronunciation": "/ko.paɾt/",
+    "meaning": "co-partner, spouse",
+    "domain": "Person",
+    "type": "noun",
+    "rationale": "Gender-neutral alternative to 'husband', uses compound pattern"
+  },
+  {
+    "action": "modify",
+    "old_word": "saber",
+    "new_word": "know",
+    "pronunciation": "/now/",
+    "meaning": "know, understand",
+    "domain": "Cognition",
+    "type": "verb",
+    "rationale": "Removes Spanish bias, aligns with universal concept"
+  }
+]

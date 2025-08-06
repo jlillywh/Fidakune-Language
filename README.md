@@ -2,7 +2,7 @@
 
 **Fidakune is a constructed language designed for global communication, trust, and collaboration.**
 
-This repository hosts the official requirements document and foundational planning for the Fidakune language. Our mission is to create a shared second language that is exceptionally easy to learn, culturally neutral, and robust enough to handle complex topics like climate science, diplomacy, and cross-cultural collaboration.
+This repository hosts the official requirements document and foundational planning for the Fidakune language. Our mission is to create a shared second language that is exceptionally easy to learn, accessible across cultures, and robust enough to handle complex topics like climate science, diplomacy, and cross-cultural collaboration.
 
 ## Our Vision
 
@@ -36,7 +36,7 @@ Fidakune's design is guided by five key principles:
 * 🧠 **Cognitive Simplicity:** A grammar so regular it has zero exceptions.
 * 🗣️ **Articulatory Ease:** A sound system built from the most common phonemes across world languages.
 * 🎨 **Expressive Capacity:** A simple structure that serves as a canvas for rich, emotional, and artistic expression.
-* 🌍 **Cultural Neutrality:** A design that avoids bias toward any single language family or culture.
+* 🌍 **Cross-Cultural Accessibility:** A design that draws from common patterns across diverse language families and cultures.
 * 🤝 **Collaborative Evolution:** A framework for the language to grow with its community.
 
 ## Project Documentation
@@ -81,13 +81,13 @@ We are particularly looking for feedback on:
 
 * **Vocabulary Development:** Suggest words like `sky-net` for internet
 * **Accessibility:** Propose WCAG 2.1-compliant features for learning tools
-* **Cultural Neutrality:** Review phonology and gestures for bias
+* **Cross-Cultural Testing:** Review phonology and gestures with diverse linguistic communities
 * **Learning Materials:** Contribute to guidebook exercises
 
 **Priority Areas for Feedback:**
 - **Vocabulary Development**: Suggest new words (e.g., `sky-net` for internet)
 - **Accessibility**: Propose WCAG 2.1-compliant features
-- **Cultural Neutrality**: Review phonology and gestures
+- **Cross-Cultural Testing**: Review phonology and gestures with diverse communities
 - **Learning Materials**: Contribute to guidebook exercises
 
 ## 📊 Project Milestones
@@ -108,6 +108,18 @@ Summaries of key documents are available in:
 - [中文](translations/README_zh.md) | [贡献](translations/CONTRIBUTING_zh.md)
 - [العربية](translations/README_ar.md) | [المساهمة](translations/CONTRIBUTING_ar.md)
 - [हिन्दी](translations/README_hi.md) | [योगदान](translations/CONTRIBUTING_hi.md)
+
+## Contributors
+
+We acknowledge the core contributors to this project's design and implementation:
+
+- **Jason - Human** - Director
+
+- **Fida - Gemini 2.5 Pro** - Project architect and language designer
+
+- **Kiro - Claude Sonnet 4** - Engineer
+
+This project represents a collaborative effort between human creativity and AI capabilities, working together to build tools that serve the global Fidakune language community.
 
 ## License
 
