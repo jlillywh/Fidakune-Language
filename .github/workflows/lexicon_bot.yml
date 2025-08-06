@@ -6,8 +6,8 @@ on:
 
 jobs:
   analyze-proposal:
-    # Run only if the issue has the 'new-proposal' or 'vocab-proposal' label
-    if: contains(github.event.issue.labels.*.name, 'new-proposal') || contains(github.event.issue.labels.*.name, 'vocab-proposal')
+    # Run only if the issue has the 'vocab-proposal' label
+    if: contains(github.event.issue.labels.*.name, 'vocab-proposal')
     runs-on: ubuntu-latest
     
     permissions:
