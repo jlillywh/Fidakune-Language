@@ -1,7 +1,6 @@
 name: "Fidakune Word Proposal"
 description: "Suggest a new word for the Fidakune lexicon."
 title: "Proposal: [WORD]"
-labels: ["vocab-proposal", "community-input"]
 body:
   - type: markdown
     attributes:

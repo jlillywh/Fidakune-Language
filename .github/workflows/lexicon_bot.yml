@@ -6,8 +6,8 @@ on:
 
 jobs:
   analyze-proposal:
-    # Run only if the issue has the 'vocab-proposal' label
-    if: contains(github.event.issue.labels.*.name, 'vocab-proposal')
+    # Run if the issue title starts with "Proposal:" (from word proposal template)
+    if: startsWith(github.event.issue.title, 'Proposal:')
     runs-on: ubuntu-latest
     
     permissions:
