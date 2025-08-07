@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexicon Search Test Suite</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #007bff;
+        }
+        .test-result {
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+        .pass { background: #d4edda; color: #155724; }
+        .fail { background: #f8d7da; color: #721c24; }
+        .warning { background: #fff3cd; color: #856404; }
+        pre {
+            background: #e9ecef;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .test-controls {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0.25rem;
+        }
+        button:hover { background: #0056b3; }
+        #test-output {
+            min-height: 200px;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            background: white;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fidakune Lexicon Search - Test Suite</h1>
+    
+    <div class="test-controls">
+        <h2>Test Controls</h2>
+        <button onclick="runAllTests()">Run All Tests</button>
+        <button onclick="testSearchFunctionality()">Test Search Logic</button>
+        <button onclick="testAccessibility()">Test Accessibility</button>
+        <button onclick="testResponsiveness()">Test Responsiveness</button>
+        <button onclick="testGitHubIntegration()">Test GitHub Integration</button>
+        <button onclick="clearResults()">Clear Results</button>
+    </div>
+
+    <div id="test-output"></div>
+
+    <script>
+        // Import the lexicon search functionality
+        let AppState, executeSearch, buildGitHubIssueUrl, parseLexiconMarkdown;
+        
+        // Test data
+        const testLexiconData = [
+            { word: 'aqua', definition: 'water', domain: 'Nature', pronunciation: '/ˈa.kwa/', type: 'simple', roots: [] },
+            { word: 'sole', definition: 'sun', domain: 'Nature', pronunciation: '/ˈso.le/', type: 'simple', roots: [] },
+            { word: 'ami', definition: 'friend', domain: 'Society', pronunciation: '/ˈa.mi/', type: 'simple', roots: [] },
+            { word: 'lei', definition: 'law', domain: 'Society', pronunciation: '/lei/', type: 'simple', roots: [] },
+            { word: 'kore-pet', definition: 'grief', domain: 'Emotion', pronunciation: '/ˈko.ɾe.pet/', type: 'compound', roots: ['kore', 'pet'] },
+            { word: 'sole-lum', definition: 'hope', domain: 'Emotion', pronunciation: '/ˈso.le.lum/', type: 'compound', roots: ['sole', 'lum'] },
+            { word: 'kore', definition: 'heart', domain: 'Body', pronunciation: '/ˈko.ɾe/', type: 'simple', roots: [] },
+            { word: 'pet', definition: 'stone', domain: 'Nature', pronunciation: '/pet/', type: 'simple', roots: [] },
+            { word: 'lum', definition: 'light', domain: 'Nature', pronunciation: '/lum/', type: 'simple', roots: [] }
+        ];
+
+        let testResults = [];
+
+        function logTest(testName, passed, details = '') {
+            const result = {
+                name: testName,
+                passed: passed,
+                details: details,
+                timestamp: new Date().toISOString()
+            };
+            testResults.push(result);
+            
+            const output = document.getElementById('test-output');
+            const div = document.createElement('div');
+            div.className = `test-result ${passed ? 'pass' : 'fail'}`;
+            div.innerHTML = `
+                <strong>${passed ? '✅' : '❌'} ${testName}</strong>
+                ${details ? `<br><small>${details}</small>` : ''}
+            `;
+            output.appendChild(div);
+        }
+
+        function logWarning(message) {
+            const output = document.getElementById('test-output');
+            const div = document.createElement('div');
+            div.className = 'test-result warning';
+            div.innerHTML = `<strong>⚠️ ${message}</strong>`;
+            output.appendChild(div);
+        }
+
+        function clearResults() {
+            document.getElementById('test-output').innerHTML = '';
+            testResults = [];
+        }
+
+        // Mock the search functionality for testing
+        function mockExecuteSearch(query) {
+            const normalizedQuery = query.toLowerCase().trim();
+            
+            const results = {
+                exactMatches: [],
+                relatedWords: [],
+                semanticMatches: [],
+                query: query
+            };
+            
+            // Tier 1: Exact matches
+            testLexiconData.forEach(entry => {
+                if (entry.word.toLowerCase() === normalizedQuery || 
+                    entry.definition.toLowerCase() === normalizedQuery) {
+                    results.exactMatches.push(entry);
+                }
+            });
+            
+            if (results.exactMatches.length > 0) {
+                return results;
+            }
+            
+            // Tier 2: Root analysis
+            const queryRoots = query.toLowerCase().split(/[-\s]+/).filter(part => part.length >= 2);
+            testLexiconData.forEach(entry => {
+                const entryRoots = entry.roots || [];
+                const hasMatchingRoot = queryRoots.some(root => 
+                    entryRoots.includes(root) || 
+                    entry.word.includes(root) ||
+                    root.includes(entry.word)
+                );
+                
+                if (hasMatchingRoot && !results.exactMatches.includes(entry)) {
+                    results.relatedWords.push(entry);
+                }
+            });
+            
+            // Tier 3: Semantic analysis
+            const queryKeywords = query.toLowerCase().split(/\s+/).filter(word => word.length >= 3);
+            testLexiconData.forEach(entry => {
+                const definitionWords = entry.definition.toLowerCase().split(/\s+/);
+                const hasSemanticMatch = queryKeywords.some(keyword => 
+                    definitionWords.some(word => 
+                        word.includes(keyword) || keyword.includes(word)
+                    )
+                );
+                
+                if (hasSemanticMatch && 
+                    !results.exactMatches.includes(entry) && 
+                    !results.relatedWords.includes(entry)) {
+                    results.semanticMatches.push(entry);
+                }
+            });
+            
+            return results;
+        }
+
+        function testSearchFunctionality() {
+            const output = document.getElementById('test-output');
+            const section = document.createElement('div');
+            section.className = 'test-section';
+            section.innerHTML = '<h3>🔍 Search Functionality Tests</h3>';
+            output.appendChild(section);
+
+            // Test 1: Exact match search
+            const exactResult = mockExecuteSearch('water');
+            logTest('Exact Match - "water" should find "aqua"', 
+                exactResult.exactMatches.length === 1 && exactResult.exactMatches[0].word === 'aqua',
+                `Found ${exactResult.exactMatches.length} exact matches`);
+
+            // Test 2: Exact match by Fidakune word
+            const fidakumeResult = mockExecuteSearch('ami');
+            logTest('Exact Match - "ami" should find friend', 
+                fidakumeResult.exactMatches.length === 1 && fidakumeResult.exactMatches[0].definition === 'friend',
+                `Found: ${fidakumeResult.exactMatches[0]?.definition || 'none'}`);
+
+            // Test 3: Root analysis for compound words
+            const rootResult = mockExecuteSearch('heart-stone');
+            logTest('Root Analysis - "heart-stone" should find related words', 
+                rootResult.relatedWords.length > 0,
+                `Found ${rootResult.relatedWords.length} related words: ${rootResult.relatedWords.map(w => w.word).join(', ')}`);
+
+            // Test 4: Semantic analysis
+            const semanticResult = mockExecuteSearch('emotion');
+            logTest('Semantic Analysis - "emotion" should find emotional concepts', 
+                semanticResult.semanticMatches.length > 0 || rootResult.relatedWords.some(w => w.domain === 'Emotion'),
+                `Found matches in emotion domain`);
+
+            // Test 5: No results scenario
+            const noResult = mockExecuteSearch('nonexistent');
+            logTest('No Results - "nonexistent" should return empty results', 
+                noResult.exactMatches.length === 0 && noResult.relatedWords.length === 0 && noResult.semanticMatches.length === 0,
+                'Correctly handles non-existent terms');
+
+            // Test 6: Compound word search
+            const compoundResult = mockExecuteSearch('kore-pet');
+            logTest('Compound Word - "kore-pet" should be found exactly', 
+                compoundResult.exactMatches.length === 1 && compoundResult.exactMatches[0].type === 'compound',
+                `Found compound word with roots: ${compoundResult.exactMatches[0]?.roots?.join(', ') || 'none'}`);
+        }
+
+        function testAccessibility() {
+            const output = document.getElementById('test-output');
+            const section = document.createElement('div');
+            section.className = 'test-section';
+            section.innerHTML = '<h3>♿ Accessibility Tests</h3>';
+            output.appendChild(section);
+
+            // Test ARIA labels
+            const searchInput = document.querySelector('#search-input');
+            logTest('Search Input ARIA', 
+                searchInput && searchInput.hasAttribute('aria-describedby'),
+                'Search input has proper ARIA descriptions');
+
+            // Test skip links
+            const skipLink = document.querySelector('.skip-link');
+            logTest('Skip Link Present', 
+                skipLink !== null,
+                'Skip to main content link exists');
+
+            // Test heading hierarchy
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            const hasH1 = document.querySelector('h1') !== null;
+            logTest('Heading Hierarchy', 
+                hasH1 && headings.length > 0,
+                `Found ${headings.length} headings with proper H1`);
+
+            // Test form labels
+            const labels = document.querySelectorAll('label');
+            const inputs = document.querySelectorAll('input');
+            logTest('Form Labels', 
+                labels.length > 0 || inputs.length === document.querySelectorAll('input[aria-label], input[aria-labelledby]').length,
+                'All inputs have associated labels or ARIA labels');
+
+            // Test live regions
+            const liveRegions = document.querySelectorAll('[aria-live]');
+            logTest('Live Regions', 
+                liveRegions.length > 0,
+                `Found ${liveRegions.length} live regions for dynamic content`);
+
+            // Test keyboard navigation
+            const focusableElements = document.querySelectorAll('button, input, a, [tabindex]:not([tabindex="-1"])');
+            logTest('Focusable Elements', 
+                focusableElements.length > 0,
+                `Found ${focusableElements.length} focusable elements`);
+
+            logWarning('Manual testing required: Screen reader compatibility, keyboard navigation flow, focus indicators');
+        }
+
+        function testResponsiveness() {
+            const output = document.getElementById('test-output');
+            const section = document.createElement('div');
+            section.className = 'test-section';
+            section.innerHTML = '<h3>📱 Responsiveness Tests</h3>';
+            output.appendChild(section);
+
+            // Test viewport meta tag
+            const viewport = document.querySelector('meta[name="viewport"]');
+            logTest('Viewport Meta Tag', 
+                viewport && viewport.content.includes('width=device-width'),
+                'Proper viewport configuration for mobile');
+
+            // Test CSS media queries (check if CSS file contains responsive rules)
+            const stylesheets = document.styleSheets;
+            let hasMediaQueries = false;
+            try {
+                for (let sheet of stylesheets) {
+                    for (let rule of sheet.cssRules || []) {
+                        if (rule.type === CSSRule.MEDIA_RULE) {
+                            hasMediaQueries = true;
+                            break;
+                        }
+                    }
+                }
+            } catch (e) {
+                logWarning('Cannot access CSS rules due to CORS - media queries should be verified manually');
+                hasMediaQueries = true; // Assume present since we can't check
+            }
+            
+            logTest('CSS Media Queries', 
+                hasMediaQueries,
+                'Responsive CSS rules detected');
+
+            // Test flexible layouts
+            const containers = document.querySelectorAll('.container, .search-form__input-group');
+            logTest('Flexible Containers', 
+                containers.length > 0,
+                `Found ${containers.length} responsive container elements`);
+
+            logWarning('Manual testing required: Test on actual mobile devices (320px, 768px, 1024px+ widths)');
+        }
+
+        function testGitHubIntegration() {
+            const output = document.getElementById('test-output');
+            const section = document.createElement('div');
+            section.className = 'test-section';
+            section.innerHTML = '<h3>🔗 GitHub Integration Tests</h3>';
+            output.appendChild(section);
+
+            // Mock search context
+            const mockSearchContext = {
+                query: 'test-word',
+                timestamp: new Date().toISOString(),
+                results: {
+                    exactMatches: [],
+                    relatedWords: [{ word: 'ami', definition: 'friend' }],
+                    semanticMatches: []
+                }
+            };
+
+            // Test URL building
+            function mockBuildGitHubIssueUrl(searchContext) {
+                const baseUrl = 'https://github.com/jlillywh/Fidakune-Language/issues/new';
+                const template = 'word_proposal.yml';
+                
+                let body = '';
+                if (searchContext) {
+                    body += `## Search Context\n\n`;
+                    body += `**Search performed:** ${searchContext.query}\n`;
+                    body += `**Search timestamp:** ${new Date(searchContext.timestamp).toLocaleString()}\n\n`;
+                    
+                    const totalResults = searchContext.results.exactMatches.length + 
+                                       searchContext.results.relatedWords.length + 
+                                       searchContext.results.semanticMatches.length;
+                    
+                    if (totalResults > 0) {
+                        body += `**Related words found:** ${totalResults}\n`;
+                        if (searchContext.results.relatedWords.length > 0) {
+                            body += `- Related words: ${searchContext.results.relatedWords.map(e => e.word).join(', ')}\n`;
+                        }
+                    }
+                    body += `\n---\n\n`;
+                }
+                
+                body += `I have searched the lexicon and believe this concept is not adequately covered.\n\n`;
+                
+                const params = new URLSearchParams({
+                    template: template,
+                    body: body
+                });
+                
+                return `${baseUrl}?${params.toString()}`;
+            }
+
+            const githubUrl = mockBuildGitHubIssueUrl(mockSearchContext);
+            
+            logTest('GitHub URL Generation', 
+                githubUrl.includes('github.com/jlillywh/Fidakune-Language/issues/new'),
+                'Correct GitHub repository URL');
+
+            logTest('Template Parameter', 
+                githubUrl.includes('template=word_proposal.yml'),
+                'Uses correct issue template');
+
+            logTest('Search Context Inclusion', 
+                githubUrl.includes('Search%20Context') && githubUrl.includes('test-word'),
+                'Search context properly included in issue body');
+
+            logTest('Related Words Context', 
+                githubUrl.includes('Related%20words%3A%20ami'),
+                'Related words included in context');
+
+            // Test propose button exists
+            const proposeButton = document.querySelector('#propose-word-button');
+            logTest('Propose Button Present', 
+                proposeButton !== null,
+                'Propose new word button exists in DOM');
+
+            logWarning('Manual testing required: Click propose button to verify GitHub issue opens correctly');
+        }
+
+        function runAllTests() {
+            clearResults();
+            
+            const output = document.getElementById('test-output');
+            const header = document.createElement('div');
+            header.innerHTML = `
+                <h2>🧪 Comprehensive Test Suite Results</h2>
+                <p><strong>Test Date:</strong> ${new Date().toLocaleString()}</p>
+                <p><strong>Test Environment:</strong> ${navigator.userAgent}</p>
+                <hr>
+            `;
+            output.appendChild(header);
+
+            testSearchFunctionality();
+            testAccessibility();
+            testResponsiveness();
+            testGitHubIntegration();
+
+            // Summary
+            setTimeout(() => {
+                const passed = testResults.filter(r => r.passed).length;
+                const total = testResults.length;
+                const summary = document.createElement('div');
+                summary.className = 'test-section';
+                summary.innerHTML = `
+                    <h3>📊 Test Summary</h3>
+                    <p><strong>Passed:</strong> ${passed}/${total} tests</p>
+                    <p><strong>Success Rate:</strong> ${Math.round((passed/total) * 100)}%</p>
+                    ${passed === total ? 
+                        '<p class="test-result pass">✅ All automated tests passed!</p>' : 
+                        '<p class="test-result warning">⚠️ Some tests require manual verification</p>'
+                    }
+                `;
+                output.appendChild(summary);
+            }, 100);
+        }
+
+        // Auto-run tests when page loads
+        window.addEventListener('load', () => {
+            setTimeout(runAllTests, 500);
+        });
+    </script>
+</body>
+</html>

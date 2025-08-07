@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search the Fidakune lexicon and propose new words for the constructed language designed for global communication.">
+    <meta name="keywords" content="Fidakune, lexicon, constructed language, conlang, vocabulary, search">
+    <title>Fidakune Lexicon Search</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192x192.png">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="lexicon-search.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="lexicon-search.js" as="script">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+    <header role="banner" class="header">
+        <div class="container">
+            <h1 class="header__title">
+                <a href="https://github.com/jlillywh/Fidakune-Language" class="header__link">
+                    Fidakune Lexicon Search
+                </a>
+            </h1>
+            <p class="header__subtitle">
+                Search existing vocabulary and propose new words for the global language
+            </p>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content" role="main" class="main">
+        <div class="container">
+            <!-- Search section -->
+            <section class="search-section" aria-labelledby="search-heading">
+                <h2 id="search-heading" class="search-section__title">
+                    Search the Lexicon
+                </h2>
+                <p class="search-section__description">
+                    Enter a word or concept in English or Fidakune to search the existing vocabulary.
+                </p>
+                
+                <!-- Search form -->
+                <form class="search-form" role="search" aria-label="Lexicon search">
+                    <div class="search-form__input-group">
+                        <label for="search-input" class="search-form__label visually-hidden">
+                            Search for a word or concept
+                        </label>
+                        <input 
+                            type="search" 
+                            id="search-input" 
+                            class="search-form__input"
+                            placeholder="Search for a word or concept..."
+                            aria-describedby="search-help"
+                            autocomplete="off"
+                            spellcheck="false"
+                        >
+                        <button type="submit" class="search-form__button" aria-label="Search lexicon">
+                            <span class="search-form__button-text">Search</span>
+                            <span class="search-form__button-icon" aria-hidden="true">🔍</span>
+                        </button>
+                    </div>
+                    <div id="search-help" class="search-form__help">
+                        Try searching for words like "water", "friend", or "kore-pet"
+                    </div>
+                </form>
+
+                <!-- Loading indicator -->
+                <div class="loading" id="loading-indicator" aria-hidden="true">
+                    <div class="loading__spinner" aria-hidden="true"></div>
+                    <span class="loading__text">Searching lexicon...</span>
+                </div>
+            </section>
+
+            <!-- Results section -->
+            <section class="results-section" id="results-section" aria-live="polite" aria-label="Search results">
+                <!-- Results will be dynamically inserted here -->
+            </section>
+
+            <!-- Proposal section -->
+            <section class="proposal-section" id="proposal-section" aria-labelledby="proposal-heading">
+                <div class="proposal-section__content">
+                    <h2 id="proposal-heading" class="proposal-section__title">
+                        Didn't find what you're looking for?
+                    </h2>
+                    <p class="proposal-section__description">
+                        If your search didn't return the concept you need, you can propose a new word for the Fidakune lexicon.
+                    </p>
+                    <button 
+                        type="button" 
+                        class="proposal-section__button" 
+                        id="propose-word-button"
+                        aria-describedby="proposal-help"
+                    >
+                        <span class="proposal-section__button-text">Propose a New Word</span>
+                        <span class="proposal-section__button-icon" aria-hidden="true">➕</span>
+                    </button>
+                    <div id="proposal-help" class="proposal-section__help">
+                        This will open a GitHub issue with your search context pre-filled
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo" class="footer">
+        <div class="container">
+            <p class="footer__text">
+                Part of the <a href="https://github.com/jlillywh/Fidakune-Language" class="footer__link">Fidakune Language Project</a>
+            </p>
+            <p class="footer__text">
+                <a href="https://github.com/jlillywh/Fidakune-Language/blob/main/CONTRIBUTING.md" class="footer__link">
+                    Contributing Guidelines
+                </a> | 
+                <a href="https://github.com/jlillywh/Fidakune-Language/issues" class="footer__link">
+                    Report Issues
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="lexicon-search.js"></script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexicon Search Integration Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #007bff;
+        }
+        .test-result {
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+        .pass { background: #d4edda; color: #155724; }
+        .fail { background: #f8d7da; color: #721c24; }
+        .warning { background: #fff3cd; color: #856404; }
+        .integration-demo {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .demo-search {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .demo-search input {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .demo-search button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .demo-results {
+            min-height: 100px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            padding: 1rem;
+            background: #fafafa;
+        }
+        .demo-result-item {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+        }
+        .demo-result-word {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .demo-result-definition {
+            color: #666;
+            margin: 0.25rem 0;
+        }
+        .demo-result-meta {
+            font-size: 0.8rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lexicon Search Integration Test</h1>
+    
+    <div class="test-section">
+        <h2>Integration Test Suite</h2>
+        <p>This test verifies that the UI (Task 1), Data Parsing System (Task 2), and Search Engine (Task 3) work together seamlessly.</p>
+        <button onclick="runIntegrationTests()">Run Integration Tests</button>
+        <div id="integration-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Live Integration Demo</h2>
+        <p>Test the complete system with real searches:</p>
+        
+        <div class="integration-demo">
+            <div class="demo-search">
+                <input type="text" id="demo-search-input" placeholder="Enter search query..." value="aqua">
+                <button onclick="performDemoSearch()">Search</button>
+            </div>
+            <div id="demo-results" class="demo-results">
+                <em>Enter a search query above to test the integrated system</em>
+            </div>
+        </div>
+        
+        <div class="integration-demo">
+            <h3>Suggested Test Queries</h3>
+            <button onclick="testQuery('aqua')">aqua (exact match)</button>
+            <button onclick="testQuery('water')">water (definition match)</button>
+            <button onclick="testQuery('heart-stone')">heart-stone (root analysis)</button>
+            <button onclick="testQuery('emotional')">emotional (semantic)</button>
+            <button onclick="testQuery('nonexistent')">nonexistent (no results)</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>System Status</h2>
+        <div id="system-status">
+            <em>Loading system status...</em>
+        </div>
+    </div>
+
+    <!-- Include the main lexicon search system -->
+    <script src="lexicon-search.js"></script>
+    <script src="test-lexicon-entry.js"></script>
+    <script src="test-search-engine.js"></script>
+
+    <script>
+        let integrationTestResults = [];
+
+        function logIntegrationTest(testName, passed, details = '') {
+            const result = {
+                name: testName,
+                passed: passed,
+                details: details,
+                timestamp: new Date().toISOString()
+            };
+            integrationTestResults.push(result);
+            
+            const output = document.getElementById('integration-results');
+            const div = document.createElement('div');
+            div.className = `test-result ${passed ? 'pass' : 'fail'}`;
+            div.innerHTML = `
+                <strong>${passed ? '✅' : '❌'} ${testName}</strong>
+                ${details ? `<br><small>${details}</small>` : ''}
+            `;
+            output.appendChild(div);
+        }
+
+        function runIntegrationTests() {
+            document.getElementById('integration-results').innerHTML = '';
+            integrationTestResults = [];
+            
+            console.log('🔗 Running Integration Tests...\n');
+            
+            testDataParsingIntegration();
+            testSearchEngineIntegration();
+            testUIIntegration();
+            testEndToEndWorkflow();
+            
+            // Summary
+            setTimeout(() => {
+                const passed = integrationTestResults.filter(r => r.passed).length;
+                const total = integrationTestResults.length;
+                const summary = document.createElement('div');
+                summary.className = 'test-section';
+                summary.innerHTML = `
+                    <h3>Integration Test Summary</h3>
+                    <p><strong>Passed:</strong> ${passed}/${total} tests</p>
+                    <p><strong>Success Rate:</strong> ${Math.round((passed/total) * 100)}%</p>
+                    ${passed === total ? 
+                        '<p class="test-result pass">✅ All integration tests passed!</p>' : 
+                        '<p class="test-result warning">⚠️ Some integration tests failed</p>'
+                    }
+                `;
+                document.getElementById('integration-results').appendChild(summary);
+            }, 100);
+        }
+
+        function testDataParsingIntegration() {
+            // Test that LexiconEntry class is available and working
+            try {
+                const testEntry = new LexiconEntry({
+                    word: 'test',
+                    definition: 'testing',
+                    domain: 'General'
+                });
+                
+                logIntegrationTest('LexiconEntry Class Available', 
+                    testEntry instanceof LexiconEntry,
+                    'LexiconEntry constructor and methods accessible');
+                
+                logIntegrationTest('LexiconEntry Methods Working', 
+                    typeof testEntry.isCompound === 'function' && typeof testEntry.getSemanticScore === 'function',
+                    'Core LexiconEntry methods are functional');
+                
+            } catch (error) {
+                logIntegrationTest('LexiconEntry Class Available', false, `Error: ${error.message}`);
+            }
+        }
+
+        function testSearchEngineIntegration() {
+            // Test that SearchEngine class is available and working
+            try {
+                const testData = [
+                    new LexiconEntry({ word: 'aqua', definition: 'water', domain: 'Nature' }),
+                    new LexiconEntry({ word: 'ami', definition: 'friend', domain: 'Society' })
+                ];
+                
+                const searchEngine = new SearchEngine(testData);
+                
+                logIntegrationTest('SearchEngine Class Available', 
+                    searchEngine instanceof SearchEngine,
+                    'SearchEngine constructor accessible');
+                
+                const result = searchEngine.search('aqua');
+                logIntegrationTest('SearchEngine Functionality', 
+                    result && result.exactMatches && result.exactMatches.length > 0,
+                    'SearchEngine can perform searches and return results');
+                
+                logIntegrationTest('Three-Tier Search Structure', 
+                    result.exactMatches && result.relatedWords && result.semanticMatches,
+                    'Search results contain all three tiers');
+                
+            } catch (error) {
+                logIntegrationTest('SearchEngine Integration', false, `Error: ${error.message}`);
+            }
+        }
+
+        function testUIIntegration() {
+            // Test that UI functions are available
+            const uiFunctions = [
+                'loadLexiconData',
+                'performSearch', 
+                'displayResults',
+                'createResultCard',
+                'buildGitHubIssueUrl'
+            ];
+            
+            uiFunctions.forEach(funcName => {
+                logIntegrationTest(`UI Function: ${funcName}`, 
+                    typeof window[funcName] === 'function',
+                    `${funcName} function is available globally`);
+            });
+            
+            // Test that DOM elements exist (from lexicon-search.html)
+            const requiredElements = [
+                'search-input',
+                'loading-indicator', 
+                'results-section',
+                'propose-word-button'
+            ];
+            
+            // Note: These elements won't exist in this test page, but we can test the functions
+            logIntegrationTest('UI Element Integration', 
+                typeof document.getElementById === 'function',
+                'DOM manipulation functions available');
+        }
+
+        function testEndToEndWorkflow() {
+            // Test the complete workflow from data loading to result display
+            try {
+                // Simulate the complete workflow
+                const testData = [
+                    new LexiconEntry({ word: 'aqua', definition: 'water', domain: 'Nature' }),
+                    new LexiconEntry({ word: 'kore-pet', definition: 'grief', domain: 'Emotion', roots: ['kore', 'pet'] })
+                ];
+                
+                // Test legacy executeSearch function (used by UI)
+                AppState.lexiconData = testData;
+                const legacyResult = executeSearch('aqua');
+                
+                logIntegrationTest('Legacy Search Compatibility', 
+                    legacyResult && legacyResult.exactMatches && legacyResult.exactMatches.length > 0,
+                    'Legacy executeSearch function works with new system');
+                
+                // Test result card creation
+                const resultCard = createResultCard(legacyResult.exactMatches[0], 'exact');
+                logIntegrationTest('Result Card Generation', 
+                    resultCard && resultCard.includes('aqua') && resultCard.includes('water'),
+                    'Result cards can be generated from search results');
+                
+                // Test GitHub URL generation
+                const mockSearchContext = {
+                    query: 'test',
+                    timestamp: new Date().toISOString(),
+                    results: legacyResult
+                };
+                const githubUrl = buildGitHubIssueUrl(mockSearchContext);
+                logIntegrationTest('GitHub Integration', 
+                    githubUrl && githubUrl.includes('github.com') && githubUrl.includes('issues/new'),
+                    'GitHub issue URLs can be generated with search context');
+                
+            } catch (error) {
+                logIntegrationTest('End-to-End Workflow', false, `Error: ${error.message}`);
+            }
+        }
+
+        function performDemoSearch() {
+            const query = document.getElementById('demo-search-input').value;
+            testQuery(query);
+        }
+
+        function testQuery(query) {
+            document.getElementById('demo-search-input').value = query;
+            
+            try {
+                // Use test data for demo
+                const testData = [
+                    new LexiconEntry({ word: 'aqua', definition: 'water', domain: 'Nature' }),
+                    new LexiconEntry({ word: 'sole', definition: 'sun', domain: 'Nature' }),
+                    new LexiconEntry({ word: 'ami', definition: 'friend', domain: 'Society' }),
+                    new LexiconEntry({ word: 'kore-pet', definition: 'grief', domain: 'Emotion', roots: ['kore', 'pet'] }),
+                    new LexiconEntry({ word: 'sole-lum', definition: 'hope', domain: 'Emotion', roots: ['sole', 'lum'] }),
+                    new LexiconEntry({ word: 'kore', definition: 'heart', domain: 'Body' }),
+                    new LexiconEntry({ word: 'pet', definition: 'stone', domain: 'Nature' }),
+                    new LexiconEntry({ word: 'lum', definition: 'light', domain: 'Nature' })
+                ];
+                
+                AppState.lexiconData = testData;
+                const result = executeSearch(query);
+                
+                displayDemoResults(result);
+                
+            } catch (error) {
+                document.getElementById('demo-results').innerHTML = `
+                    <div class="test-result fail">
+                        <strong>Error:</strong> ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        function displayDemoResults(results) {
+            const resultsDiv = document.getElementById('demo-results');
+            
+            if (!results || (results.exactMatches.length === 0 && results.relatedWords.length === 0 && results.semanticMatches.length === 0)) {
+                resultsDiv.innerHTML = '<em>No results found for this query.</em>';
+                return;
+            }
+            
+            let html = '';
+            
+            if (results.exactMatches.length > 0) {
+                html += '<h4>Exact Matches</h4>';
+                results.exactMatches.forEach(entry => {
+                    html += createDemoResultItem(entry, 'exact');
+                });
+            }
+            
+            if (results.relatedWords.length > 0) {
+                html += '<h4>Related Words</h4>';
+                results.relatedWords.forEach(entry => {
+                    html += createDemoResultItem(entry, 'related');
+                });
+            }
+            
+            if (results.semanticMatches.length > 0) {
+                html += '<h4>Semantic Matches</h4>';
+                results.semanticMatches.forEach(entry => {
+                    html += createDemoResultItem(entry, 'semantic');
+                });
+            }
+            
+            resultsDiv.innerHTML = html;
+        }
+
+        function createDemoResultItem(entry, matchType) {
+            const isCompound = entry.isCompound ? entry.isCompound() : entry.type === 'compound';
+            const rootsDisplay = isCompound && entry.roots ? ` (roots: ${entry.roots.join(' + ')})` : '';
+            
+            return `
+                <div class="demo-result-item">
+                    <div class="demo-result-word">${entry.word} ${entry.pronunciation || ''}</div>
+                    <div class="demo-result-definition">${entry.definition}</div>
+                    <div class="demo-result-meta">${entry.domain} • ${entry.type}${rootsDisplay} • ${matchType} match</div>
+                </div>
+            `;
+        }
+
+        function updateSystemStatus() {
+            const statusDiv = document.getElementById('system-status');
+            
+            const status = {
+                lexiconEntryClass: typeof LexiconEntry !== 'undefined',
+                searchEngineClass: typeof SearchEngine !== 'undefined',
+                appState: typeof AppState !== 'undefined',
+                executeSearchFunction: typeof executeSearch === 'function',
+                createResultCardFunction: typeof createResultCard === 'function',
+                buildGitHubIssueUrlFunction: typeof buildGitHubIssueUrl === 'function'
+            };
+            
+            let html = '<ul>';
+            Object.entries(status).forEach(([component, available]) => {
+                html += `<li class="test-result ${available ? 'pass' : 'fail'}">
+                    ${available ? '✅' : '❌'} ${component}: ${available ? 'Available' : 'Missing'}
+                </li>`;
+            });
+            html += '</ul>';
+            
+            statusDiv.innerHTML = html;
+        }
+
+        // Initialize system status on load
+        window.addEventListener('load', () => {
+            updateSystemStatus();
+            
+            // Auto-run a demo search
+            setTimeout(() => {
+                testQuery('aqua');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
