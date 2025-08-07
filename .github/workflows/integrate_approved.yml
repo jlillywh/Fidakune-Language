@@ -1,0 +1,82 @@
+name: "Integrate Approved Vocabulary"
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  integrate-word:
+    # Only run when 'approved' label is added by maintainers
+    if: contains(github.event.label.name, 'approved')
+    runs-on: ubuntu-latest
+    
+    permissions:
+      issues: write
+      contents: write
+      pull-requests: write
+    
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      
+      - name: "Integrate approved word"
+        id: integration
+        run: |
+          # Parse issue and add to lexicon
+          python scripts/integrate_approved_word.py ${{ github.event.issue.number }}
+          
+          # Check if lexicon was modified
+          if git diff --quiet lexicon_enhanced.json; then
+            echo "No changes made to lexicon"
+            echo "success=false" >> $GITHUB_OUTPUT
+          else
+            echo "Lexicon updated successfully"
+            echo "success=true" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: "Create Pull Request"
+        if: steps.integration.outputs.success == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Add approved word from issue #${{ github.event.issue.number }}"
+          title: "Integrate approved vocabulary: ${{ github.event.issue.title }}"
+          body: |
+            This PR integrates the approved vocabulary proposal from issue #${{ github.event.issue.number }}.
+            
+            **Automated Integration:**
+            - ✅ Word added to lexicon_enhanced.json
+            - ✅ Alphabetical ordering maintained
+            - ✅ All required fields populated
+            
+            **Review Required:**
+            Please verify the integration is correct before merging.
+          branch: "integrate-issue-${{ github.event.issue.number }}"
+          delete-branch: true
+      
+      - name: "Update issue with integration status"
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            🎉 **Word Approved and Integrated!**
+            
+            Your proposed word has been successfully added to the Fidakune lexicon. 
+            
+            **Next Steps:**
+            - A pull request has been created to integrate your word
+            - Once merged, your word will be officially part of Fidakune
+            - Thank you for contributing to our growing language!
+            
+            **Integration Details:**
+            - Added to: `lexicon_enhanced.json`
+            - Status: Pending final review and merge
+            
+            Welcome to the Fidakune contributor community! 🌍

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment & Security Test - Fidakune Conceptual Explorer</title>
+    <link rel="stylesheet" href="graph-conceptual-search.css">
+    <style>
+        body {
+            padding: 2rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .test-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            background: white;
+        }
+        .test-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        .test-description {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .test-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        .test-button--danger {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        }
+        .test-button--warning {
+            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+            color: #212529;
+        }
+        .test-button--success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+        .test-log {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        .status-indicator--success { background: #28a745; }
+        .status-indicator--warning { background: #ffc107; }
+        .status-indicator--error { background: #dc3545; }
+        .status-indicator--info { background: #17a2b8; }
+        .test-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .metric-card {
+            background: #f8f9ff;
+            border: 2px solid #e3e7ff;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        .metric-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .metric-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <h1>Deployment & Security Test Suite</h1>
+    <p>This page tests the deployment configuration, security measures, and fallback mechanisms for the Fidakune Conceptual Explorer.</p>
+
+    <!-- Environment Detection Test -->
+    <div class="test-section">
+        <h2 class="test-title">Environment Detection</h2>
+        <p class="test-description">
+            Test the automatic detection of deployment environment (development, staging, production).
+        </p>
+        
+        <button class="test-button" onclick="testEnvironmentDetection()">
+            Test Environment Detection
+        </button>
+        
+        <div class="test-log" id="environment-log">Environment detection results will appear here...</div>
+    </div>
+
+    <!-- Security Configuration Test -->
+    <div class="test-section">
+        <h2 class="test-title">Security Configuration</h2>
+        <p class="test-description">
+            Test Content Security Policy, input validation, rate limiting, and threat detection.
+        </p>
+        
+        <button class="test-button" onclick="testSecurityConfig()">
+            Test Security Config
+        </button>
+        <button class="test-button test-button--warning" onclick="testInputValidation()">
+            Test Input Validation
+        </button>
+        <button class="test-button test-button--danger" onclick="testThreatDetection()">
+            Test Threat Detection
+        </button>
+        
+        <div class="test-log" id="security-log">Security test results will appear here...</div>
+    </div>
+
+    <!-- Rate Limiting Test -->
+    <div class="test-section">
+        <h2 class="test-title">Rate Limiting</h2>
+        <p class="test-description">
+            Test client-side rate limiting for requests, searches, and proposals.
+        </p>
+        
+        <button class="test-button" onclick="testRateLimiting()">
+            Test Rate Limiting
+        </button>
+        <button class="test-button test-button--warning" onclick="simulateRapidRequests()">
+            Simulate Rapid Requests
+        </button>
+        
+        <div class="test-log" id="rate-limit-log">Rate limiting test results will appear here...</div>
+    </div>
+
+    <!-- Data Validation Test -->
+    <div class="test-section">
+        <h2 class="test-title">Data Validation</h2>
+        <p class="test-description">
+            Test validation of graph data structure, file sizes, and content integrity.
+        </p>
+        
+        <button class="test-button" onclick="testDataValidation()">
+            Test Valid Data
+        </button>
+        <button class="test-button test-button--warning" onclick="testInvalidData()">
+            Test Invalid Data
+        </button>
+        <button class="test-button test-button--danger" onclick="testCorruptedData()">
+            Test Corrupted Data
+        </button>
+        
+        <div class="test-log" id="data-validation-log">Data validation test results will appear here...</div>
+    </div>
+
+    <!-- Fallback Mechanisms Test -->
+    <div class="test-section">
+        <h2 class="test-title">Fallback Mechanisms</h2>
+        <p class="test-description">
+            Test network failure handling, performance fallbacks, and accessibility fallbacks.
+        </p>
+        
+        <button class="test-button" onclick="testNetworkFallback()">
+            Test Network Fallback
+        </button>
+        <button class="test-button test-button--warning" onclick="testPerformanceFallback()">
+            Test Performance Fallback
+        </button>
+        <button class="test-button test-button--success" onclick="testAccessibilityFallback()">
+            Test Accessibility Fallback
+        </button>
+        <button class="test-button test-button--danger" onclick="resetAllFallbacks()">
+            Reset Fallbacks
+        </button>
+        
+        <div class="test-log" id="fallback-log">Fallback mechanism test results will appear here...</div>
+    </div>
+
+    <!-- Performance Monitoring Test -->
+    <div class="test-section">
+        <h2 class="test-title">Performance Monitoring</h2>
+        <p class="test-description">
+            Test performance monitoring, metrics collection, and threshold detection.
+        </p>
+        
+        <button class="test-button" onclick="testPerformanceMonitoring()">
+            Test Performance Monitoring
+        </button>
+        <button class="test-button test-button--warning" onclick="simulateSlowPerformance()">
+            Simulate Slow Performance
+        </button>
+        
+        <div class="test-grid" id="performance-metrics">
+            <!-- Performance metrics will be displayed here -->
+        </div>
+        
+        <div class="test-log" id="performance-log">Performance monitoring results will appear here...</div>
+    </div>
+
+    <!-- Error Handling Test -->
+    <div class="test-section">
+        <h2 class="test-title">Error Handling</h2>
+        <p class="test-description">
+            Test error detection, reporting, and recovery mechanisms.
+        </p>
+        
+        <button class="test-button" onclick="testErrorHandling()">
+            Test Error Handling
+        </button>
+        <button class="test-button test-button--warning" onclick="simulateJavaScriptError()">
+            Simulate JS Error
+        </button>
+        <button class="test-button test-button--danger" onclick="simulateNetworkError()">
+            Simulate Network Error
+        </button>
+        
+        <div class="test-log" id="error-log">Error handling test results will appear here...</div>
+    </div>
+
+    <!-- Health Check Test -->
+    <div class="test-section">
+        <h2 class="test-title">System Health Check</h2>
+        <p class="test-description">
+            Comprehensive health check of all deployment and security systems.
+        </p>
+        
+        <button class="test-button test-button--success" onclick="runHealthCheck()">
+            Run Health Check
+        </button>
+        <button class="test-button" onclick="runContinuousHealthCheck()">
+            Start Continuous Monitoring
+        </button>
+        <button class="test-button test-button--warning" onclick="stopContinuousHealthCheck()">
+            Stop Monitoring
+        </button>
+        
+        <div class="test-grid" id="health-metrics">
+            <!-- Health metrics will be displayed here -->
+        </div>
+        
+        <div class="test-log" id="health-log">Health check results will appear here...</div>
+    </div>
+
+    <!-- Manual Input Testing -->
+    <div class="test-section">
+        <h2 class="test-title">Manual Input Testing</h2>
+        <p class="test-description">
+            Test input validation and sanitization with custom inputs.
+        </p>
+        
+        <input type="text" class="test-input" id="manual-input" placeholder="Enter text to test validation and sanitization...">
+        <button class="test-button" onclick="testManualInput()">
+            Test Input
+        </button>
+        <button class="test-button test-button--danger" onclick="testMaliciousInput()">
+            Test Malicious Input
+        </button>
+        
+        <div class="test-log" id="input-log">Input testing results will appear here...</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="deployment-config.js"></script>
+    <script src="security-config.js"></script>
+    <script src="fallback-mechanisms.js"></script>
+    
+    <script>
+        let continuousHealthCheckInterval = null;
+        
+        // Environment Detection Test
+        function testEnvironmentDetection() {
+            const log = document.getElementById('environment-log');
+            log.textContent = 'Testing environment detection...\n';
+            
+            if (window.FidakuneDeploymentConfig) {
+                const config = window.FidakuneDeploymentConfig;
+                const environment = config.getEnvironment();
+                const configData = config.getConfig();
+                
+                log.textContent += `✅ Environment detected: ${environment}\n`;
+                log.textContent += `✅ Debug mode: ${configData.debug}\n`;
+                log.textContent += `✅ Error reporting: ${configData.errorReportingEnabled}\n`;
+                log.textContent += `✅ Performance threshold: ${configData.performanceThreshold}ms\n`;
+                log.textContent += `✅ Cache timeout: ${configData.cacheTimeout}ms\n`;
+                
+                // Test environment-specific features
+                if (environment === 'production') {
+                    log.textContent += '✅ Production optimizations active\n';
+                } else if (environment === 'development') {
+                    log.textContent += '✅ Development features active\n';
+                }
+                
+            } else {
+                log.textContent += '❌ Deployment config not loaded\n';
+            }
+        }
+        
+        // Security Configuration Test
+        function testSecurityConfig() {
+            const log = document.getElementById('security-log');
+            log.textContent = 'Testing security configuration...\n';
+            
+            if (window.FidakuneSecurityConfig) {
+                const status = window.FidakuneSecurityConfig.getSecurityStatus();
+                
+                log.textContent += `✅ CSP enabled: ${status.cspEnabled}\n`;
+                log.textContent += `✅ Input validation: ${status.inputValidationEnabled}\n`;
+                log.textContent += `✅ Threat detection: ${status.threatDetectionEnabled}\n`;
+                log.textContent += `✅ Secure data handling: ${status.secureDataHandlingEnabled}\n`;
+                log.textContent += `✅ Access controls: ${status.accessControlsEnabled}\n`;
+                
+                // Test CSP headers
+                const cspMeta = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
+                if (cspMeta) {
+                    log.textContent += '✅ CSP meta tag found\n';
+                } else {
+                    log.textContent += '⚠️ CSP meta tag not found\n';
+                }
+                
+            } else {
+                log.textContent += '❌ Security config not loaded\n';
+            }
+        }
+        
+        // Input Validation Test
+        function testInputValidation() {
+            const log = document.getElementById('security-log');
+            log.textContent += '\nTesting input validation...\n';
+            
+            if (window.FidakuneSecurityValidator) {
+                const validator = window.FidakuneSecurityValidator;
+                
+                // Test valid input
+                try {
+                    validator.validate('hello world');
+                    log.textContent += '✅ Valid input accepted\n';
+                } catch (error) {
+                    log.textContent += `❌ Valid input rejected: ${error.message}\n`;
+                }
+                
+                // Test invalid input
+                try {
+                    validator.validate('<script>alert("xss")</script>');
+                    log.textContent += '❌ Malicious input accepted\n';
+                } catch (error) {
+                    log.textContent += `✅ Malicious input blocked: ${error.message}\n`;
+                }
+                
+                // Test sanitization
+                const maliciousInput = '<script>alert("test")</script>Hello';
+                const sanitized = validator.sanitize(maliciousInput);
+                log.textContent += `✅ Sanitized: "${maliciousInput}" → "${sanitized}"\n`;
+                
+            } else {
+                log.textContent += '❌ Security validator not loaded\n';
+            }
+        }
+        
+        // Threat Detection Test
+        function testThreatDetection() {
+            const log = document.getElementById('security-log');
+            log.textContent += '\nTesting threat detection...\n';
+            
+            if (window.FidakuneThreatDetector) {
+                const detector = window.FidakuneThreatDetector;
+                
+                try {
+                    // Test normal request
+                    detector.checkRequest('test-user', 'general');
+                    log.textContent += '✅ Normal request allowed\n';
+                    
+                    // Test user agent checking
+                    detector.checkUserAgent(navigator.userAgent);
+                    log.textContent += '✅ User agent validated\n';
+                    
+                } catch (error) {
+                    log.textContent += `⚠️ Threat detected: ${error.message}\n`;
+                }
+                
+            } else {
+                log.textContent += '❌ Threat detector not loaded\n';
+            }
+        }
+        
+        // Rate Limiting Test
+        function testRateLimiting() {
+            const log = document.getElementById('rate-limit-log');
+            log.textContent = 'Testing rate limiting...\n';
+            
+            if (window.FidakuneRateLimiter) {
+                const limiter = window.FidakuneRateLimiter;
+                
+                // Test normal requests
+                for (let i = 1; i <= 5; i++) {
+                    const allowed = limiter.checkRequest(`test-${i}`);
+                    log.textContent += `Request ${i}: ${allowed ? 'Allowed' : 'Blocked'}\n`;
+                }
+                
+                // Test search rate limiting
+                for (let i = 1; i <= 3; i++) {
+                    const allowed = limiter.checkSearch(`search-${i}`);
+                    log.textContent += `Search ${i}: ${allowed ? 'Allowed' : 'Blocked'}\n`;
+                }
+                
+                // Test proposal rate limiting
+                const proposalAllowed = limiter.checkProposal('test-proposal');
+                log.textContent += `Proposal: ${proposalAllowed ? 'Allowed' : 'Blocked'}\n`;
+                
+            } else {
+                log.textContent += '❌ Rate limiter not loaded\n';
+            }
+        }
+        
+        // Simulate Rapid Requests
+        function simulateRapidRequests() {
+            const log = document.getElementById('rate-limit-log');
+            log.textContent += '\nSimulating rapid requests...\n';
+            
+            if (window.FidakuneRateLimiter) {
+                const limiter = window.FidakuneRateLimiter;
+                let allowedCount = 0;
+                let blockedCount = 0;
+                
+                // Make 20 rapid requests
+                for (let i = 1; i <= 20; i++) {
+                    const allowed = limiter.checkRequest('rapid-test');
+                    if (allowed) {
+                        allowedCount++;
+                    } else {
+                        blockedCount++;
+                    }
+                }
+                
+                log.textContent += `Results: ${allowedCount} allowed, ${blockedCount} blocked\n`;
+                
+                if (blockedCount > 0) {
+                    log.textContent += '✅ Rate limiting working correctly\n';
+                } else {
+                    log.textContent += '⚠️ Rate limiting may not be working\n';
+                }
+            }
+        }
+        
+        // Data Validation Test
+        function testDataValidation() {
+            const log = document.getElementById('data-validation-log');
+            log.textContent = 'Testing data validation...\n';
+            
+            if (window.FidakuneDataValidator) {
+                const validator = window.FidakuneDataValidator;
+                
+                // Test valid graph data
+                const validData = {
+                    nodes: [
+                        { id: 'test1', label: 'test', type: 'fidakune_word' }
+                    ],
+                    edges: [
+                        { source: 'test1', target: 'test2', relationship: 'is_a' }
+                    ]
+                };
+                
+                try {
+                    validator.validateGraphData(validData);
+                    log.textContent += '✅ Valid graph data accepted\n';
+                } catch (error) {
+                    log.textContent += `❌ Valid data rejected: ${error.message}\n`;
+                }
+                
+                // Test file size validation
+                const validSize = validator.validateFileSize(1024); // 1KB
+                log.textContent += `✅ File size validation (1KB): ${validSize}\n`;
+                
+                const invalidSize = validator.validateFileSize(20 * 1024 * 1024); // 20MB
+                log.textContent += `✅ File size validation (20MB): ${invalidSize}\n`;
+                
+                // Test file type validation
+                const validType = validator.validateFileType('data.json');
+                log.textContent += `✅ File type validation (.json): ${validType}\n`;
+                
+                const invalidType = validator.validateFileType('data.exe');
+                log.textContent += `✅ File type validation (.exe): ${invalidType}\n`;
+                
+            } else {
+                log.textContent += '❌ Data validator not loaded\n';
+            }
+        }
+        
+        // Test Invalid Data
+        function testInvalidData() {
+            const log = document.getElementById('data-validation-log');
+            log.textContent += '\nTesting invalid data handling...\n';
+            
+            if (window.FidakuneDataValidator) {
+                const validator = window.FidakuneDataValidator;
+                
+                // Test invalid structure
+                const invalidData = {
+                    nodes: 'not an array',
+                    edges: []
+                };
+                
+                try {
+                    validator.validateGraphData(invalidData);
+                    log.textContent += '❌ Invalid data accepted\n';
+                } catch (error) {
+                    log.textContent += `✅ Invalid data rejected: ${error.message}\n`;
+                }
+                
+                // Test missing required fields
+                const incompleteData = {
+                    nodes: [{ id: 'test' }], // missing label and type
+                    edges: []
+                };
+                
+                try {
+                    validator.validateGraphData(incompleteData);
+                    log.textContent += '❌ Incomplete data accepted\n';
+                } catch (error) {
+                    log.textContent += `✅ Incomplete data rejected: ${error.message}\n`;
+                }
+            }
+        }
+        
+        // Test Corrupted Data
+        function testCorruptedData() {
+            const log = document.getElementById('data-validation-log');
+            log.textContent += '\nTesting corrupted data handling...\n';
+            
+            // Simulate JSON parsing error
+            try {
+                JSON.parse('{ invalid json }');
+            } catch (error) {
+                log.textContent += `✅ JSON corruption detected: ${error.message}\n`;
+            }
+            
+            // Test fallback data availability
+            if (window.FidakuneFallbackMechanisms) {
+                const fallbackData = window.FidakuneFallbackMechanisms.getFallbackData();
+                if (fallbackData && fallbackData.nodes && fallbackData.edges) {
+                    log.textContent += `✅ Fallback data available: ${fallbackData.nodes.length} nodes, ${fallbackData.edges.length} edges\n`;
+                } else {
+                    log.textContent += '❌ Fallback data not available\n';
+                }
+            }
+        }
+        
+        // Fallback Mechanism Tests
+        function testNetworkFallback() {
+            const log = document.getElementById('fallback-log');
+            log.textContent = 'Testing network fallback...\n';
+            
+            if (window.FidakuneFallbackMechanisms) {
+                const fallbacks = window.FidakuneFallbackMechanisms;
+                
+                // Simulate network failure
+                fallbacks.activateOfflineMode();
+                log.textContent += '✅ Offline mode activated\n';
+                
+                // Check health status
+                const health = fallbacks.getHealthStatus();
+                log.textContent += `Network status: ${health.network}\n`;
+                log.textContent += `Interface simplified: ${health.interface.simplified}\n`;
+                
+            } else {
+                log.textContent += '❌ Fallback mechanisms not loaded\n';
+            }
+        }
+        
+        function testPerformanceFallback() {
+            const log = document.getElementById('fallback-log');
+            log.textContent += '\nTesting performance fallback...\n';
+            
+            if (window.FidakuneFallbackMechanisms) {
+                const fallbacks = window.FidakuneFallbackMechanisms;
+                
+                // Activate performance mode
+                fallbacks.activatePerformanceMode();
+                log.textContent += '✅ Performance mode activated\n';
+                
+                // Check status
+                const health = fallbacks.getHealthStatus();
+                log.textContent += `Slow mode: ${health.performance.slowMode}\n`;
+                log.textContent += `Emergency mode: ${health.performance.emergencyMode}\n`;
+                
+            } else {
+                log.textContent += '❌ Fallback mechanisms not loaded\n';
+            }
+        }
+        
+        function testAccessibilityFallback() {
+            const log = document.getElementById('fallback-log');
+            log.textContent += '\nTesting accessibility fallback...\n';
+            
+            if (window.FidakuneFallbackMechanisms) {
+                const fallbacks = window.FidakuneFallbackMechanisms;
+                
+                // Activate accessibility mode
+                fallbacks.activateAccessibilityMode();
+                log.textContent += '✅ Accessibility mode activated\n';
+                
+                // Check status
+                const health = fallbacks.getHealthStatus();
+                log.textContent += `Keyboard fallback: ${health.accessibility.keyboardFallback}\n`;
+                log.textContent += `Screen reader fallback: ${health.accessibility.screenReaderFallback}\n`;
+                log.textContent += `High contrast fallback: ${health.accessibility.highContrastFallback}\n`;
+                
+            } else {
+                log.textContent += '❌ Fallback mechanisms not loaded\n';
+            }
+        }
+        
+        function resetAllFallbacks() {
+            const log = document.getElementById('fallback-log');
+            log.textContent += '\nResetting all fallbacks...\n';
+            
+            if (window.FidakuneFallbackMechanisms) {
+                window.FidakuneFallbackMechanisms.resetFallbacks();
+                log.textContent += '✅ All fallbacks reset\n';
+                
+                // Verify reset
+                const health = window.FidakuneFallbackMechanisms.getHealthStatus();
+                log.textContent += `Status after reset:\n`;
+                log.textContent += `- Slow mode: ${health.performance.slowMode}\n`;
+                log.textContent += `- Emergency mode: ${health.performance.emergencyMode}\n`;
+                log.textContent += `- Simplified interface: ${health.interface.simplified}\n`;
+            }
+        }
+        
+        // Performance Monitoring Test
+        function testPerformanceMonitoring() {
+            const log = document.getElementById('performance-log');
+            const metricsContainer = document.getElementById('performance-metrics');
+            
+            log.textContent = 'Testing performance monitoring...\n';
+            
+            if (window.FidakunePerformanceMonitor) {
+                const monitor = window.FidakunePerformanceMonitor;
+                
+                // Create some performance marks
+                monitor.mark('test-start');
+                
+                // Simulate some work
+                setTimeout(() => {
+                    monitor.mark('test-end');
+                    const duration = monitor.measure('test-duration', 'test-start', 'test-end');
+                    
+                    log.textContent += `✅ Performance measurement: ${duration}ms\n`;
+                    
+                    // Get all metrics
+                    const metrics = monitor.getMetrics();
+                    log.textContent += `✅ Available metrics: ${Object.keys(metrics).length}\n`;
+                    
+                    // Display metrics in cards
+                    displayPerformanceMetrics(metrics, metricsContainer);
+                    
+                }, 100);
+                
+            } else {
+                log.textContent += '❌ Performance monitor not loaded\n';
+            }
+        }
+        
+        function displayPerformanceMetrics(metrics, container) {
+            container.innerHTML = '';
+            
+            Object.entries(metrics).forEach(([name, value]) => {
+                const card = document.createElement('div');
+                card.className = 'metric-card';
+                card.innerHTML = `
+                    <div class="metric-title">${name}</div>
+                    <div class="metric-value">${typeof value === 'number' ? value.toFixed(2) + 'ms' : value}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+        
+        function simulateSlowPerformance() {
+            const log = document.getElementById('performance-log');
+            log.textContent += '\nSimulating slow performance...\n';
+            
+            // Create artificial delay
+            const start = Date.now();
+            while (Date.now() - start < 3000) {
+                // Busy wait to simulate slow performance
+            }
+            
+            log.textContent += '✅ Slow performance simulation completed\n';
+            log.textContent += 'Check if performance fallbacks were activated\n';
+        }
+        
+        // Error Handling Tests
+        function testErrorHandling() {
+            const log = document.getElementById('error-log');
+            log.textContent = 'Testing error handling...\n';
+            
+            if (window.FidakuneDeploymentErrorHandler) {
+                const handler = window.FidakuneDeploymentErrorHandler;
+                
+                // Test error handling
+                const testError = new Error('Test error for validation');
+                const errorInfo = handler.handleError(testError, { type: 'test' });
+                
+                log.textContent += `✅ Error handled: ${errorInfo.message}\n`;
+                log.textContent += `✅ Environment: ${errorInfo.environment}\n`;
+                log.textContent += `✅ Timestamp: ${errorInfo.timestamp}\n`;
+                
+            } else {
+                log.textContent += '❌ Error handler not loaded\n';
+            }
+        }
+        
+        function simulateJavaScriptError() {
+            const log = document.getElementById('error-log');
+            log.textContent += '\nSimulating JavaScript error...\n';
+            
+            try {
+                // This will throw an error
+                nonExistentFunction();
+            } catch (error) {
+                log.textContent += `✅ JavaScript error caught: ${error.message}\n`;
+            }
+        }
+        
+        function simulateNetworkError() {
+            const log = document.getElementById('error-log');
+            log.textContent += '\nSimulating network error...\n';
+            
+            // Simulate network request failure
+            fetch('https://nonexistent-domain-12345.com/data.json')
+                .then(response => {
+                    log.textContent += '❌ Network request unexpectedly succeeded\n';
+                })
+                .catch(error => {
+                    log.textContent += `✅ Network error caught: ${error.message}\n`;
+                });
+        }
+        
+        // Health Check Tests
+        function runHealthCheck() {
+            const log = document.getElementById('health-log');
+            const metricsContainer = document.getElementById('health-metrics');
+            
+            log.textContent = 'Running comprehensive health check...\n';
+            
+            const healthData = {};
+            
+            // Check deployment config
+            if (window.FidakuneDeploymentConfig) {
+                const deploymentHealth = window.FidakuneDeploymentConfig.healthCheck();
+                healthData.deployment = deploymentHealth;
+                log.textContent += `✅ Deployment health: ${deploymentHealth.healthy ? 'OK' : 'ISSUES'}\n`;
+            }
+            
+            // Check security config
+            if (window.FidakuneSecurityConfig) {
+                const securityStatus = window.FidakuneSecurityConfig.getSecurityStatus();
+                healthData.security = securityStatus;
+                log.textContent += `✅ Security status: OK\n`;
+            }
+            
+            // Check fallback mechanisms
+            if (window.FidakuneFallbackMechanisms) {
+                const fallbackHealth = window.FidakuneFallbackMechanisms.getHealthStatus();
+                healthData.fallbacks = fallbackHealth;
+                log.textContent += `✅ Fallback health: OK\n`;
+            }
+            
+            // Display health metrics
+            displayHealthMetrics(healthData, metricsContainer);
+            
+            log.textContent += '\n✅ Health check completed\n';
+        }
+        
+        function displayHealthMetrics(healthData, container) {
+            container.innerHTML = '';
+            
+            Object.entries(healthData).forEach(([category, data]) => {
+                const card = document.createElement('div');
+                card.className = 'metric-card';
+                
+                let status = 'success';
+                let statusText = 'OK';
+                
+                if (category === 'deployment' && !data.healthy) {
+                    status = 'error';
+                    statusText = 'ISSUES';
+                }
+                
+                card.innerHTML = `
+                    <div class="metric-title">
+                        <span class="status-indicator status-indicator--${status}"></span>
+                        ${category.charAt(0).toUpperCase() + category.slice(1)}
+                    </div>
+                    <div class="metric-value">${statusText}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+        
+        function runContinuousHealthCheck() {
+            const log = document.getElementById('health-log');
+            
+            if (continuousHealthCheckInterval) {
+                log.textContent += 'Continuous monitoring already running\n';
+                return;
+            }
+            
+            log.textContent += 'Starting continuous health monitoring...\n';
+            
+            continuousHealthCheckInterval = setInterval(() => {
+                runHealthCheck();
+            }, 10000); // Every 10 seconds
+        }
+        
+        function stopContinuousHealthCheck() {
+            const log = document.getElementById('health-log');
+            
+            if (continuousHealthCheckInterval) {
+                clearInterval(continuousHealthCheckInterval);
+                continuousHealthCheckInterval = null;
+                log.textContent += 'Continuous monitoring stopped\n';
+            } else {
+                log.textContent += 'No continuous monitoring running\n';
+            }
+        }
+        
+        // Manual Input Testing
+        function testManualInput() {
+            const log = document.getElementById('input-log');
+            const input = document.getElementById('manual-input').value;
+            
+            log.textContent = `Testing input: "${input}"\n`;
+            
+            if (window.FidakuneSecurityValidator) {
+                const validator = window.FidakuneSecurityValidator;
+                
+                try {
+                    validator.validate(input);
+                    log.textContent += '✅ Input validation passed\n';
+                } catch (error) {
+                    log.textContent += `❌ Input validation failed: ${error.message}\n`;
+                }
+                
+                const sanitized = validator.sanitize(input);
+                log.textContent += `Sanitized result: "${sanitized}"\n`;
+                
+                if (input !== sanitized) {
+                    log.textContent += '⚠️ Input was modified during sanitization\n';
+                } else {
+                    log.textContent += '✅ No sanitization needed\n';
+                }
+                
+            } else {
+                log.textContent += '❌ Security validator not available\n';
+            }
+        }
+        
+        function testMaliciousInput() {
+            const log = document.getElementById('input-log');
+            const maliciousInputs = [
+                '<script>alert("xss")</script>',
+                'javascript:alert("xss")',
+                '<iframe src="javascript:alert(1)"></iframe>',
+                'onload="alert(1)"',
+                '<img src="x" onerror="alert(1)">',
+                'eval("alert(1)")',
+                'document.write("<script>alert(1)</script>")'
+            ];
+            
+            log.textContent += '\nTesting malicious inputs...\n';
+            
+            if (window.FidakuneSecurityValidator) {
+                const validator = window.FidakuneSecurityValidator;
+                
+                maliciousInputs.forEach((input, index) => {
+                    try {
+                        validator.validate(input);
+                        log.textContent += `❌ Malicious input ${index + 1} accepted\n`;
+                    } catch (error) {
+                        log.textContent += `✅ Malicious input ${index + 1} blocked\n`;
+                    }
+                    
+                    const sanitized = validator.sanitize(input);
+                    log.textContent += `  Sanitized: "${sanitized}"\n`;
+                });
+                
+            } else {
+                log.textContent += '❌ Security validator not available\n';
+            }
+        }
+        
+        // Initialize tests when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for all modules to load
+            setTimeout(() => {
+                console.log('Deployment & Security Test Suite Ready');
+                
+                // Run initial health check
+                runHealthCheck();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

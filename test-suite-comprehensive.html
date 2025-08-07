@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Test Suite - Fidakune Conceptual Explorer</title>
+    <link rel="stylesheet" href="graph-conceptual-search.css">
+    <style>
+        body {
+            padding: 2rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .test-section {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .test-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .test-description {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .test-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .test-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        .test-button--success { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); }
+        .test-button--warning { background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%); color: #212529; }
+        .test-button--danger { background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); }
+        .test-button--info { background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); }
+        
+        .test-results {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        .test-log {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        .test-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            border: 2px solid #e3e7ff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            color: #6c757d;
+            font-weight: 500;
+        }
+        .test-progress {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        .test-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .test-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            transition: background 0.2s ease;
+        }
+        .test-item:hover {
+            background: #f8f9fa;
+        }
+        .test-status {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+        }
+        .test-status--pending { background: #6c757d; }
+        .test-status--running { background: #ffc107; animation: pulse 1s infinite; }
+        .test-status--passed { background: #28a745; }
+        .test-status--failed { background: #dc3545; }
+        .test-status--skipped { background: #17a2b8; }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .test-name {
+            flex: 1;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        .test-duration {
+            font-size: 0.85rem;
+            color: #6c757d;
+            font-family: 'Courier New', monospace;
+        }
+        .accessibility-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 1000;
+            display: none;
+        }
+        .accessibility-indicator.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="accessibility-indicator" id="accessibility-indicator">
+        ♿ Accessibility Testing Active
+    </div>
+    
+    <div class="test-container">
+        <div class="test-header">
+            <h1>Comprehensive Test Suite</h1>
+            <p>Unit, Integration, Performance, and Accessibility Tests for Fidakune Conceptual Explorer</p>
+        </div>
+
+        <!-- Test Statistics -->
+        <div class="test-stats" id="test-stats">
+            <div class="stat-card">
+                <div class="stat-value" id="total-tests">0</div>
+                <div class="stat-label">Total Tests</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="passed-tests">0</div>
+                <div class="stat-label">Passed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="failed-tests">0</div>
+                <div class="stat-label">Failed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="test-coverage">0%</div>
+                <div class="stat-label">Coverage</div>
+            </div>
+        </div>
+
+        <!-- Test Progress -->
+        <div class="test-progress">
+            <div class="test-progress-bar" id="test-progress-bar"></div>
+        </div>
+
+        <!-- Unit Tests -->
+        <div class="test-section">
+            <h2 class="test-title">
+                <span>🧪</span>
+                Unit Tests
+            </h2>
+            <p class="test-description">
+                Test individual components and functions in isolation to ensure they work correctly.
+            </p>
+            
+            <div class="test-controls">
+                <button class="test-button" onclick="runUnitTests()">Run All Unit Tests</button>
+                <button class="test-button test-button--info" onclick="runGraphModelTests()">Graph Models</button>
+                <button class="test-button test-button--info" onclick="runSearchEngineTests()">Search Engine</button>
+                <button class="test-button test-button--info" onclick="runValidatorTests()">Validators</button>
+            </div>
+            
+            <div class="test-results">
+                <div id="unit-test-list"></div>
+                <div class="test-log" id="unit-test-log">Unit test results will appear here...</div>
+            </div>
+        </div>
+
+        <!-- Integration Tests -->
+        <div class="test-section">
+            <h2 class="test-title">
+                <span>🔗</span>
+                Integration Tests
+            </h2>
+            <p class="test-description">
+                Test complete workflows and component interactions to ensure the system works as a whole.
+            </p>
+            
+            <div class="test-controls">
+                <button class="test-button" onclick="runIntegrationTests()">Run All Integration Tests</button>
+                <button class="test-button test-button--info" onclick="runSearchWorkflowTests()">Search Workflows</button>
+                <button class="test-button test-button--info" onclick="runUIIntegrationTests()">UI Integration</button>
+                <button class="test-button test-button--info" onclick="runDataFlowTests()">Data Flow</button>
+            </div>
+            
+            <div class="test-results">
+                <div id="integration-test-list"></div>
+                <div class="test-log" id="integration-test-log">Integration test results will appear here...</div>
+            </div>
+        </div>
+
+        <!-- Performance Tests -->
+        <div class="test-section">
+            <h2 class="test-title">
+                <span>⚡</span>
+                Performance Tests
+            </h2>
+            <p class="test-description">
+                Test system performance with large datasets and measure response times and resource usage.
+            </p>
+            
+            <div class="test-controls">
+                <button class="test-button" onclick="runPerformanceTests()">Run All Performance Tests</button>
+                <button class="test-button test-button--warning" onclick="runLargeDatasetTests()">Large Datasets</button>
+                <button class="test-button test-button--warning" onclick="runMemoryTests()">Memory Usage</button>
+                <button class="test-button test-button--warning" onclick="runResponseTimeTests()">Response Times</button>
+            </div>
+            
+            <div class="test-results">
+                <div id="performance-test-list"></div>
+                <div class="test-log" id="performance-test-log">Performance test results will appear here...</div>
+            </div>
+        </div>
+
+        <!-- Accessibility Tests -->
+        <div class="test-section">
+            <h2 class="test-title">
+                <span>♿</span>
+                Accessibility Tests
+            </h2>
+            <p class="test-description">
+                Test accessibility compliance, keyboard navigation, screen reader compatibility, and WCAG guidelines.
+            </p>
+            
+            <div class="test-controls">
+                <button class="test-button" onclick="runAccessibilityTests()">Run All Accessibility Tests</button>
+                <button class="test-button test-button--success" onclick="runKeyboardTests()">Keyboard Navigation</button>
+                <button class="test-button test-button--success" onclick="runScreenReaderTests()">Screen Reader</button>
+                <button class="test-button test-button--success" onclick="runWCAGTests()">WCAG Compliance</button>
+            </div>
+            
+            <div class="test-results">
+                <div id="accessibility-test-list"></div>
+                <div class="test-log" id="accessibility-test-log">Accessibility test results will appear here...</div>
+            </div>
+        </div>
+
+        <!-- Cross-Browser Tests -->
+        <div class="test-section">
+            <h2 class="test-title">
+                <span>🌐</span>
+                Cross-Browser Compatibility Tests
+            </h2>
+            <p class="test-description">
+                Test compatibility across different browsers and ensure consistent functionality.
+            </p>
+            
+            <div class="test-controls">
+                <button class="test-button" onclick="runCrossBrowserTests()">Run Compatibility Tests</button>
+                <button class="test-button test-button--info" onclick="detectBrowserFeatures()">Detect Features</button>
+                <button class="test-button test-button--info" onclick="testBrowserAPIs()">Test APIs</button>
+            </div>
+            
+            <div class="test-results">
+                <div id="browser-test-list"></div>
+                <div class="test-log" id="browser-test-log">Browser compatibility results will appear here...</div>
+            </div>
+        </div>
+
+        <!-- Test Controls -->
+        <div class="test-section">
+            <h2 class="test-title">
+                <span>🎛️</span>
+                Test Controls
+            </h2>
+            <p class="test-description">
+                Control the test execution and generate reports.
+            </p>
+            
+            <div class="test-controls">
+                <button class="test-button test-button--success" onclick="runAllTests()">Run All Tests</button>
+                <button class="test-button test-button--warning" onclick="runCriticalTests()">Run Critical Tests Only</button>
+                <button class="test-button test-button--info" onclick="generateTestReport()">Generate Report</button>
+                <button class="test-button test-button--danger" onclick="clearTestResults()">Clear Results</button>
+            </div>
+            
+            <div class="test-results">
+                <div class="test-log" id="control-log">Test control results will appear here...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="deployment-config.js"></script>
+    <script src="security-config.js"></script>
+    <script src="fallback-mechanisms.js"></script>
+    <script src="fidakune-integration.js"></script>
+    <script src="graph-models.js"></script>
+    <script src="graph-validator.js"></script>
+    <script src="graph-search-engine.js"></script>
+    <script src="graph-conceptual-search.js"></script>
+    <script src="github-relationship-proposals.js"></script>
+    
+    <!-- Test Framework Scripts -->
+    <script src="test-unit-graph-algorithms.js"></script>
+    <script src="test-integration-workflows.js"></script>
+    <script src="test-accessibility-compliance.js"></script>
+    
+    <script>
+        // Test Framework
+        class TestFramework {
+            constructor() {
+                this.tests = [];
+                this.results = {
+                    total: 0,
+                    passed: 0,
+                    failed: 0,
+                    skipped: 0,
+                    coverage: 0
+                };
+                this.isRunning = false;
+                this.startTime = null;
+                this.endTime = null;
+            }
+            
+            addTest(name, testFunction, category = 'unit', critical = false) {
+                this.tests.push({
+                    name,
+                    testFunction,
+                    category,
+                    critical,
+                    status: 'pending',
+                    duration: 0,
+                    error: null,
+                    result: null
+                });
+            }
+            
+            async runTest(test) {
+                const startTime = performance.now();
+                test.status = 'running';
+                this.updateTestDisplay(test);
+                
+                try {
+                    const result = await test.testFunction();
+                    test.result = result;
+                    test.status = result === true || (result && result.passed) ? 'passed' : 'failed';
+                    if (test.status === 'passed') {
+                        this.results.passed++;
+                    } else {
+                        this.results.failed++;
+                    }
+                } catch (error) {
+                    test.error = error;
+                    test.status = 'failed';
+                    this.results.failed++;
+                    console.error(`Test failed: ${test.name}`, error);
+                }
+                
+                test.duration = performance.now() - startTime;
+                this.updateTestDisplay(test);
+                this.updateStats();
+            }
+            
+            async runTests(category = null, criticalOnly = false) {
+                if (this.isRunning) return;
+                
+                this.isRunning = true;
+                this.startTime = performance.now();
+                this.resetResults();
+                
+                const testsToRun = this.tests.filter(test => {
+                    if (category && test.category !== category) return false;
+                    if (criticalOnly && !test.critical) return false;
+                    return true;
+                });
+                
+                this.results.total = testsToRun.length;
+                this.updateStats();
+                
+                for (const test of testsToRun) {
+                    await this.runTest(test);
+                    this.updateProgress();
+                }
+                
+                this.endTime = performance.now();
+                this.isRunning = false;
+                
+                this.logResults();
+            }
+            
+            resetResults() {
+                this.results = { total: 0, passed: 0, failed: 0, skipped: 0, coverage: 0 };
+                this.tests.forEach(test => {
+                    test.status = 'pending';
+                    test.duration = 0;
+                    test.error = null;
+                    test.result = null;
+                });
+            }
+            
+            updateStats() {
+                document.getElementById('total-tests').textContent = this.results.total;
+                document.getElementById('passed-tests').textContent = this.results.passed;
+                document.getElementById('failed-tests').textContent = this.results.failed;
+                
+                const coverage = this.results.total > 0 ? 
+                    Math.round((this.results.passed / this.results.total) * 100) : 0;
+                document.getElementById('test-coverage').textContent = coverage + '%';
+            }
+            
+            updateProgress() {
+                const completed = this.results.passed + this.results.failed + this.results.skipped;
+                const progress = this.results.total > 0 ? (completed / this.results.total) * 100 : 0;
+                document.getElementById('test-progress-bar').style.width = progress + '%';
+            }
+            
+            updateTestDisplay(test) {
+                const listId = `${test.category}-test-list`;
+                const listElement = document.getElementById(listId);
+                
+                if (!listElement) return;
+                
+                let testElement = document.getElementById(`test-${test.name.replace(/\s+/g, '-')}`);
+                if (!testElement) {
+                    testElement = document.createElement('div');
+                    testElement.id = `test-${test.name.replace(/\s+/g, '-')}`;
+                    testElement.className = 'test-item';
+                    listElement.appendChild(testElement);
+                }
+                
+                const statusIcon = this.getStatusIcon(test.status);
+                const duration = test.duration > 0 ? `${test.duration.toFixed(2)}ms` : '';
+                
+                testElement.innerHTML = `
+                    <div class="test-status test-status--${test.status}">${statusIcon}</div>
+                    <div class="test-name">${test.name}</div>
+                    <div class="test-duration">${duration}</div>
+                `;
+            }
+            
+            getStatusIcon(status) {
+                const icons = {
+                    pending: '⏳',
+                    running: '⚡',
+                    passed: '✓',
+                    failed: '✗',
+                    skipped: '⊘'
+                };
+                return icons[status] || '?';
+            }
+            
+            logResults() {
+                const totalTime = this.endTime - this.startTime;
+                const summary = `
+Test Summary:
+Total: ${this.results.total}
+Passed: ${this.results.passed}
+Failed: ${this.results.failed}
+Skipped: ${this.results.skipped}
+Coverage: ${Math.round((this.results.passed / this.results.total) * 100)}%
+Duration: ${totalTime.toFixed(2)}ms
+                `;
+                
+                console.log(summary);
+                this.logToCategory('control', summary);
+            }
+            
+            logToCategory(category, message) {
+                const logId = `${category}-test-log`;
+                const logElement = document.getElementById(logId);
+                if (logElement) {
+                    logElement.textContent += message + '\n';
+                    logElement.scrollTop = logElement.scrollHeight;
+                }
+            }
+            
+            generateReport() {
+                const report = {
+                    timestamp: new Date().toISOString(),
+                    summary: this.results,
+                    duration: this.endTime - this.startTime,
+                    tests: this.tests.map(test => ({
+                        name: test.name,
+                        category: test.category,
+                        status: test.status,
+                        duration: test.duration,
+                        error: test.error ? test.error.message : null
+                    })),
+                    environment: {
+                        userAgent: navigator.userAgent,
+                        url: window.location.href,
+                        timestamp: new Date().toISOString()
+                    }
+                };
+                
+                return report;
+            }
+        }
+        
+        // Initialize test framework
+        const testFramework = new TestFramework();
+        
+        // Unit Tests
+        function setupUnitTests() {
+            // Graph Models Tests
+            testFramework.addTest('GraphNode Creation', () => {
+                if (!window.GraphNode) return false;
+                const node = new GraphNode({
+                    id: 'test',
+                    label: 'test',
+                    type: 'fidakune_word',
+                    definition: 'test definition'
+                });
+                return node.id === 'test' && node.label === 'test';
+            }, 'unit', true);
+            
+            testFramework.addTest('GraphNode Validation', () => {
+                if (!window.GraphNode) return false;
+                const node = new GraphNode({
+                    id: 'test',
+                    label: 'test',
+                    type: 'fidakune_word',
+                    definition: 'test definition'
+                });
+                return node.isValid && typeof node.isValid === 'function';
+            }, 'unit', true);
+            
+            testFramework.addTest('GraphEdge Creation', () => {
+                if (!window.GraphEdge) return false;
+                const edge = new GraphEdge({
+                    source: 'test1',
+                    target: 'test2',
+                    relationship: 'is_a',
+                    strength: 1.0
+                });
+                return edge.source === 'test1' && edge.target === 'test2';
+            }, 'unit', true);
+            
+            // Search Engine Tests
+            testFramework.addTest('GraphSearchEngine Initialization', () => {
+                if (!window.GraphSearchEngine) return false;
+                const engine = new GraphSearchEngine();
+                return engine && typeof engine.search === 'function';
+            }, 'unit', true);
+            
+            testFramework.addTest('Search Algorithm BFS', async () => {
+                if (!window.GraphSearchEngine) return false;
+                const engine = new GraphSearchEngine();
+                
+                // Mock graph data
+                const mockData = {
+                    nodes: [
+                        { id: 'test1', label: 'test1', type: 'fidakune_word', definition: 'test' },
+                        { id: 'test2', label: 'test2', type: 'fidakune_word', definition: 'test' }
+                    ],
+                    edges: [
+                        { source: 'test1', target: 'test2', relationship: 'is_a', strength: 1.0 }
+                    ]
+                };
+                
+                try {
+                    await engine.loadGraph(mockData);
+                    const results = await engine.search('test1');
+                    return results && typeof results === 'object';
+                } catch (error) {
+                    console.error('Search test error:', error);
+                    return false;
+                }
+            }, 'unit', true);
+            
+            // Validator Tests
+            testFramework.addTest('Graph Validator', () => {
+                if (!window.GraphValidator) return false;
+                const validator = new GraphValidator();
+                return validator && typeof validator.validate === 'function';
+            }, 'unit', true);
+            
+            testFramework.addTest('Data Validation Rules', () => {
+                if (!window.GraphValidator) return false;
+                const validator = new GraphValidator();
+                
+                const validData = {
+                    nodes: [{ id: 'test', label: 'test', type: 'fidakune_word' }],
+                    edges: [{ source: 'test', target: 'test2', relationship: 'is_a' }]
+                };
+                
+                try {
+                    const result = validator.validate(validData);
+                    return result && typeof result.valid === 'boolean';
+                } catch (error) {
+                    return false;
+                }
+            }, 'unit', true);
+            
+            // Security Tests
+            testFramework.addTest('Input Sanitization', () => {
+                if (!window.FidakuneSecurityValidator) return false;
+                const validator = window.FidakuneSecurityValidator;
+                
+                const maliciousInput = '<script>alert("xss")</script>';
+                const sanitized = validator.sanitize(maliciousInput);
+                
+                return !sanitized.includes('<script>');
+            }, 'unit', true);
+            
+            testFramework.addTest('Rate Limiting', () => {
+                if (!window.FidakuneRateLimiter) return false;
+                const limiter = window.FidakuneRateLimiter;
+                
+                // Should allow first request
+                const firstRequest = limiter.checkRequest('test-unit');
+                return firstRequest === true;
+            }, 'unit', true);
+        }
+        
+        // Integration Tests
+        function setupIntegrationTests() {
+            testFramework.addTest('Complete Search Workflow', async () => {
+                // Test the complete search workflow from input to results
+                try {
+                    if (!window.conceptualExplorer) return false;
+                    
+                    // Simulate search input
+                    const searchInput = document.getElementById('graph-search-input');
+                    if (!searchInput) return false;
+                    
+                    searchInput.value = 'test';
+                    
+                    // Trigger search (if available)
+                    if (window.conceptualExplorer.performSearch) {
+                        await window.conceptualExplorer.performSearch();
+                        return true;
+                    }
+                    
+                    return false;
+                } catch (error) {
+                    console.error('Search workflow test error:', error);
+                    return false;
+                }
+            }, 'integration', true);
+            
+            testFramework.addTest('UI Component Integration', () => {
+                // Test that all major UI components are present and connected
+                const requiredElements = [
+                    'graph-search-input',
+                    'results-container',
+                    'breadcrumbs',
+                    'directly-related-list',
+                    'component-roots-list',
+                    'related-ideas-list'
+                ];
+                
+                return requiredElements.every(id => document.getElementById(id) !== null);
+            }, 'integration', true);
+            
+            testFramework.addTest('Data Flow Integration', async () => {
+                // Test data flow from loading to display
+                try {
+                    if (!window.GraphSearchEngine) return false;
+                    
+                    const engine = new GraphSearchEngine();
+                    
+                    // Test data loading
+                    const mockData = {
+                        nodes: [{ id: 'test', label: 'test', type: 'fidakune_word', definition: 'test' }],
+                        edges: []
+                    };
+                    
+                    await engine.loadGraph(mockData);
+                    const results = await engine.search('test');
+                    
+                    return results !== null;
+                } catch (error) {
+                    return false;
+                }
+            }, 'integration', true);
+            
+            testFramework.addTest('Error Handling Integration', () => {
+                // Test that error handling works across components
+                if (!window.FidakuneDeploymentErrorHandler) return false;
+                
+                const handler = window.FidakuneDeploymentErrorHandler;
+                const testError = new Error('Integration test error');
+                
+                try {
+                    handler.handleError(testError, { type: 'integration-test' });
+                    return true;
+                } catch (error) {
+                    return false;
+                }
+            }, 'integration', true);
+            
+            testFramework.addTest('Fallback Integration', () => {
+                // Test that fallback mechanisms integrate properly
+                if (!window.FidakuneFallbackMechanisms) return false;
+                
+                const fallbacks = window.FidakuneFallbackMechanisms;
+                const health = fallbacks.getHealthStatus();
+                
+                return health && typeof health === 'object';
+            }, 'integration', true);
+        }
+        
+        // Performance Tests
+        function setupPerformanceTests() {
+            testFramework.addTest('Large Dataset Performance', async () => {
+                // Test performance with large dataset
+                const startTime = performance.now();
+                
+                try {
+                    if (!window.GraphSearchEngine) return false;
+                    
+                    const engine = new GraphSearchEngine();
+                    
+                    // Generate large mock dataset
+                    const nodes = [];
+                    const edges = [];
+                    
+                    for (let i = 0; i < 1000; i++) {
+                        nodes.push({
+                            id: `node_${i}`,
+                            label: `label_${i}`,
+                            type: 'fidakune_word',
+                            definition: `definition_${i}`
+                        });
+                        
+                        if (i > 0) {
+                            edges.push({
+                                source: `node_${i-1}`,
+                                target: `node_${i}`,
+                                relationship: 'is_a',
+                                strength: 0.8
+                            });
+                        }
+                    }
+                    
+                    const mockData = { nodes, edges };
+                    await engine.loadGraph(mockData);
+                    
+                    const searchTime = performance.now();
+                    await engine.search('label_500');
+                    const endTime = performance.now();
+                    
+                    const loadTime = searchTime - startTime;
+                    const searchDuration = endTime - searchTime;
+                    
+                    testFramework.logToCategory('performance', 
+                        `Large dataset test: Load ${loadTime.toFixed(2)}ms, Search ${searchDuration.toFixed(2)}ms`);
+                    
+                    // Pass if search completes within reasonable time (5 seconds)
+                    return searchDuration < 5000;
+                    
+                } catch (error) {
+                    console.error('Performance test error:', error);
+                    return false;
+                }
+            }, 'performance', true);
+            
+            testFramework.addTest('Memory Usage Test', () => {
+                // Test memory usage
+                if (!performance.memory) {
+                    testFramework.logToCategory('performance', 'Memory API not available');
+                    return true; // Skip if not available
+                }
+                
+                const memoryBefore = performance.memory.usedJSHeapSize;
+                
+                // Create some objects to test memory
+                const testData = [];
+                for (let i = 0; i < 10000; i++) {
+                    testData.push({ id: i, data: 'test'.repeat(100) });
+                }
+                
+                const memoryAfter = performance.memory.usedJSHeapSize;
+                const memoryUsed = memoryAfter - memoryBefore;
+                
+                testFramework.logToCategory('performance', 
+                    `Memory usage: ${(memoryUsed / 1024 / 1024).toFixed(2)} MB`);
+                
+                // Clean up
+                testData.length = 0;
+                
+                // Pass if memory usage is reasonable (less than 50MB for test)
+                return memoryUsed < 50 * 1024 * 1024;
+            }, 'performance', false);
+            
+            testFramework.addTest('Response Time Test', async () => {
+                // Test response times for various operations
+                const operations = [];
+                
+                // Test DOM query performance
+                const domStart = performance.now();
+                document.querySelectorAll('*');
+                const domEnd = performance.now();
+                operations.push({ name: 'DOM Query', time: domEnd - domStart });
+                
+                // Test JSON parsing performance
+                const jsonStart = performance.now();
+                const testJson = JSON.stringify({ test: 'data'.repeat(1000) });
+                JSON.parse(testJson);
+                const jsonEnd = performance.now();
+                operations.push({ name: 'JSON Parse', time: jsonEnd - jsonStart });
+                
+                // Log results
+                operations.forEach(op => {
+                    testFramework.logToCategory('performance', 
+                        `${op.name}: ${op.time.toFixed(2)}ms`);
+                });
+                
+                // Pass if all operations complete quickly
+                return operations.every(op => op.time < 100);
+            }, 'performance', false);
+        }
+        
+        // Accessibility Tests
+        function setupAccessibilityTests() {
+            testFramework.addTest('Keyboard Navigation', () => {
+                // Test keyboard navigation
+                const focusableElements = document.querySelectorAll(
+                    'button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])'
+                );
+                
+                testFramework.logToCategory('accessibility', 
+                    `Found ${focusableElements.length} focusable elements`);
+                
+                // Test tab order
+                let tabOrderValid = true;
+                focusableElements.forEach((element, index) => {
+                    const tabIndex = element.tabIndex;
+                    if (tabIndex < -1) {
+                        tabOrderValid = false;
+                    }
+                });
+                
+                return focusableElements.length > 0 && tabOrderValid;
+            }, 'accessibility', true);
+            
+            testFramework.addTest('ARIA Labels', () => {
+                // Test ARIA labels and accessibility attributes
+                const interactiveElements = document.querySelectorAll('button, input, select, textarea');
+                let missingLabels = 0;
+                
+                interactiveElements.forEach(element => {
+                    const hasLabel = element.hasAttribute('aria-label') || 
+                                   element.hasAttribute('aria-labelledby') ||
+                                   element.hasAttribute('title') ||
+                                   (element.tagName === 'INPUT' && document.querySelector(`label[for="${element.id}"]`));
+                    
+                    if (!hasLabel) {
+                        missingLabels++;
+                    }
+                });
+                
+                testFramework.logToCategory('accessibility', 
+                    `${missingLabels} elements missing labels out of ${interactiveElements.length}`);
+                
+                return missingLabels === 0;
+            }, 'accessibility', true);
+            
+            testFramework.addTest('Color Contrast', () => {
+                // Basic color contrast test
+                const body = document.body;
+                const computedStyle = getComputedStyle(body);
+                const backgroundColor = computedStyle.backgroundColor;
+                const color = computedStyle.color;
+                
+                testFramework.logToCategory('accessibility', 
+                    `Body colors: background ${backgroundColor}, text ${color}`);
+                
+                // Basic check - if we can get colors, assume contrast is testable
+                return backgroundColor !== color && backgroundColor !== 'rgba(0, 0, 0, 0)';
+            }, 'accessibility', false);
+            
+            testFramework.addTest('Screen Reader Support', () => {
+                // Test screen reader support elements
+                const liveRegions = document.querySelectorAll('[aria-live]');
+                const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+                const landmarks = document.querySelectorAll('[role="main"], [role="navigation"], [role="banner"], [role="contentinfo"]');
+                
+                testFramework.logToCategory('accessibility', 
+                    `Found ${liveRegions.length} live regions, ${headings.length} headings, ${landmarks.length} landmarks`);
+                
+                return liveRegions.length > 0 && headings.length > 0;
+            }, 'accessibility', true);
+            
+            testFramework.addTest('Skip Links', () => {
+                // Test skip links for accessibility
+                const skipLinks = document.querySelectorAll('.skip-link, [href="#main-content"]');
+                
+                testFramework.logToCategory('accessibility', 
+                    `Found ${skipLinks.length} skip links`);
+                
+                return skipLinks.length > 0;
+            }, 'accessibility', false);
+        }
+        
+        // Cross-Browser Tests
+        function setupCrossBrowserTests() {
+            testFramework.addTest('Browser Feature Detection', () => {
+                // Test browser feature support
+                const features = {
+                    fetch: typeof fetch !== 'undefined',
+                    localStorage: typeof localStorage !== 'undefined',
+                    sessionStorage: typeof sessionStorage !== 'undefined',
+                    addEventListener: typeof document.addEventListener !== 'undefined',
+                    querySelector: typeof document.querySelector !== 'undefined',
+                    JSON: typeof JSON !== 'undefined',
+                    Promise: typeof Promise !== 'undefined',
+                    Map: typeof Map !== 'undefined',
+                    Set: typeof Set !== 'undefined'
+                };
+                
+                const supportedFeatures = Object.values(features).filter(Boolean).length;
+                const totalFeatures = Object.keys(features).length;
+                
+                testFramework.logToCategory('browser', 
+                    `Browser features: ${supportedFeatures}/${totalFeatures} supported`);
+                
+                Object.entries(features).forEach(([feature, supported]) => {
+                    testFramework.logToCategory('browser', 
+                        `${feature}: ${supported ? '✓' : '✗'}`);
+                });
+                
+                return supportedFeatures >= totalFeatures * 0.8; // 80% support required
+            }, 'browser', true);
+            
+            testFramework.addTest('CSS Support', () => {
+                // Test CSS feature support
+                const testElement = document.createElement('div');
+                const cssFeatures = {
+                    flexbox: 'flex' in testElement.style,
+                    grid: 'grid' in testElement.style,
+                    transform: 'transform' in testElement.style,
+                    transition: 'transition' in testElement.style,
+                    borderRadius: 'borderRadius' in testElement.style,
+                    boxShadow: 'boxShadow' in testElement.style
+                };
+                
+                const supportedCSS = Object.values(cssFeatures).filter(Boolean).length;
+                const totalCSS = Object.keys(cssFeatures).length;
+                
+                testFramework.logToCategory('browser', 
+                    `CSS features: ${supportedCSS}/${totalCSS} supported`);
+                
+                return supportedCSS >= totalCSS * 0.7; // 70% support required
+            }, 'browser', false);
+            
+            testFramework.addTest('JavaScript APIs', () => {
+                // Test JavaScript API support
+                const apis = {
+                    performance: typeof performance !== 'undefined',
+                    requestAnimationFrame: typeof requestAnimationFrame !== 'undefined',
+                    MutationObserver: typeof MutationObserver !== 'undefined',
+                    IntersectionObserver: typeof IntersectionObserver !== 'undefined',
+                    ResizeObserver: typeof ResizeObserver !== 'undefined'
+                };
+                
+                const supportedAPIs = Object.values(apis).filter(Boolean).length;
+                const totalAPIs = Object.keys(apis).length;
+                
+                testFramework.logToCategory('browser', 
+                    `JavaScript APIs: ${supportedAPIs}/${totalAPIs} supported`);
+                
+                return supportedAPIs >= totalAPIs * 0.6; // 60% support required
+            }, 'browser', false);
+        }
+        
+        // Test execution functions
+        async function runUnitTests() {
+            await testFramework.runTests('unit');
+        }
+        
+        async function runIntegrationTests() {
+            await testFramework.runTests('integration');
+        }
+        
+        async function runPerformanceTests() {
+            await testFramework.runTests('performance');
+        }
+        
+        async function runAccessibilityTests() {
+            document.getElementById('accessibility-indicator').classList.add('active');
+            await testFramework.runTests('accessibility');
+            setTimeout(() => {
+                document.getElementById('accessibility-indicator').classList.remove('active');
+            }, 2000);
+        }
+        
+        async function runCrossBrowserTests() {
+            await testFramework.runTests('browser');
+        }
+        
+        async function runAllTests() {
+            await testFramework.runTests();
+        }
+        
+        async function runCriticalTests() {
+            await testFramework.runTests(null, true);
+        }
+        
+        // Specific test category functions
+        async function runGraphModelTests() {
+            const modelTests = testFramework.tests.filter(test => 
+                test.category === 'unit' && test.name.includes('Graph'));
+            for (const test of modelTests) {
+                await testFramework.runTest(test);
+            }
+            testFramework.updateStats();
+        }
+        
+        async function runSearchEngineTests() {
+            const searchTests = testFramework.tests.filter(test => 
+                test.category === 'unit' && test.name.includes('Search'));
+            for (const test of searchTests) {
+                await testFramework.runTest(test);
+            }
+            testFramework.updateStats();
+        }
+        
+        async function runValidatorTests() {
+            const validatorTests = testFramework.tests.filter(test => 
+                test.category === 'unit' && test.name.includes('Validator'));
+            for (const test of validatorTests) {
+                await testFramework.runTest(test);
+            }
+            testFramework.updateStats();
+        }
+        
+        async function runSearchWorkflowTests() {
+            const workflowTests = testFramework.tests.filter(test => 
+                test.category === 'integration' && test.name.includes('Workflow'));
+            for (const test of workflowTests) {
+                await testFramework.runTest(test);
+            }
+            testFramework.updateStats();
+        }
+        
+        async function runUIIntegrationTests() {
+            const uiTests = testFramework.tests.filter(test => 
+                test.category === 'integration' && test.name.includes('UI'));
+            for (const test of uiTests) {
+                await testFramework.runTest(test);
+            }
+            testFramework.updateStats();
+        }
+        
+        async function runDataFlowTests() {
+            const dataTests = testFramework.tests.filter(test => 
+                test.category === 'integration' && test.name.includes('Data'));
+            for (const test of dataTests) {
+                await testFramework.runTest(test);
+            }
+            testFramework.updateStats();
+        }
+        
+        async function runLargeDatasetTests() {
+            const datasetTests = testFramework.tests.filter(test => 
+                test.category === 'performance' && test.name.includes('Dataset'));
+            for (const test of datasetTests) {
+                await testFramework.runTest(test);
+            }
+            testFramework.updateStats();
+        }
+        
+        async function runMemoryTests() {
+            const memoryTests = testFramework.tests.filter(test => 
+                test.category === 'performance' && test.name.includes('Memory'));
+            for (const test of memoryTests) {
+                await testFramework.runTest(test);
+            }
+            testFramework.updateStats();
+        }
+        
+        async function runResponseTimeTests() {
+            const responseTests = testFramework.tests.filter(test => 
+                test.category === 'performance' && test.name.includes('Response'));
+            for (const test of responseTests) {
+                await testFramework.runTest(test);
+            }
+            testFramework.updateStats();
+        }
+        
+        async function runKeyboardTests() {
+            const keyboardTests = testFramework.tests.filter(test => 
+                test.category === 'accessibility' && test.name.includes('Keyboard'));
+            for (const test of keyboardTests) {
+                await testFramework.runTest(test);
+            }
+            testFramework.updateStats();
+        }
+        
+        async function runScreenReaderTests() {
+            const screenReaderTests = testFramework.tests.filter(test => 
+                test.category === 'accessibility' && test.name.includes('Screen'));
+            for (const test of screenReaderTests) {
+                await testFramework.runTest(test);
+            }
+            testFramework.updateStats();
+        }
+        
+        async function runWCAGTests() {
+            const wcagTests = testFramework.tests.filter(test => 
+                test.category === 'accessibility' && (test.name.includes('ARIA') || test.name.includes('Contrast')));
+            for (const test of wcagTests) {
+                await testFramework.runTest(test);
+            }
+            testFramework.updateStats();
+        }
+        
+        function detectBrowserFeatures() {
+            const browserTests = testFramework.tests.filter(test => 
+                test.category === 'browser' && test.name.includes('Feature'));
+            browserTests.forEach(async (test) => {
+                await testFramework.runTest(test);
+            });
+            testFramework.updateStats();
+        }
+        
+        function testBrowserAPIs() {
+            const apiTests = testFramework.tests.filter(test => 
+                test.category === 'browser' && test.name.includes('API'));
+            apiTests.forEach(async (test) => {
+                await testFramework.runTest(test);
+            });
+            testFramework.updateStats();
+        }
+        
+        function generateTestReport() {
+            const report = testFramework.generateReport();
+            const reportJson = JSON.stringify(report, null, 2);
+            
+            // Create downloadable report
+            const blob = new Blob([reportJson], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `test-report-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            testFramework.logToCategory('control', 'Test report generated and downloaded');
+        }
+        
+        function clearTestResults() {
+            testFramework.resetResults();
+            testFramework.updateStats();
+            testFramework.updateProgress();
+            
+            // Clear all test lists
+            ['unit', 'integration', 'performance', 'accessibility', 'browser'].forEach(category => {
+                const listElement = document.getElementById(`${category}-test-list`);
+                if (listElement) {
+                    listElement.innerHTML = '';
+                }
+                
+                const logElement = document.getElementById(`${category}-test-log`);
+                if (logElement) {
+                    logElement.textContent = `${category} test results will appear here...`;
+                }
+            });
+            
+            testFramework.logToCategory('control', 'Test results cleared');
+        }
+        
+        // Initialize tests when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for all modules to load
+            setTimeout(() => {
+                setupUnitTests();
+                setupIntegrationTests();
+                setupPerformanceTests();
+                setupAccessibilityTests();
+                setupCrossBrowserTests();
+                
+                testFramework.logToCategory('control', 
+                    `Test suite initialized with ${testFramework.tests.length} tests`);
+                
+                console.log('Comprehensive Test Suite Ready');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

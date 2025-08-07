@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore conceptual relationships in the Fidakune lexicon through interactive graph-based search.">
+    <meta name="keywords" content="Fidakune, conceptual search, graph, relationships, vocabulary, constructed language">
+    <title>Fidakune Conceptual Explorer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192x192.png">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="graph-conceptual-search.css">
+    <link rel="stylesheet" href="github-relationship-proposals.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="graph-models.js" as="script">
+    <link rel="preload" href="graph-validator.js" as="script">
+    <link rel="preload" href="graph-search-engine.js" as="script">
+    <link rel="preload" href="graph-conceptual-search.js" as="script">
+    <link rel="preload" href="github-relationship-proposals.js" as="script">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+    <header role="banner" class="header">
+        <div class="container">
+            <h1 class="header__title">
+                <a href="https://github.com/jlillywh/Fidakune-Language" class="header__link">
+                    Fidakune Conceptual Explorer
+                </a>
+            </h1>
+            <p class="header__subtitle">
+                Discover relationships and connections in the Fidakune vocabulary network
+            </p>
+            <nav class="header__nav" role="navigation" aria-label="Main navigation">
+                <a href="lexicon-search.html" class="header__nav-link">Traditional Search</a>
+                <a href="#help" class="header__nav-link">Help</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content" role="main" class="main">
+        <div class="container">
+            <!-- Search section -->
+            <section class="search-section" aria-labelledby="search-heading">
+                <h2 id="search-heading" class="search-section__title">
+                    Explore Conceptual Relationships
+                </h2>
+                <p class="search-section__description" id="search-description">
+                    Enter a Fidakune word or English concept to discover its connections in the vocabulary network.
+                </p>
+                
+                <!-- Search form -->
+                <form class="search-form" role="search" aria-labelledby="search-heading" aria-describedby="search-description">
+                    <div class="search-form__input-group">
+                        <label for="graph-search-input" class="search-form__label visually-hidden">
+                            Search for conceptual relationships in Fidakune vocabulary
+                        </label>
+                        <input 
+                            type="search" 
+                            id="graph-search-input" 
+                            class="search-form__input"
+                            placeholder="Try 'kore-pet', 'hope', or 'water'..."
+                            aria-describedby="search-help search-status"
+                            aria-label="Enter a word or concept to explore relationships"
+                            autocomplete="off"
+                            spellcheck="false"
+                            role="searchbox"
+                        >
+                        <button type="submit" class="search-form__button" aria-label="Search and explore conceptual relationships">
+                            <span class="search-form__button-text">Explore</span>
+                            <span class="search-form__button-icon" aria-hidden="true">🔍</span>
+                        </button>
+                    </div>
+                    <div id="search-help" class="search-form__help">
+                        Discover how words connect through roots, meanings, and concepts
+                    </div>
+                    <div id="search-status" class="visually-hidden" aria-live="polite" aria-atomic="true">
+                        <!-- Search status announcements will be inserted here -->
+                    </div>
+                </form>
+
+                <!-- Search suggestions -->
+                <div class="search-suggestions" id="search-suggestions" aria-live="polite">
+                    <!-- Dynamic suggestions will be inserted here -->
+                </div>
+                
+                <!-- Cross-app search transfer -->
+                <div class="search-transfer" id="search-transfer">
+                    <button class="search-transfer__button" id="transfer-to-lexicon" aria-label="Search this term in traditional lexicon search">
+                        <span class="search-transfer__icon">🔍</span>
+                        <span class="search-transfer__text">Search in Traditional Lexicon</span>
+                    </button>
+                </div>
+
+                <!-- Loading indicator -->
+                <div class="loading" id="loading-indicator" aria-hidden="true">
+                    <div class="loading__spinner" aria-hidden="true"></div>
+                    <span class="loading__text">Exploring relationships...</span>
+                </div>
+            </section>
+
+            <!-- Navigation breadcrumbs -->
+            <nav class="breadcrumbs" id="breadcrumbs" aria-label="Exploration path" role="navigation">
+                <div class="breadcrumbs__container">
+                    <span class="breadcrumbs__label">Exploration path:</span>
+                    <ol class="breadcrumbs__list" id="breadcrumbs-list">
+                        <!-- Breadcrumb items will be dynamically inserted here -->
+                    </ol>
+                    <button class="breadcrumbs__back" id="back-button" aria-label="Go back to previous concept" disabled>
+                        <span aria-hidden="true">←</span> Back
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Results container -->
+            <div class="results-container" id="results-container" role="region" aria-labelledby="results-heading">
+                <h2 id="results-heading" class="visually-hidden">Search Results</h2>
+                
+                <!-- Search results status -->
+                <div id="results-status" class="visually-hidden" aria-live="polite" aria-atomic="true">
+                    <!-- Results status announcements will be inserted here -->
+                </div>
+                
+                <!-- Directly Related Concepts -->
+                <section class="relationship-category" id="directly-related" aria-labelledby="directly-related-heading">
+                    <h3 id="directly-related-heading" class="relationship-category__title">
+                        <span class="relationship-category__icon" aria-hidden="true">🎯</span>
+                        Directly Related Concepts
+                    </h3>
+                    <p class="relationship-category__description" id="directly-related-desc">
+                        Words that have the same meaning or are direct translations
+                    </p>
+                    <div class="concept-list" id="directly-related-list" role="list" aria-labelledby="directly-related-heading" aria-describedby="directly-related-desc">
+                        <!-- Results will be dynamically inserted here -->
+                    </div>
+                    <div class="relationship-category__empty" id="directly-related-empty" hidden role="status">
+                        <p>No directly related concepts found.</p>
+                    </div>
+                </section>
+
+                <!-- Component Roots -->
+                <section class="relationship-category" id="component-roots" aria-labelledby="component-roots-heading">
+                    <h3 id="component-roots-heading" class="relationship-category__title">
+                        <span class="relationship-category__icon" aria-hidden="true">🔗</span>
+                        Component Roots to Consider
+                    </h3>
+                    <p class="relationship-category__description" id="component-roots-desc">
+                        Root words that form compounds and morphological connections
+                    </p>
+                    <div class="concept-list" id="component-roots-list" role="list" aria-labelledby="component-roots-heading" aria-describedby="component-roots-desc">
+                        <!-- Results will be dynamically inserted here -->
+                    </div>
+                    <div class="relationship-category__empty" id="component-roots-empty" hidden role="status">
+                        <p>No component roots found.</p>
+                    </div>
+                </section>
+
+                <!-- Related Ideas -->
+                <section class="relationship-category" id="related-ideas" aria-labelledby="related-ideas-heading">
+                    <h3 id="related-ideas-heading" class="relationship-category__title">
+                        <span class="relationship-category__icon" aria-hidden="true">💭</span>
+                        Related Ideas
+                    </h3>
+                    <p class="relationship-category__description" id="related-ideas-desc">
+                        Conceptually similar words and semantic associations
+                    </p>
+                    <div class="concept-list" id="related-ideas-list" role="list" aria-labelledby="related-ideas-heading" aria-describedby="related-ideas-desc">
+                        <!-- Results will be dynamically inserted here -->
+                    </div>
+                    <div class="relationship-category__empty" id="related-ideas-empty" hidden role="status">
+                        <p>No related ideas found.</p>
+                    </div>
+                </section>
+
+                <!-- No results message -->
+                <div class="no-results" id="no-results" hidden>
+                    <div class="no-results__icon" aria-hidden="true">🔍</div>
+                    <h3 class="no-results__title">No relationships found</h3>
+                    <p class="no-results__message">
+                        We couldn't find any conceptual connections for your search. 
+                        Try a different term or explore some suggestions below.
+                    </p>
+                    <div class="no-results__suggestions">
+                        <h4>Try exploring:</h4>
+                        <div class="suggestion-chips">
+                            <button class="suggestion-chip" data-concept="kore-pet">kore-pet (grief)</button>
+                            <button class="suggestion-chip" data-concept="sole-lum">sole-lum (hope)</button>
+                            <button class="suggestion-chip" data-concept="aqua">aqua (water)</button>
+                            <button class="suggestion-chip" data-concept="ami">ami (friend)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concept details panel -->
+            <aside class="concept-details" id="concept-details" role="complementary" aria-labelledby="concept-details-heading" aria-hidden="true">
+                <div class="concept-details__header">
+                    <h3 id="concept-details-heading" class="concept-details__title">Concept Details</h3>
+                    <button class="concept-details__close" id="close-details" aria-label="Close concept details panel">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="concept-details__content" id="concept-details-content" role="document">
+                    <!-- Concept details will be dynamically inserted here -->
+                </div>
+                <div id="concept-details-status" class="visually-hidden" aria-live="polite">
+                    <!-- Concept details status announcements -->
+                </div>
+            </aside>
+
+            <!-- Screen reader instructions -->
+            <div id="concept-item-instructions" class="visually-hidden">
+                Instructions for concept items: Press Enter to explore relationships, Space to show details, use arrow keys to navigate between items, or Tab to move to next section.
+            </div>
+            
+            <!-- Help section -->
+            <section class="help-section" id="help" aria-labelledby="help-heading">
+                <h2 id="help-heading" class="help-section__title">How to Use the Conceptual Explorer</h2>
+                <div class="help-content">
+                    <div class="help-item">
+                        <h3>🔍 Search for Concepts</h3>
+                        <p>Enter any Fidakune word (like "kore-pet") or English concept (like "hope") to explore its relationships.</p>
+                    </div>
+                    <div class="help-item">
+                        <h3>🎯 Directly Related</h3>
+                        <p>Find words with the same meaning or direct translations between Fidakune and English.</p>
+                    </div>
+                    <div class="help-item">
+                        <h3>🔗 Component Roots</h3>
+                        <p>Discover the building blocks of compound words and morphological connections.</p>
+                    </div>
+                    <div class="help-item">
+                        <h3>💭 Related Ideas</h3>
+                        <p>Explore conceptually similar words and semantic associations across domains.</p>
+                    </div>
+                    <div class="help-item">
+                        <h3>🧭 Navigate Freely</h3>
+                        <p>Click any result to explore its relationships. Use breadcrumbs to track your path.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo" class="footer">
+        <div class="container">
+            <p class="footer__text">
+                Part of the <a href="https://github.com/jlillywh/Fidakune-Language" class="footer__link">Fidakune Language Project</a>
+            </p>
+            <p class="footer__text">
+                <a href="lexicon-search.html" class="footer__link">Traditional Search</a> | 
+                <a href="https://github.com/jlillywh/Fidakune-Language/blob/main/CONTRIBUTING.md" class="footer__link">
+                    Contributing Guidelines
+                </a> | 
+                <a href="https://github.com/jlillywh/Fidakune-Language/issues" class="footer__link">
+                    Report Issues
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="deployment-config.js"></script>
+    <script src="security-config.js"></script>
+    <script src="fallback-mechanisms.js"></script>
+    <script src="fidakune-integration.js"></script>
+    <script src="graph-models.js"></script>
+    <script src="graph-validator.js"></script>
+    <script src="graph-search-engine.js"></script>
+    <script src="graph-conceptual-search.js"></script>
+    <script src="github-relationship-proposals.js"></script>
+    <script src="tutorial-system.js"></script>
+</body>
+</html>

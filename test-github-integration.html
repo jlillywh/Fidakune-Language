@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Integration Test - Fidakune Conceptual Explorer</title>
+    <link rel="stylesheet" href="graph-conceptual-search.css">
+    <link rel="stylesheet" href="github-relationship-proposals.css">
+    <style>
+        body {
+            padding: 2rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .test-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+        }
+        .test-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        .test-description {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+        }
+        .mock-concept-item {
+            background: #f8f9ff;
+            border: 2px solid #e3e7ff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .concept-item__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+        .concept-item__title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        .concept-item__definition {
+            color: #495057;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        .concept-item__meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
+            padding-top: 0.75rem;
+            gap: 1rem;
+        }
+        .test-log {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>GitHub Integration Test Suite</h1>
+    <p>This page tests the GitHub relationship proposal functionality for the Fidakune Conceptual Explorer.</p>
+
+    <!-- Test 1: General Relationship Proposal -->
+    <div class="test-section">
+        <h2 class="test-title">Test 1: General Relationship Proposal</h2>
+        <p class="test-description">
+            Test the general relationship proposal button that allows users to suggest new relationships without a specific starting concept.
+        </p>
+        
+        <div class="relationship-proposal-container">
+            <div class="relationship-proposal-section">
+                <h3 class="relationship-proposal__title">
+                    <span class="relationship-proposal__icon" aria-hidden="true">💡</span>
+                    Suggest New Relationships
+                </h3>
+                <p class="relationship-proposal__description">
+                    Help expand the Fidakune conceptual network by proposing new word relationships.
+                </p>
+                <button class="propose-general-relationship-btn" 
+                        aria-label="Propose a new conceptual relationship">
+                    <span class="proposal-btn__icon" aria-hidden="true">🔗</span>
+                    <span class="proposal-btn__text">Propose Relationship</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test 2: Concept-Specific Proposal -->
+    <div class="test-section">
+        <h2 class="test-title">Test 2: Concept-Specific Relationship Proposal</h2>
+        <p class="test-description">
+            Test the concept-specific proposal button that appears on individual concept items.
+        </p>
+        
+        <div class="mock-concept-item concept-item" 
+             data-concept="kore-pet" 
+             data-concept-id="fidakune_kore_pet" 
+             data-relationship="is_a">
+            <div class="concept-item__header">
+                <div class="concept-item__title">kore-pet</div>
+            </div>
+            <div class="concept-item__definition">grief (literally: heart-stone)</div>
+            <div class="concept-item__meta">
+                <div>Compound word</div>
+                <button class="propose-relationship-btn" 
+                        aria-label="Propose new relationship for this concept">
+                    <span class="proposal-btn__icon" aria-hidden="true">🔗</span>
+                    <span class="proposal-btn__text">Suggest Relationship</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="mock-concept-item concept-item" 
+             data-concept="sole-lum" 
+             data-concept-id="fidakune_sole_lum" 
+             data-relationship="is_a">
+            <div class="concept-item__header">
+                <div class="concept-item__title">sole-lum</div>
+            </div>
+            <div class="concept-item__definition">hope (literally: sun-light)</div>
+            <div class="concept-item__meta">
+                <div>Compound word</div>
+                <button class="propose-relationship-btn" 
+                        aria-label="Propose new relationship for this concept">
+                    <span class="proposal-btn__icon" aria-hidden="true">🔗</span>
+                    <span class="proposal-btn__text">Suggest Relationship</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test 3: Form Validation -->
+    <div class="test-section">
+        <h2 class="test-title">Test 3: Form Validation</h2>
+        <p class="test-description">
+            Test the form validation by opening a proposal modal and trying various inputs.
+        </p>
+        
+        <button id="test-validation-btn" class="propose-general-relationship-btn">
+            <span class="proposal-btn__icon" aria-hidden="true">🧪</span>
+            <span class="proposal-btn__text">Test Form Validation</span>
+        </button>
+        
+        <div class="test-log" id="validation-log">
+            <div>Validation test log will appear here...</div>
+        </div>
+    </div>
+
+    <!-- Test 4: GitHub URL Generation -->
+    <div class="test-section">
+        <h2 class="test-title">Test 4: GitHub URL Generation</h2>
+        <p class="test-description">
+            Test the GitHub issue URL generation with sample data.
+        </p>
+        
+        <button id="test-github-url-btn" class="propose-general-relationship-btn">
+            <span class="proposal-btn__icon" aria-hidden="true">🔗</span>
+            <span class="proposal-btn__text">Test GitHub URL</span>
+        </button>
+        
+        <div class="test-log" id="github-url-log">
+            <div>GitHub URL test results will appear here...</div>
+        </div>
+    </div>
+
+    <!-- Test 5: Accessibility -->
+    <div class="test-section">
+        <h2 class="test-title">Test 5: Accessibility Features</h2>
+        <p class="test-description">
+            Test keyboard navigation, screen reader compatibility, and ARIA attributes.
+        </p>
+        
+        <div class="test-instructions">
+            <h4>Manual Testing Instructions:</h4>
+            <ul>
+                <li>Use Tab key to navigate through proposal buttons</li>
+                <li>Press Enter or Space to activate buttons</li>
+                <li>Use Escape key to close modals</li>
+                <li>Test with screen reader for proper announcements</li>
+                <li>Verify focus management in modal dialogs</li>
+            </ul>
+        </div>
+        
+        <button id="test-accessibility-btn" class="propose-general-relationship-btn">
+            <span class="proposal-btn__icon" aria-hidden="true">♿</span>
+            <span class="proposal-btn__text">Test Accessibility</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="github-relationship-proposals.js"></script>
+    
+    <script>
+        // Mock search context for testing
+        window.conceptualExplorer = {
+            currentQuery: 'test-query',
+            currentResults: {
+                directlyRelated: [{ label: 'test1' }],
+                componentRoots: [{ label: 'test2' }],
+                relatedIdeas: [{ label: 'test3' }]
+            },
+            searchHistory: ['previous-search-1', 'previous-search-2']
+        };
+
+        // Test validation functionality
+        document.getElementById('test-validation-btn').addEventListener('click', () => {
+            const log = document.getElementById('validation-log');
+            log.innerHTML = '<div>Testing form validation...</div>';
+            
+            // Test the validator
+            if (window.GitHubRelationshipProposals) {
+                const validator = new RelationshipProposalValidator({
+                    nodeTypes: ['fidakune_root', 'fidakune_word', 'english_keyword'],
+                    relationshipTypes: ['is_a', 'has_root', 'is_related_to'],
+                    strengthRange: [0.1, 1.0],
+                    requiredFields: ['source', 'target', 'relationship', 'description'],
+                    maxDescriptionLength: 500,
+                    minDescriptionLength: 10
+                });
+                
+                // Test valid proposal
+                const validProposal = {
+                    source: 'kore-pet',
+                    target: 'grief',
+                    relationship: 'is_a',
+                    strength: 0.9,
+                    description: 'This is a valid description that meets the minimum length requirement.'
+                };
+                
+                const validResult = validator.validate(validProposal);
+                log.innerHTML += `<div>✅ Valid proposal test: ${validResult.isValid ? 'PASSED' : 'FAILED'}</div>`;
+                
+                // Test invalid proposal
+                const invalidProposal = {
+                    source: '',
+                    target: 'grief',
+                    relationship: 'invalid_type',
+                    strength: 2.0,
+                    description: 'Short'
+                };
+                
+                const invalidResult = validator.validate(invalidProposal);
+                log.innerHTML += `<div>❌ Invalid proposal test: ${!invalidResult.isValid ? 'PASSED' : 'FAILED'}</div>`;
+                log.innerHTML += `<div>Errors found: ${invalidResult.errors.length}</div>`;
+                
+                invalidResult.errors.forEach(error => {
+                    log.innerHTML += `<div>  - ${error}</div>`;
+                });
+            } else {
+                log.innerHTML += '<div>❌ GitHubRelationshipProposals not loaded</div>';
+            }
+        });
+
+        // Test GitHub URL generation
+        document.getElementById('test-github-url-btn').addEventListener('click', () => {
+            const log = document.getElementById('github-url-log');
+            log.innerHTML = '<div>Testing GitHub URL generation...</div>';
+            
+            if (window.GitHubRelationshipProposals) {
+                const proposals = window.GitHubRelationshipProposals;
+                
+                // Mock form data
+                const testFormData = {
+                    sourceConcept: 'kore-pet',
+                    targetConcept: 'sadness',
+                    relationshipType: 'is_related_to',
+                    relationshipStrength: 0.7,
+                    description: 'Both concepts relate to emotional states of distress and sorrow.',
+                    usageExamples: 'When someone experiences kore-pet, they might also feel general sadness.',
+                    linguisticJustification: 'Semantic field analysis shows overlap in emotional terminology.',
+                    searchContext: {
+                        query: 'grief',
+                        results: { directlyRelated: [1], componentRoots: [2], relatedIdeas: [3] }
+                    },
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Generate issue body
+                const issueBody = proposals.generateIssueBody(testFormData);
+                log.innerHTML += '<div>✅ Issue body generated successfully</div>';
+                log.innerHTML += `<div>Body length: ${issueBody.length} characters</div>`;
+                
+                // Test URL construction
+                const issueTitle = `Relationship Proposal: ${testFormData.sourceConcept} → ${testFormData.targetConcept}`;
+                const githubUrl = new URL('https://github.com/jlillywh/Fidakune-Language/issues/new');
+                githubUrl.searchParams.set('title', issueTitle);
+                githubUrl.searchParams.set('body', issueBody);
+                githubUrl.searchParams.set('labels', 'relationship-proposal,enhancement');
+                
+                log.innerHTML += '<div>✅ GitHub URL constructed</div>';
+                log.innerHTML += `<div>URL length: ${githubUrl.toString().length} characters</div>';
+                log.innerHTML += `<div style="word-break: break-all; font-size: 0.8em; margin-top: 0.5rem;">URL: ${githubUrl.toString().substring(0, 200)}...</div>`;
+                
+            } else {
+                log.innerHTML += '<div>❌ GitHubRelationshipProposals not loaded</div>';
+            }
+        });
+
+        // Test accessibility features
+        document.getElementById('test-accessibility-btn').addEventListener('click', () => {
+            console.log('Testing accessibility features...');
+            
+            // Test ARIA attributes
+            const buttons = document.querySelectorAll('.propose-relationship-btn, .propose-general-relationship-btn');
+            buttons.forEach((button, index) => {
+                const ariaLabel = button.getAttribute('aria-label');
+                console.log(`Button ${index + 1} ARIA label:`, ariaLabel);
+            });
+            
+            // Test keyboard navigation
+            console.log('Use Tab key to navigate, Enter/Space to activate, Escape to close modals');
+            
+            // Test focus management
+            const firstButton = document.querySelector('.propose-general-relationship-btn');
+            if (firstButton) {
+                firstButton.focus();
+                console.log('Focus set to first proposal button');
+            }
+        });
+
+        // Log when GitHub integration is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                if (window.GitHubRelationshipProposals) {
+                    console.log('✅ GitHub Relationship Proposals loaded successfully');
+                } else {
+                    console.error('❌ GitHub Relationship Proposals failed to load');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

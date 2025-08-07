@@ -1,0 +1,444 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2024-12-19",
+    "curated_by": "Fidakune Language Council",
+    "description": "Curated conceptual relationships for Fidakune lexicon",
+    "node_count": 24,
+    "edge_count": 35
+  },
+  "nodes": [
+    {
+      "id": "fidakune_aqua",
+      "label": "aqua",
+      "type": "fidakune_word",
+      "definition": "water",
+      "domain": "Nature",
+      "pronunciation": "/ˈa.kwa/"
+    },
+    {
+      "id": "fidakune_sole",
+      "label": "sole",
+      "type": "fidakune_root",
+      "definition": "sun",
+      "domain": "Nature",
+      "pronunciation": "/ˈso.le/"
+    },
+    {
+      "id": "fidakune_lum",
+      "label": "lum",
+      "type": "fidakune_root",
+      "definition": "light",
+      "domain": "Nature",
+      "pronunciation": "/lum/"
+    },
+    {
+      "id": "fidakune_sole_lum",
+      "label": "sole-lum",
+      "type": "fidakune_word",
+      "definition": "hope",
+      "domain": "Emotion",
+      "pronunciation": "/ˈso.le.lum/"
+    },
+    {
+      "id": "fidakune_kore",
+      "label": "kore",
+      "type": "fidakune_root",
+      "definition": "heart",
+      "domain": "Body",
+      "pronunciation": "/ˈko.ɾe/"
+    },
+    {
+      "id": "fidakune_pet",
+      "label": "pet",
+      "type": "fidakune_root",
+      "definition": "stone",
+      "domain": "Nature",
+      "pronunciation": "/pet/"
+    },
+    {
+      "id": "fidakune_kore_pet",
+      "label": "kore-pet",
+      "type": "fidakune_word",
+      "definition": "grief",
+      "domain": "Emotion",
+      "pronunciation": "/ˈko.ɾe.pet/"
+    },
+    {
+      "id": "fidakune_ami",
+      "label": "ami",
+      "type": "fidakune_word",
+      "definition": "friend",
+      "domain": "Society",
+      "pronunciation": "/ˈa.mi/"
+    },
+    {
+      "id": "fidakune_mun",
+      "label": "mun",
+      "type": "fidakune_root",
+      "definition": "moon",
+      "domain": "Nature",
+      "pronunciation": "/mun/"
+    },
+    {
+      "id": "fidakune_mun_lum",
+      "label": "mun-lum",
+      "type": "fidakune_word",
+      "definition": "inspiration",
+      "domain": "Emotion",
+      "pronunciation": "/ˈmun.lum/"
+    },
+    {
+      "id": "en_water",
+      "label": "water",
+      "type": "english_keyword",
+      "definition": "clear liquid essential for life",
+      "domain": "Nature"
+    },
+    {
+      "id": "en_sun",
+      "label": "sun",
+      "type": "english_keyword",
+      "definition": "star at center of solar system",
+      "domain": "Nature"
+    },
+    {
+      "id": "en_light",
+      "label": "light",
+      "type": "english_keyword",
+      "definition": "electromagnetic radiation visible to human eye",
+      "domain": "Nature"
+    },
+    {
+      "id": "en_hope",
+      "label": "hope",
+      "type": "english_keyword",
+      "definition": "feeling of expectation and desire for positive outcome",
+      "domain": "Emotion"
+    },
+    {
+      "id": "en_heart",
+      "label": "heart",
+      "type": "english_keyword",
+      "definition": "organ that pumps blood; center of emotion",
+      "domain": "Body"
+    },
+    {
+      "id": "en_stone",
+      "label": "stone",
+      "type": "english_keyword",
+      "definition": "hard solid mineral matter",
+      "domain": "Nature"
+    },
+    {
+      "id": "en_grief",
+      "label": "grief",
+      "type": "english_keyword",
+      "definition": "deep sorrow, especially caused by loss",
+      "domain": "Emotion"
+    },
+    {
+      "id": "en_friend",
+      "label": "friend",
+      "type": "english_keyword",
+      "definition": "person with whom one has mutual affection",
+      "domain": "Society"
+    },
+    {
+      "id": "en_moon",
+      "label": "moon",
+      "type": "english_keyword",
+      "definition": "natural satellite of Earth",
+      "domain": "Nature"
+    },
+    {
+      "id": "en_inspiration",
+      "label": "inspiration",
+      "type": "english_keyword",
+      "definition": "process of being mentally stimulated to creative activity",
+      "domain": "Emotion"
+    },
+    {
+      "id": "en_optimism",
+      "label": "optimism",
+      "type": "english_keyword",
+      "definition": "hopefulness and confidence about future",
+      "domain": "Emotion"
+    },
+    {
+      "id": "en_sadness",
+      "label": "sadness",
+      "type": "english_keyword",
+      "definition": "feeling of sorrow or unhappiness",
+      "domain": "Emotion"
+    },
+    {
+      "id": "en_brightness",
+      "label": "brightness",
+      "type": "english_keyword",
+      "definition": "quality of being bright or giving light",
+      "domain": "Nature"
+    },
+    {
+      "id": "en_companion",
+      "label": "companion",
+      "type": "english_keyword",
+      "definition": "person who accompanies or associates with another",
+      "domain": "Society"
+    }
+  ],
+  "edges": [
+    {
+      "source": "fidakune_aqua",
+      "target": "en_water",
+      "relationship": "is_a",
+      "strength": 1.0,
+      "description": "aqua means water"
+    },
+    {
+      "source": "fidakune_sole",
+      "target": "en_sun",
+      "relationship": "is_a",
+      "strength": 1.0,
+      "description": "sole means sun"
+    },
+    {
+      "source": "fidakune_lum",
+      "target": "en_light",
+      "relationship": "is_a",
+      "strength": 1.0,
+      "description": "lum means light"
+    },
+    {
+      "source": "fidakune_sole_lum",
+      "target": "fidakune_sole",
+      "relationship": "has_root",
+      "strength": 1.0,
+      "description": "sole-lum contains the root sole"
+    },
+    {
+      "source": "fidakune_sole_lum",
+      "target": "fidakune_lum",
+      "relationship": "has_root",
+      "strength": 1.0,
+      "description": "sole-lum contains the root lum"
+    },
+    {
+      "source": "fidakune_sole_lum",
+      "target": "en_hope",
+      "relationship": "is_a",
+      "strength": 1.0,
+      "description": "sole-lum means hope"
+    },
+    {
+      "source": "fidakune_kore",
+      "target": "en_heart",
+      "relationship": "is_a",
+      "strength": 1.0,
+      "description": "kore means heart"
+    },
+    {
+      "source": "fidakune_pet",
+      "target": "en_stone",
+      "relationship": "is_a",
+      "strength": 1.0,
+      "description": "pet means stone"
+    },
+    {
+      "source": "fidakune_kore_pet",
+      "target": "fidakune_kore",
+      "relationship": "has_root",
+      "strength": 1.0,
+      "description": "kore-pet contains the root kore"
+    },
+    {
+      "source": "fidakune_kore_pet",
+      "target": "fidakune_pet",
+      "relationship": "has_root",
+      "strength": 1.0,
+      "description": "kore-pet contains the root pet"
+    },
+    {
+      "source": "fidakune_kore_pet",
+      "target": "en_grief",
+      "relationship": "is_a",
+      "strength": 1.0,
+      "description": "kore-pet means grief"
+    },
+    {
+      "source": "fidakune_ami",
+      "target": "en_friend",
+      "relationship": "is_a",
+      "strength": 1.0,
+      "description": "ami means friend"
+    },
+    {
+      "source": "fidakune_mun",
+      "target": "en_moon",
+      "relationship": "is_a",
+      "strength": 1.0,
+      "description": "mun means moon"
+    },
+    {
+      "source": "fidakune_mun_lum",
+      "target": "fidakune_mun",
+      "relationship": "has_root",
+      "strength": 1.0,
+      "description": "mun-lum contains the root mun"
+    },
+    {
+      "source": "fidakune_mun_lum",
+      "target": "fidakune_lum",
+      "relationship": "has_root",
+      "strength": 1.0,
+      "description": "mun-lum contains the root lum"
+    },
+    {
+      "source": "fidakune_mun_lum",
+      "target": "en_inspiration",
+      "relationship": "is_a",
+      "strength": 1.0,
+      "description": "mun-lum means inspiration"
+    },
+    {
+      "source": "en_hope",
+      "target": "en_optimism",
+      "relationship": "is_related_to",
+      "strength": 0.8,
+      "description": "hope and optimism are closely related concepts"
+    },
+    {
+      "source": "en_grief",
+      "target": "en_sadness",
+      "relationship": "is_related_to",
+      "strength": 0.9,
+      "description": "grief is a form of deep sadness"
+    },
+    {
+      "source": "en_light",
+      "target": "en_brightness",
+      "relationship": "is_related_to",
+      "strength": 0.8,
+      "description": "light creates brightness"
+    },
+    {
+      "source": "en_friend",
+      "target": "en_companion",
+      "relationship": "is_related_to",
+      "strength": 0.8,
+      "description": "friend and companion are similar concepts"
+    },
+    {
+      "source": "en_sun",
+      "target": "en_light",
+      "relationship": "is_related_to",
+      "strength": 0.9,
+      "description": "sun produces light"
+    },
+    {
+      "source": "en_moon",
+      "target": "en_light",
+      "relationship": "is_related_to",
+      "strength": 0.7,
+      "description": "moon reflects light"
+    },
+    {
+      "source": "fidakune_sole_lum",
+      "target": "en_optimism",
+      "relationship": "is_related_to",
+      "strength": 0.7,
+      "description": "hope (sole-lum) relates to optimism"
+    },
+    {
+      "source": "fidakune_kore_pet",
+      "target": "en_sadness",
+      "relationship": "is_related_to",
+      "strength": 0.8,
+      "description": "grief (kore-pet) relates to sadness"
+    },
+    {
+      "source": "fidakune_mun_lum",
+      "target": "en_hope",
+      "relationship": "is_related_to",
+      "strength": 0.6,
+      "description": "inspiration (mun-lum) can lead to hope"
+    },
+    {
+      "source": "fidakune_sole",
+      "target": "en_brightness",
+      "relationship": "is_related_to",
+      "strength": 0.8,
+      "description": "sun (sole) creates brightness"
+    },
+    {
+      "source": "fidakune_lum",
+      "target": "en_brightness",
+      "relationship": "is_related_to",
+      "strength": 0.9,
+      "description": "light (lum) creates brightness"
+    },
+    {
+      "source": "fidakune_ami",
+      "target": "en_companion",
+      "relationship": "is_related_to",
+      "strength": 0.7,
+      "description": "friend (ami) is a type of companion"
+    },
+    {
+      "source": "en_heart",
+      "target": "en_grief",
+      "relationship": "is_related_to",
+      "strength": 0.6,
+      "description": "heart is associated with emotional pain"
+    },
+    {
+      "source": "en_stone",
+      "target": "en_grief",
+      "relationship": "is_related_to",
+      "strength": 0.5,
+      "description": "metaphorical connection - heavy like stone"
+    },
+    {
+      "source": "fidakune_kore",
+      "target": "fidakune_sole_lum",
+      "relationship": "is_related_to",
+      "strength": 0.4,
+      "description": "heart (kore) can feel hope (sole-lum)"
+    },
+    {
+      "source": "fidakune_kore",
+      "target": "fidakune_kore_pet",
+      "relationship": "is_related_to",
+      "strength": 0.6,
+      "description": "heart (kore) can feel grief (kore-pet)"
+    },
+    {
+      "source": "fidakune_sole_lum",
+      "target": "fidakune_mun_lum",
+      "relationship": "is_related_to",
+      "strength": 0.5,
+      "description": "hope (sole-lum) and inspiration (mun-lum) both involve light"
+    },
+    {
+      "source": "en_inspiration",
+      "target": "en_hope",
+      "relationship": "is_related_to",
+      "strength": 0.7,
+      "description": "inspiration often leads to hope"
+    },
+    {
+      "source": "fidakune_lum",
+      "target": "fidakune_sole_lum",
+      "relationship": "is_related_to",
+      "strength": 0.3,
+      "description": "light (lum) is component of hope (sole-lum)"
+    },
+    {
+      "source": "fidakune_lum",
+      "target": "fidakune_mun_lum",
+      "relationship": "is_related_to",
+      "strength": 0.3,
+      "description": "light (lum) is component of inspiration (mun-lum)"
+    }
+  ]
+}
