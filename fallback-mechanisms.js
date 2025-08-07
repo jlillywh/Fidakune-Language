@@ -988,6 +988,13 @@ class FallbackMechanisms {
     }
     
     showFallbackNotification(message) {
+        // Only show notifications in development/staging, not production
+        if (window.FidakuneDeploymentConfig && 
+            window.FidakuneDeploymentConfig.config && 
+            !window.FidakuneDeploymentConfig.config.debug) {
+            return; // Don't show notifications in production
+        }
+        
         // Show user-friendly notification about fallback activation
         const notification = document.createElement('div');
         notification.className = 'fallback-notification';

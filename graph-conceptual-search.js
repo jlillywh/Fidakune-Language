@@ -73,9 +73,12 @@ class ConceptualExplorer {
     
     async init() {
         try {
+            console.log('Initializing search engine...');
             // Initialize search engine
             this.searchEngine = new GraphSearchEngine();
+            console.log('Loading graph data...');
             await this.searchEngine.loadGraph();
+            console.log('Graph loaded successfully, engine ready:', this.searchEngine.isLoaded);
             
             // Start performance monitoring
             this.searchEngine.startPerformanceMonitoring();
@@ -226,6 +229,13 @@ class ConceptualExplorer {
         const query = this.elements.searchInput.value.trim();
         if (!query) return;
         
+        // Check if search engine is loaded
+        if (!this.searchEngine || !this.searchEngine.isLoaded) {
+            console.error('Search engine not loaded yet');
+            this.showError('Search engine is still loading. Please try again in a moment.');
+            return;
+        }
+        
         const searchStartTime = performance.now();
         
         // Announce search start to screen readers
@@ -247,6 +257,7 @@ class ConceptualExplorer {
         this.currentQuery = query;
         
         try {
+            console.log('Performing search for:', query);
             const results = await this.searchEngine.search(query);
             const searchEndTime = performance.now();
             const searchTime = searchEndTime - searchStartTime;
